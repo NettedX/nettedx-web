@@ -5,7 +5,7 @@ import config from '@/config'
 
 const t = i18n.global.t
 
-const routes = computed(() =>  [
+const routes = computed(() => [
   {
     path: '/',
     redirect: `/${i18n.global.locale.value}`,
@@ -21,7 +21,7 @@ const routes = computed(() =>  [
           {
             path: '',
             component: () => import('@/views/HomeView.vue'),
-          }
+          },
         ],
       },
 
@@ -33,10 +33,9 @@ const routes = computed(() =>  [
             path: 'dashboard',
             meta: { title: t('dashboard.title') },
             component: () => import('@/views/DashboardView.vue'),
-          }
+          },
         ],
       },
-
     ],
   },
 ])
@@ -45,7 +44,6 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: routes.value,
 })
-
 
 router.beforeEach((to) => {
   // 设置语言
@@ -62,7 +60,6 @@ router.beforeEach((to) => {
   } else {
     document.title = `${config.appName} - ${config.slogan}`
   }
-
 })
 
 export default router
