@@ -7,7 +7,6 @@ import i18n from '@/i18n'
 const MODE = 'PROD'
 
 const appName = 'NettedX'
-const slogan = 'Empowering Your Network'
 
 const _apiUrlConfig = {
   PROD: 'https://api.nettedx.com',
@@ -18,6 +17,5 @@ const apiUrl = _apiUrlConfig[MODE] || _apiUrlConfig.DEV
 
 export default {
   appName,
-  slogan,
   apiUrl,
 }
