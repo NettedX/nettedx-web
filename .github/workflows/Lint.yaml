@@ -1,0 +1,48 @@
+name: Lint
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - main
+
+permissions: write-all
+
+jobs:
+  lint:
+    name: ESLint Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm i
+
+      - name: Run ESLint
+        id: run_lint
+        run: npm run lint
+
+      - name: Comment PR to notify
+        uses: actions/github-script@v9
+        if: always()
+        with:
+          script: |
+            const result = '${{steps.run_lint.outcome}}';
+            if (result === 'success') {
+              return;
+            }
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `🚨🚨🚨 Lint check failed.
+              Please check the [Actions](https://github.com/nettedx/nettedx-web/actions) for more details.`
+            })
