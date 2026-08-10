@@ -7,36 +7,31 @@ const t = i18n.global.t
 
 const routes = computed(() => [
   {
-    path: '/',
-    redirect: `/${i18n.global.locale.value}`,
-  },
-
-  {
-    path: '/:locale(zh-CN|zh-TW|en-US)',
+    path: '',
+    component: () => import('@/layouts/WebLayout.vue'),
     children: [
       {
         path: '',
-        component: () => import('@/layouts/WebLayout.vue'),
-        children: [
-          {
-            path: '',
-            component: () => import('@/views/HomeView.vue'),
-          },
-        ],
-      },
-
-      {
-        path: '',
-        component: () => import('@/layouts/AppLayout.vue'),
-        children: [
-          {
-            path: 'dashboard',
-            meta: { title: t('dashboard.title') },
-            component: () => import('@/views/DashboardView.vue'),
-          },
-        ],
+        component: () => import('@/views/HomeView.vue'),
       },
     ],
+  },
+
+  {
+    path: '',
+    component: () => import('@/layouts/AppLayout.vue'),
+    children: [
+      {
+        path: 'dashboard',
+        meta: { title: t('dashboard.title') },
+        component: () => import('@/views/DashboardView.vue'),
+      },
+    ],
+  },
+
+  {
+    path: '/:pathMatch(.*)*',
+    component: () => import('@/views/NotFoundView.vue'),
   },
 ])
 
@@ -46,19 +41,12 @@ const router = createRouter({
 })
 
 router.beforeEach((to) => {
-  // 设置语言
-  const locale = to.params.locale
-
-  if (locale && ['zh-CN', 'zh-TW', 'en-US'].includes(locale)) {
-    i18n.global.locale.value = locale
-  }
-
   // 设置页面标题
   const title = to.meta.title
   if (title) {
     document.title = `${title} - ${config.appName}`
   } else {
-    document.title = `${config.appName} - ${config.slogan}`
+    document.title = `${config.appName} - ${t('slogan')}`
   }
 })
 

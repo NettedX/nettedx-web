@@ -9,18 +9,10 @@ import zhTWConfig from 'tdesign-vue-next/es/locale/zh_TW'
 export const useLocale = () => {
   const i18n = useI18n()
 
-  // 设置语言
-  function changeLocale(locale) {
+  // 切换语言
+  const changeLocale = (locale) => {
+    i18n.locale.value = locale
     localStorage.setItem('locale', locale)
-    const route = useRoute()
-    const router = useRouter()
-    router.push({
-      name: route.name,
-      params: {
-        ...route.params,
-        locale,
-      },
-    })
   }
 
   // 获取当前语言
