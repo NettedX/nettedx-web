@@ -42,6 +42,27 @@
         </t-col>
       </t-row>
     </div>
+
+    <div class="compare">
+      <div class="compare-item">
+        <span class="progress-bar traditional" />
+        <div>{{ $t('home.data.compare.without') }} ${{ dataList.totalSettlementVolume }}</div>
+      </div>
+
+      <div class="compare-item">
+        <span
+          class="progress-bar nettedx"
+          :style="{ width: 100 - dataList.obligationsReduced + '%' }"
+        />
+        <div>
+          <span>{{ $t('home.data.compare.with') }} ${{ afterNettedVolume }}</span>
+          <span> · </span>
+          <span class="highlight-blue">
+            {{ $t('home.data.compare.less', { amount: dataList.obligationsReduced }) }}
+          </span>
+        </div>
+      </div>
+    </div>
   </section>
 </template>
 
@@ -54,9 +75,13 @@ const { t } = useLocale()
 const dataList = ref({
   totalSettlementVolume: 1234567,
   transactionsNetted: 1234567,
-  liquiditySaved: 12345678,
-  obligationsReduced: 99.9,
+  liquiditySaved: 888888,
+  obligationsReduced: 72,
 })
+
+const afterNettedVolume = computed(
+  () => dataList.value.totalSettlementVolume - dataList.value.liquiditySaved,
+)
 
 const shownDataList = computed(() => [
   {
@@ -88,9 +113,9 @@ const shownDataList = computed(() => [
 
 <style scoped>
 .data-section {
-  background-color: var(--td-bg-color-container);
   padding: 4rem 2rem;
   box-sizing: border-box;
+  background-color: var(--td-bg-color-container);
 }
 
 .title-container {
@@ -146,6 +171,46 @@ const shownDataList = computed(() => [
 .data-card:hover {
   transform: translateY(-4px) scale(1.02);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.compare {
+  width: 100%;
+  max-width: var(--nx-max-content-width);
+  margin: 0 auto;
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-right: 30%;
+  box-sizing: border-box;
+}
+
+.compare-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.compare-item div {
+  font: var(--td-font-body-medium);
+  color: var(--td-text-color-secondary);
+}
+
+.progress-bar {
+  height: 8px;
+  border-radius: 8px;
+  flex-grow: 1;
+  background-color: var(--td-bg-color-component);
+  position: relative;
+}
+
+.progress-bar.nettedx {
+  background-color: var(--td-brand-color);
+}
+
+.compare-item .highlight-blue {
+  color: var(--td-brand-color);
+  font-weight: bold;
 }
 
 @media (max-width: 768px) {

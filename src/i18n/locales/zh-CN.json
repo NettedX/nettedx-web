@@ -53,6 +53,11 @@
         "TransactionsNetted": "净额交易",
         "LiquiditySaved": "节省流动性",
         "ObligationsReduced": "义务减少"
+      },
+      "compare": {
+        "without": "无净额结算",
+        "with": "NettedX",
+        "less": "所需资金少 {amount}%"
       }
     },
     "fromNTU": {

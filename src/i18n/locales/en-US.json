@@ -61,6 +61,11 @@
         "TransactionsNetted": "Transactions Netted",
         "LiquiditySaved": "Liquidity Saved",
         "ObligationsReduced": "Obligations Reduced"
+      },
+      "compare": {
+        "without": "Without Netting",
+        "with": "NettedX",
+        "less": "{amount}% Less Capital Required"
       }
     }
   }
