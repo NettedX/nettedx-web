@@ -40,7 +40,7 @@
 </template>
 
 <script setup>
-import { nextTick, onBeforeUnmount, onMounted, ref } from 'vue'
+import { nextTick, onBeforeUnmount, onMounted, ref, computed } from 'vue'
 import gsap from 'gsap'
 import { useLocale } from '@/utils/i18n'
 import {
@@ -53,13 +53,13 @@ import {
 
 const { t } = useLocale()
 
-const featureWords = [
+const featureWords = computed(() => [
   t('home.hero.features.Liquidity-Saving'),
   t('home.hero.features.Blockchain-Native'),
   t('home.hero.features.Atomic-DvP'),
   t('home.hero.features.BlockN'),
   t('home.hero.features.Multilateral Netting'),
-]
+])
 
 const featureIcons = [TrendingDownIcon, Link1Icon, WalletIcon, LinkTransformIcon, AbilityOpenIcon]
 
