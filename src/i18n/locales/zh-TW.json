@@ -22,6 +22,12 @@
         "BlockN": "Block + N",
         "Liquidity-Saving": "節省流動性"
       }
+    },
+    "data": {
+      "description": "為什麼選擇 NettedX？",
+      "title": {
+        "settlement": "沉澱"
+      }
     }
   }
 }

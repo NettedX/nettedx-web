@@ -29,6 +29,24 @@
     },
     "fromNTU": {
       "title": "A Student Team from"
+    },
+    "data": {
+      "description": "Why choose NettedX?",
+      "title": {
+        "space": ". ",
+        "trades": " trades",
+        "more": "More",
+        "smarter": "Smarter",
+        "liquidity": " liquidity",
+        "settlement": " settlement",
+        "less": "Less"
+      },
+      "visualization": {
+        "TotalSettlementVolume": "Total Settlement Volume",
+        "TransactionsNetted": "Transactions Netted",
+        "LiquiditySaved": "Liquidity Saved",
+        "SettlementEfficiency": "Settlement Efficiency"
+      }
     }
   }
 }

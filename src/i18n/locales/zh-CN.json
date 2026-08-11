@@ -22,6 +22,12 @@
         "BlockN": "Block + N",
         "Liquidity-Saving": "节省流动性"
       }
+    },
+    "data": {
+      "description": "为什么选择 NettedX？",
+      "title": {
+        "settlement": "结算"
+      }
     }
   }
 }

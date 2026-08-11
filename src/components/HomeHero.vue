@@ -31,7 +31,7 @@
           {{ $t('hero.getStarted') }}
         </t-button>
 
-        <t-button shape="round" size="large" theme="default" @click="$router.push('#features')">
+        <t-button shape="round" size="large" theme="default" @click="$router.push('#data')">
           {{ $t('hero.learnMore') }}
         </t-button>
       </t-space>
