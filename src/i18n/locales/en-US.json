@@ -10,5 +10,9 @@
     "rights": "All rights reserved.",
     "language": "Languages"
   },
-  "slogan": "Where Atomic Settlement Meets Liquidity Efficiency."
+  "slogan": "Where Atomic Settlement Meets Liquidity Efficiency",
+  "hero": {
+    "getStarted": "Get Started",
+    "learnMore": "Learn More"
+  }
 }
