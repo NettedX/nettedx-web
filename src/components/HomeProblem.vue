@@ -41,7 +41,7 @@
       <div class="impact-grid">
         <div v-for="item in impactItems" :key="item.key" class="impact-card">
           <span class="impact-icon">
-            <t-icon :name="item.icon" size="28" style="color: white;" />
+            <t-icon :name="item.icon" size="28" style="color: white" />
           </span>
           <p>{{ item.label }}</p>
         </div>
@@ -225,7 +225,8 @@ const impactItems = computed(() => [
   padding: 1.5rem;
   box-sizing: border-box;
   min-height: 100%;
-  background: linear-gradient(160deg, rgba(18, 38, 172, 0.9), transparent 60%), rgba(4, 8, 14, 0.92);
+  background:
+    linear-gradient(160deg, rgba(18, 38, 172, 0.9), transparent 60%), rgba(4, 8, 14, 0.92);
 }
 
 .quote-mark {
