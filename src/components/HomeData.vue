@@ -55,7 +55,7 @@ const dataList = ref({
   totalSettlementVolume: 1234567,
   transactionsNetted: 1234567,
   liquiditySaved: 12345678,
-  settlementEfficiency: 99.9,
+  obligationsReduced: 99.9,
 })
 
 const shownDataList = computed(() => [
@@ -78,8 +78,8 @@ const shownDataList = computed(() => [
     unit: null,
   },
   {
-    title: t('home.data.visualization.SettlementEfficiency'),
-    value: dataList.value.settlementEfficiency,
+    title: t('home.data.visualization.ObligationsReduced'),
+    value: dataList.value.obligationsReduced,
     prefix: null,
     unit: '%',
   },
