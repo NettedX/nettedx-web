@@ -63,6 +63,9 @@ function handleLocaleChange(newLocale) {
   border-top: 1px solid var(--td-border-level-1);
   background-color: var(--td-bg-color-container);
   color: var(--td-text-color-secondary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .footer-content {
