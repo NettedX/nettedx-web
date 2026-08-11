@@ -232,7 +232,7 @@ const impactItems = computed(() => [
   margin: 0;
   font: var(--td-font-headline-large);
   line-height: 1;
-  color: #7db8ff;
+  color: var(--td-brand-color);
 }
 
 .quote-text {
