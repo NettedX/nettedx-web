@@ -11,6 +11,7 @@
 
       <t-button
         class="btn"
+        size="large"
         shape="round"
         theme="default"
         variant="outline"
