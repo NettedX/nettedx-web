@@ -1,3 +1,3 @@
 <template>
-  dashboard
+  404
 </template>

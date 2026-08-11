@@ -1,5 +1,14 @@
 {
   "dashboard": {
     "title": "儀表板"
-  }
+  },
+  "footer": {
+    "product": "產品",
+    "home": "首頁",
+    "dashboard": "控制台",
+    "support": "支援",
+    "rights": "All rights reserved.",
+    "language": "語言"
+  },
+  "slogan": "原子結算與流動性效率的結合。"
 }

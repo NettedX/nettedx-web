@@ -1,5 +1,14 @@
 {
   "dashboard": {
     "title": "仪表板"
-  }
+  },
+  "footer": {
+    "product": "产品",
+    "home": "首页",
+    "dashboard": "控制台",
+    "support": "支持",
+    "rights": "All rights reserved.",
+    "language": "语言"
+  },
+  "slogan": "原子结算与流动性效率的结合。"
 }

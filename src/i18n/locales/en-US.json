@@ -1,5 +1,14 @@
 {
   "dashboard": {
     "title": "Dashboard"
-  }
+  },
+  "footer": {
+    "product": "Product",
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "support": "Support",
+    "rights": "All rights reserved.",
+    "language": "Languages"
+  },
+  "slogan": "Where Atomic Settlement Meets Liquidity Efficiency."
 }
