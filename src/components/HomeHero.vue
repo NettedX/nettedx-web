@@ -141,6 +141,8 @@ onBeforeUnmount(() => {
   height: 100%;
   object-fit: cover;
   opacity: 0.6;
+  user-select: none;
+  pointer-events: none;
 }
 
 .hero .hero-content {
