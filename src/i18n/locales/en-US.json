@@ -17,7 +17,7 @@
   },
   "home": {
     "hero": {
-      "title": "Next Generation",
+      "title": "The Next Generation",
       "titl2": "Settlement System",
       "features": {
         "Liquidity-Saving": "Liquidity-Saving",
@@ -28,7 +28,8 @@
       }
     },
     "fromNTU": {
-      "title": "A Student Team from"
+      "title": "A Student Team from NTU",
+      "btn": "Contact"
     },
     "data": {
       "description": "Why choose NettedX?",
@@ -45,7 +46,7 @@
         "TotalSettlementVolume": "Total Settlement Volume",
         "TransactionsNetted": "Transactions Netted",
         "LiquiditySaved": "Liquidity Saved",
-        "SettlementEfficiency": "Settlement Efficiency"
+        "ObligationsReduced": "Obligations Reduced"
       }
     }
   }

@@ -20,14 +20,34 @@
         "Atomic-DvP": "原子DvP",
         "Multilateral Netting": "多邊淨額",
         "BlockN": "Block + N",
-        "Liquidity-Saving": "節省流動性"
+        "Liquidity-Saving": "流動性節省"
       }
     },
     "data": {
       "description": "為什麼選擇 NettedX？",
       "title": {
-        "settlement": "沉澱"
+        "settlement": "結算",
+        "more": "更多的",
+        "trades": "交易",
+        "space": "。",
+        "liquidity": "流動性",
+        "smarter": "更智慧的",
+        "less": "較少的"
+      },
+      "visualization": {
+        "TotalSettlementVolume": "總結算量",
+        "TransactionsNetted": "淨額交易",
+        "LiquiditySaved": "節省流動性",
+        "ObligationsReduced": "義務減少"
       }
+    },
+    "fromNTU": {
+      "title": "來自南洋理工大學的學生團隊",
+      "btn": "聯絡"
     }
+  },
+  "hero": {
+    "getStarted": "開始使用",
+    "learnMore": "了解更多"
   }
 }

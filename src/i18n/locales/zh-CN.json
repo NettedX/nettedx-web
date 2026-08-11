@@ -18,16 +18,36 @@
       "features": {
         "Blockchain-Native": "区块链原生",
         "Atomic-DvP": "原子DvP",
-        "Multilateral Netting": "多边净额结算",
+        "Multilateral Netting": "多边净额",
         "BlockN": "Block + N",
-        "Liquidity-Saving": "节省流动性"
+        "Liquidity-Saving": "流动性节省"
       }
     },
     "data": {
       "description": "为什么选择 NettedX？",
       "title": {
-        "settlement": "结算"
+        "settlement": "结算",
+        "more": "更多的",
+        "trades": "交易",
+        "space": "。",
+        "liquidity": "流动性",
+        "smarter": "更智慧的",
+        "less": "更少的"
+      },
+      "visualization": {
+        "TotalSettlementVolume": "总结算量",
+        "TransactionsNetted": "净额交易",
+        "LiquiditySaved": "节省流动性",
+        "ObligationsReduced": "义务减少"
       }
+    },
+    "fromNTU": {
+      "title": "来自南洋理工大学的学生团队",
+      "btn": "联系我们"
     }
+  },
+  "hero": {
+    "getStarted": "开始使用",
+    "learnMore": "了解更多"
   }
 }

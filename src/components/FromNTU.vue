@@ -2,13 +2,25 @@
   <section class="bg">
     <div class="overlay" />
     <div class="content">
-      <h3>{{ $t('home.fromNTU.title') }}</h3>
-      <a href="https://www.ntu.edu.sg/" target="_blank" rel="noopener noreferrer">
-        <img src="@/assets/images/logo/ntu-white.png" alt="NTU" />
-      </a>
+      <div>
+        <h3>{{ $t('home.fromNTU.title') }}</h3>
+        <a href="https://www.ntu.edu.sg/" target="_blank" rel="noopener noreferrer">
+          <img src="@/assets/images/logo/ntu-white.png" alt="NTU" />
+        </a>
+      </div>
+
+      <t-button class="btn" shape="round" theme="default" variant="outline" ghost @click="openEmail">
+        {{ $t('home.fromNTU.btn') }}
+      </t-button>
     </div>
   </section>
 </template>
+
+<script setup>
+function openEmail() {
+  window.open('mailto:hi@nettedx.com', '_blank')
+}
+</script>
 
 <style scoped>
 .bg {
@@ -33,8 +45,9 @@
   position: relative;
   z-index: 1;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   padding: 2rem;
   box-sizing: border-box;
   height: 100%;
@@ -57,5 +70,20 @@
 .content img {
   max-width: 150px;
   height: auto;
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .content h3 {
+    margin-bottom: 1rem;
+  }
+
+  .content .btn {
+    margin-top: 1rem;
+  }
 }
 </style>
