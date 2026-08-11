@@ -10,5 +10,18 @@
     "rights": "All rights reserved.",
     "language": "語言"
   },
-  "slogan": "原子結算與流動性效率的交會點"
+  "slogan": "原子結算與流動性效率的交會點",
+  "home": {
+    "hero": {
+      "title": "新一代",
+      "titl2": "結算系統",
+      "features": {
+        "Blockchain-Native": "區塊鏈原生",
+        "Atomic-DvP": "原子DvP",
+        "Multilateral Netting": "多邊淨額",
+        "BlockN": "Block + N",
+        "Liquidity-Saving": "節省流動性"
+      }
+    }
+  }
 }

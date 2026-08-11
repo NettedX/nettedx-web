@@ -14,5 +14,18 @@
   "hero": {
     "getStarted": "Get Started",
     "learnMore": "Learn More"
+  },
+  "home": {
+    "hero": {
+      "title": "Next Generation",
+      "titl2": "Settlement System",
+      "features": {
+        "Liquidity-Saving": "Liquidity-Saving",
+        "Blockchain-Native": "Blockchain-Native",
+        "Atomic-DvP": "Atomic-DvP",
+        "Multilateral Netting": "Multilateral Netting",
+        "BlockN": "Block + N"
+      }
+    }
   }
 }

@@ -10,5 +10,18 @@
     "rights": "All rights reserved.",
     "language": "语言"
   },
-  "slogan": "原子结算与流动性效率的交汇点"
+  "slogan": "原子结算与流动性效率的交汇点",
+  "home": {
+    "hero": {
+      "title": "下一代",
+      "titl2": "结算系统",
+      "features": {
+        "Blockchain-Native": "区块链原生",
+        "Atomic-DvP": "原子DvP",
+        "Multilateral Netting": "多边净额结算",
+        "BlockN": "Block + N",
+        "Liquidity-Saving": "节省流动性"
+      }
+    }
+  }
 }
