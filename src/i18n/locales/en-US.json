@@ -26,6 +26,9 @@
         "Multilateral Netting": "Multilateral Netting",
         "BlockN": "Block + N"
       }
+    },
+    "fromNTU": {
+      "title": "A Student Team from"
     }
   }
 }
