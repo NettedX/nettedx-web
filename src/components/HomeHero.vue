@@ -40,7 +40,7 @@
 </template>
 
 <script setup>
-import { nextTick, onBeforeUnmount, onMounted, ref, computed } from 'vue'
+import { nextTick, onBeforeUnmount, onMounted, ref, computed, watch } from 'vue'
 import gsap from 'gsap'
 import { useLocale } from '@/utils/i18n'
 import {
@@ -80,8 +80,19 @@ const setFeatureWordRef = (element, index) => {
   }
 }
 
-onMounted(async () => {
+watch(
+  featureWords,
+  () => {
+    initAnimation()
+  },
+  { immediate: true },
+)
+
+async function initAnimation() {
   await nextTick()
+
+  featureTimeline?.kill()
+  featureTimeline = null
 
   if (!featureWordRefs.value.length) {
     return
@@ -112,6 +123,10 @@ onMounted(async () => {
       featureTimeline.to({}, { duration: 0.35 })
     }
   })
+}
+
+onMounted(async () => {
+  initAnimation()
 })
 
 onBeforeUnmount(() => {
