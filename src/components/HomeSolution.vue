@@ -456,13 +456,12 @@ onBeforeUnmount(() => {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 104px;
-  height: 104px;
+  width: 100px;
+  height: 100px;
   border-radius: 20px;
   background: linear-gradient(180deg, #1d9dff 0%, #1723f5 100%);
   color: var(--td-text-color-anti);
-  font-size: 1.05rem;
-  font-weight: 700;
+  font: var(--td-font-title-large);
   text-align: center;
   user-select: none;
   box-shadow: 0 18px 30px rgba(23, 35, 245, 0.26);
