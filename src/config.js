@@ -1,5 +1,3 @@
-import i18n from '@/i18n'
-
 // 运行模式
 // PROD: 生产环境
 // TEST: 测试环境

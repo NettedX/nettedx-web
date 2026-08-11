@@ -1,6 +1,5 @@
 import { useI18n } from 'vue-i18n'
 import { computed } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
 
 import enUSConfig from 'tdesign-vue-next/es/locale/en_US'
 import zhCNConfig from 'tdesign-vue-next/es/locale/zh_CN'
