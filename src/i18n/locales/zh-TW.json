@@ -63,6 +63,31 @@
     "fromNTU": {
       "title": "來自南洋理工大學的學生團隊",
       "btn": "聯絡"
+    },
+    "solution": {
+      "title": {
+        "text": "介紹 {highlight} 結算窗口",
+        "highlight": "Block + N"
+      },
+      "lead": "先淨額，後結算。",
+      "transcation": "交易 #{id}",
+      "steps": {
+        "aggregate": {
+          "title": "{highlight} · 交易聚合",
+          "text": "交易在 N 個區塊的固定視窗內累積。在窗口期間，沒有資產發生任何移動；合約僅記錄義務。",
+          "highlight": "1~10區"
+        },
+        "net": {
+          "title": "{highlight} · 淨額清算",
+          "text": "一旦視窗關閉，智能合約將計算每個參與者的淨金額。 DvP 仍然由原子性保證，而不是由受信任的中介機構保證；參與者在整個過程中保留對其資產的控制權。",
+          "highlight": "11区"
+        },
+        "settle": {
+          "title": "{highlight} · 結算",
+          "text": "結算在同一筆交易內執行所有轉賬，要么全部完成，要么全部不發生。我們恢復了淨額，但沒有重新引入可信任第三方。",
+          "highlight": "11区"
+        }
+      }
     }
   },
   "hero": {

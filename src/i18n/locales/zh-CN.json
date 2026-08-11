@@ -63,6 +63,31 @@
     "fromNTU": {
       "title": "来自南洋理工大学的学生团队",
       "btn": "联系我们"
+    },
+    "solution": {
+      "title": {
+        "text": "介绍 {highlight} 结算窗口",
+        "highlight": "Block + N"
+      },
+      "lead": "先净额，后结算。",
+      "transcation": "交易 #{id}",
+      "steps": {
+        "aggregate": {
+          "title": "{highlight} · 交易聚合",
+          "text": "交易在 N 个区块的固定窗口内累积。在窗口期间，没有资产发生任何移动；合同仅记录义务。",
+          "highlight": "1~10区"
+        },
+        "net": {
+          "title": "{highlight} · 净额清算",
+          "text": "一旦窗口关闭，智能合约将计算每个参与者的净金额。 \nDvP 仍然由原子性保证，而不是由受信任的中介机构保证；\n参与者在整个过程中保留对其资产的控制权。",
+          "highlight": "11区"
+        },
+        "settle": {
+          "title": "{highlight} · 结算",
+          "text": "所有转账均在同一笔交易中进行结算；要么全部完成，要么什么都没有发生。我们恢复了净额，但没有重新引入可信的第三方。",
+          "highlight": "11区"
+        }
+      }
     }
   },
   "hero": {
