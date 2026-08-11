@@ -28,16 +28,18 @@
       <span>{{ t('footer.rights') }}</span>
     </div>
 
-    <div class="language-selector">
-      <earth-icon class="icon" size="40" />
-      <t-select borderless auto-width :value="locale" @change="handleLocaleChange">
-        <t-option
-          v-for="option in localeOptions"
-          :key="option.value"
-          :label="option.label"
-          :value="option.value"
-        />
-      </t-select>
+    <div class="language-wrapper">
+      <div class="language-selector">
+        <earth-icon class="icon" size="40" />
+        <t-select borderless auto-width :value="locale" @change="handleLocaleChange">
+          <t-option
+            v-for="option in localeOptions"
+            :key="option.value"
+            :label="option.label"
+            :value="option.value"
+          />
+        </t-select>
+      </div>
     </div>
   </t-footer>
 </template>
@@ -61,9 +63,6 @@ function handleLocaleChange(newLocale) {
   border-top: 1px solid var(--td-border-level-1);
   background-color: var(--td-bg-color-container);
   color: var(--td-text-color-secondary);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .footer-content {
@@ -132,23 +131,25 @@ function handleLocaleChange(newLocale) {
   border-top: 1px solid var(--td-border-level-1);
   width: 100%;
   max-width: 1000px;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
+}
+
+.language-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 1rem;
 }
 
 .language-selector {
+  width: fit-content;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin-top: 1rem;
 }
 
 .language-selector .icon {
   color: var(--td-brand-color);
-}
-
-@media (max-width: 768px) {
-  .footer-bottom {
-    margin-top: 2rem;
-  }
 }
 </style>
