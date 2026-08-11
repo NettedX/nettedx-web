@@ -153,7 +153,7 @@ onBeforeUnmount(() => {
   box-sizing: border-box;
   margin: 0 auto;
   width: 100%;
-  max-width: 1000px;
+  max-width: var(--nx-max-content-width);
 }
 
 .hero .hero-content h1 {

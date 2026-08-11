@@ -72,7 +72,7 @@ function handleLocaleChange(newLocale) {
   justify-content: space-between;
   gap: 2rem;
   width: 100%;
-  max-width: 1000px;
+  max-width: var(--nx-max-content-width);
 }
 
 .footer-brand {
@@ -132,7 +132,7 @@ function handleLocaleChange(newLocale) {
   font-size: 0.9rem;
   border-top: 1px solid var(--td-border-level-1-color);
   width: 100%;
-  max-width: 1000px;
+  max-width: var(--nx-max-content-width);
   margin-top: 1rem;
   padding: 1rem 0;
   box-sizing: border-box;

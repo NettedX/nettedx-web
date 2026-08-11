@@ -9,7 +9,14 @@
         </a>
       </div>
 
-      <t-button class="btn" shape="round" theme="default" variant="outline" ghost @click="openEmail">
+      <t-button
+        class="btn"
+        shape="round"
+        theme="default"
+        variant="outline"
+        ghost
+        @click="openEmail"
+      >
         {{ $t('home.fromNTU.btn') }}
       </t-button>
     </div>
@@ -52,7 +59,7 @@ function openEmail() {
   box-sizing: border-box;
   height: 100%;
   width: 100%;
-  max-width: 1000px;
+  max-width: var(--nx-max-content-width);
   margin: 0 auto;
 }
 

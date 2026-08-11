@@ -94,7 +94,7 @@ const shownDataList = computed(() => [
 }
 
 .title-container {
-  max-width: 1000px;
+  max-width: var(--nx-max-content-width);
   margin: 0 auto;
 }
 
@@ -129,7 +129,7 @@ const shownDataList = computed(() => [
 
 .data-visualization {
   width: 100%;
-  max-width: 1000px;
+  max-width: var(--nx-max-content-width);
   margin: 0 auto;
   margin-top: 2rem;
 }
