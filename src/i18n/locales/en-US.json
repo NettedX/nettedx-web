@@ -27,12 +27,26 @@
         "BlockN": "Block + N"
       }
     },
+    "problem": {
+      "eyebrow": "The Problem NettedX resolved",
+      "title": "Why do we need NettedX?",
+      "lead": "Traditional settlement is not broken because value is missing. It is expensive because gross obligations keep accumulating, and each movement of value demands fresh liquidity.",
+      "traditionalLabel": "Traditional Settlement",
+      "obligations": "Gross obligations pile up.",
+      "conclusion": "The problem isn't the amount of value being moved. It's how much liquidity must be committed to move it.",
+      "impacts": {
+        "capitalLocked": "Capital gets locked",
+        "liquidityRequirements": "Liquidity requirements increase",
+        "settlementOperations": "More settlement operations",
+        "onChainActivity": "More on-chain activity"
+      }
+    },
     "fromNTU": {
       "title": "A Student Team from NTU",
       "btn": "Contact"
     },
     "data": {
-      "description": "Why choose NettedX?",
+      "description": "With NettedX",
       "title": {
         "space": ". ",
         "trades": " trades",

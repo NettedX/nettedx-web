@@ -23,8 +23,22 @@
         "Liquidity-Saving": "流動性節省"
       }
     },
+    "problem": {
+      "eyebrow": "NettedX 解決的問題",
+      "title": "為什麼需要 NettedX？",
+      "lead": "傳統結算的問題不在於價值不足，而在於總額義務不斷堆疊；每一次價值轉移，都需要重新占用流動性。",
+      "traditionalLabel": "傳統結算",
+      "obligations": "總債務堆積如山。",
+      "conclusion": "問題不在於轉移了多少價值，而在於為了轉移這些價值，需要鎖定多少流動性。",
+      "impacts": {
+        "capitalLocked": "資本被鎖定",
+        "liquidityRequirements": "流動性需求上升",
+        "settlementOperations": "更多結算操作",
+        "onChainActivity": "更多鏈上活動"
+      }
+    },
     "data": {
-      "description": "為什麼選擇 NettedX？",
+      "description": "與 NettedX 一起",
       "title": {
         "settlement": "結算",
         "more": "更多的",

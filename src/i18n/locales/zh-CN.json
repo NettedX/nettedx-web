@@ -23,8 +23,22 @@
         "Liquidity-Saving": "流动性节省"
       }
     },
+    "problem": {
+      "eyebrow": "NettedX 解决的问题",
+      "title": "为什么需要 NettedX？",
+      "lead": "传统结算的问题不在于价值不足，而在于总额义务不断堆积；每一次价值转移，都需要重新占用流动性。",
+      "traditionalLabel": "传统结算",
+      "obligations": "总债务堆积如山。",
+      "conclusion": "问题不在于转移了多少价值，而在于为了转移这些价值，需要锁定多少流动性。",
+      "impacts": {
+        "capitalLocked": "资本被锁定",
+        "liquidityRequirements": "流动性要求上升",
+        "settlementOperations": "更多结算操作",
+        "onChainActivity": "更多链上活动"
+      }
+    },
     "data": {
-      "description": "为什么选择 NettedX？",
+      "description": "与 NettedX 一起",
       "title": {
         "settlement": "结算",
         "more": "更多的",
