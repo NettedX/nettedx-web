@@ -1,4 +1,13 @@
+@font-face {
+  font-family: 'TCloudNumber';
+  src: url('@/assets/fonts/TCloudNumberVF.ttf') format('truetype');
+  font-weight: 300 700;
+  font-style: normal;
+}
+
 body {
   margin: 0;
+  overflow-x: hidden;
   font-family: var(--td-font-family);
+  --nx-max-content-width: 1200px;
 }
