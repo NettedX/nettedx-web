@@ -24,13 +24,10 @@
     </div>
 
     <div class="footer-bottom">
-      <span>© {{ currentYear }} NettedX</span>
-      <span>{{ t('footer.rights') }}</span>
-    </div>
+      <span>© {{ currentYear }} NettedX {{ t('footer.rights') }}</span>
 
-    <div class="language-wrapper">
       <div class="language-selector">
-        <earth-icon class="icon" size="40" />
+        <earth-icon class="icon" size="32" />
         <t-select borderless auto-width :value="locale" @change="handleLocaleChange">
           <t-option
             v-for="option in localeOptions"
@@ -41,6 +38,8 @@
         </t-select>
       </div>
     </div>
+
+    <div class="language-wrapper"></div>
   </t-footer>
 </template>
 
@@ -60,7 +59,6 @@ function handleLocaleChange(newLocale) {
 <style scoped>
 .footer {
   margin-top: auto;
-  border-top: 1px solid var(--td-border-level-1);
   background-color: var(--td-bg-color-container);
   color: var(--td-text-color-secondary);
   display: flex;
@@ -129,20 +127,15 @@ function handleLocaleChange(newLocale) {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
   gap: 0.75rem;
   font-size: 0.9rem;
-  border-top: 1px solid var(--td-border-level-1);
+  border-top: 1px solid var(--td-border-level-1-color);
   width: 100%;
   max-width: 1000px;
   margin-top: 1rem;
-}
-
-.language-wrapper {
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
-  max-width: 1000px;
-  margin-top: 1rem;
+  padding: 1rem 0;
+  box-sizing: border-box;
 }
 
 .language-selector {
