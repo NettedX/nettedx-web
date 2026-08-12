@@ -8,27 +8,27 @@
       </i18n-t>
 
       <p class="desc">{{ $t('home.beforeAfter.desc') }}</p>
+    </div>
 
-      <div class="compare-container">
-        <div class="compare-card before">
-          <h3 class="compare-title">{{ $t('home.beforeAfter.compare.before.title') }}</h3>
-          <div class="compare-item">{{ $t('home.beforeAfter.compare.before.transaction') }}</div>
-          <div class="compare-item">{{ $t('home.beforeAfter.compare.before.obligations') }}</div>
-          <div class="compare-item">{{ $t('home.beforeAfter.compare.before.liquidity') }}</div>
-          <div class="compare-item">{{ $t('home.beforeAfter.compare.before.settlement') }}</div>
-        </div>
-
-        <div class="compare-card after">
-          <h3 class="compare-title">{{ $t('home.beforeAfter.compare.after.title') }}</h3>
-          <div class="compare-item">{{ $t('home.beforeAfter.compare.after.transaction') }}</div>
-          <div class="compare-item">{{ $t('home.beforeAfter.compare.after.obligations') }}</div>
-          <div class="compare-item">{{ $t('home.beforeAfter.compare.after.liquidity') }}</div>
-          <div class="compare-item">{{ $t('home.beforeAfter.compare.after.settlement') }}</div>
-        </div>
+    <div class="compare-container">
+      <div class="compare-card before">
+        <h3 class="compare-title">{{ $t('home.beforeAfter.compare.before.title') }}</h3>
+        <div class="compare-item">{{ $t('home.beforeAfter.compare.before.transaction') }}</div>
+        <div class="compare-item">{{ $t('home.beforeAfter.compare.before.obligations') }}</div>
+        <div class="compare-item">{{ $t('home.beforeAfter.compare.before.liquidity') }}</div>
+        <div class="compare-item">{{ $t('home.beforeAfter.compare.before.settlement') }}</div>
       </div>
 
-      <p class="footer">* {{ $t('home.beforeAfter.footer') }}</p>
+      <div class="compare-card after">
+        <h3 class="compare-title">{{ $t('home.beforeAfter.compare.after.title') }}</h3>
+        <div class="compare-item">{{ $t('home.beforeAfter.compare.after.transaction') }}</div>
+        <div class="compare-item">{{ $t('home.beforeAfter.compare.after.obligations') }}</div>
+        <div class="compare-item">{{ $t('home.beforeAfter.compare.after.liquidity') }}</div>
+        <div class="compare-item">{{ $t('home.beforeAfter.compare.after.settlement') }}</div>
+      </div>
     </div>
+
+    <p class="footer">* {{ $t('home.beforeAfter.footer') }}</p>
   </section>
 </template>
 
@@ -38,13 +38,12 @@
 .container {
   position: relative;
   background-color: var(--td-bg-color-container);
-  padding: 2rem 0;
+  padding: 2rem;
 }
 
 .title-box {
   max-width: var(--nx-max-content-width);
   margin: 0 auto;
-  padding: 0 2rem;
   text-align: center;
 }
 
@@ -72,7 +71,8 @@
   display: flex;
   justify-content: center;
   margin-top: 4rem;
-  padding: 2rem 0;
+  padding: 3rem 0;
+  text-align: center;
 }
 
 .compare-card {
@@ -134,10 +134,15 @@
 .footer {
   font: var(--td-font-body-small);
   color: var(--td-text-color-placeholder);
-  margin: 4rem 0;
+  margin: 3rem 0;
+  text-align: center;
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding: 2rem 1rem;
+  }
+
   .compare-container {
     flex-direction: column;
     align-items: center;
