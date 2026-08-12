@@ -112,6 +112,18 @@
         }
       },
       "footer": "基於1000筆交易的假設，計算的 NettedX 效率。"
+    },
+    "howWorks": {
+      "title": "它是如何運作的",
+      "desc": "結算前淨額，只移動重要的東西。"
+    },
+    "cta": {
+      "title": {
+        "text": "準備好少花錢多辦事了嗎？",
+        "button": "立即嘗試"
+      },
+      "description": "讓我們開始吧！",
+      "scroll": "NettedX·原子結算與流動性效率的交會點"
     }
   },
   "hero": {

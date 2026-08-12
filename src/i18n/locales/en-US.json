@@ -116,6 +116,18 @@
         }
       },
       "footer": "Based on an assumption of 1000 transactions, the efficiency of NettedX is calculated."
+    },
+    "howWorks": {
+      "title": "How It Works",
+      "desc": "Net before you settle. Move only what matters."
+    },
+    "cta": {
+      "title": {
+        "text": "Ready to Move More With Less?",
+        "button": "Try Now"
+      },
+      "description": "Let's get started!",
+      "scroll": "NettedX · Where Atomic Settlement Meets Liquidity Efficiency"
     }
   }
 }

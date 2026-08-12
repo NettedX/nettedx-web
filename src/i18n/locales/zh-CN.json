@@ -112,6 +112,18 @@
         }
       },
       "footer": "基于1000笔交易的假设，计算的 NettedX 效率。"
+    },
+    "howWorks": {
+      "title": "它是如何运作的",
+      "desc": "结算前先净额，只移动重要的东西。"
+    },
+    "cta": {
+      "title": {
+        "text": "准备好少花钱多办事了吗？",
+        "button": "立即尝试"
+      },
+      "description": "让我们开始吧！",
+      "scroll": "NettedX · 原子结算与流动性效率的交汇点"
     }
   },
   "hero": {
