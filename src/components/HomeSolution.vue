@@ -392,7 +392,7 @@ onBeforeUnmount(() => {
   max-width: var(--nx-max-content-width);
   margin: 0 auto;
   text-align: center;
-  padding: 0 1rem;
+  padding: 0 2rem;
   box-sizing: border-box;
 }
 
@@ -418,11 +418,11 @@ onBeforeUnmount(() => {
 .animation-container {
   position: relative;
   width: 100%;
-  min-height: 300px;
+  min-height: 50svh;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .animation-container .mask {
@@ -500,7 +500,7 @@ onBeforeUnmount(() => {
   width: 100%;
   max-width: var(--nx-max-content-width);
   margin: 1.75rem auto 0;
-  padding: 0 1rem;
+  padding: 0 2rem;
   box-sizing: border-box;
   position: relative;
   min-height: 130px;
@@ -508,7 +508,7 @@ onBeforeUnmount(() => {
 
 .description-step {
   position: absolute;
-  inset: 0 1rem auto 1rem;
+  inset: 0 2rem auto 2rem;
   padding: 1rem 1.1rem;
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.55);
@@ -545,15 +545,16 @@ onBeforeUnmount(() => {
   font: var(--td-font-body-medium);
   color: var(--td-text-color-secondary);
   line-height: 1.7;
+  text-align: justify;
 }
 
 @media (max-width: 768px) {
-  .solution-section {
-    padding: 6rem 0;
+  .title-container {
+    padding: 0 1.5rem;
   }
 
   .animation-container {
-    min-height: 320px;
+    min-height: 30svh;
   }
 
   .block-item {
@@ -567,8 +568,13 @@ onBeforeUnmount(() => {
     font-size: 0.9rem;
   }
 
+  .description-panel {
+    padding: 0 1rem;
+  }
+
   .description-step {
     padding: 0.9rem 1rem;
+    inset: 0 1rem auto 1rem;
   }
 
   .description-panel {
