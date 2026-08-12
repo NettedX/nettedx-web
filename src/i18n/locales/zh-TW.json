@@ -70,7 +70,7 @@
         "highlight": "Block + N"
       },
       "lead": "先淨額，後結算。",
-      "transcation": "交易 #{id}",
+      "transaction": "交易 #{id}",
       "steps": {
         "aggregate": {
           "title": "{highlight} · 交易聚合",
@@ -88,6 +88,30 @@
           "highlight": "11区"
         }
       }
+    },
+    "beforeAfter": {
+      "title": {
+        "text": "NettedX 如何{highlight}結算流程",
+        "highlight": "變化"
+      },
+      "desc": "NettedX 將總債務轉化為淨結算。",
+      "compare": {
+        "before": {
+          "transaction": "交易：1,000",
+          "title": "傳統結算",
+          "obligations": "義務：1,000",
+          "liquidity": "流動性：$10M",
+          "settlement": "結算轉帳：1,000"
+        },
+        "after": {
+          "title": "NettedX",
+          "transaction": "1,000",
+          "obligations": "240",
+          "liquidity": "$3.2M",
+          "settlement": "240"
+        }
+      },
+      "footer": "基於1000筆交易的假設，計算的 NettedX 效率。"
     }
   },
   "hero": {

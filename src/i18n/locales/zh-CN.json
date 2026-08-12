@@ -70,7 +70,7 @@
         "highlight": "Block + N"
       },
       "lead": "先净额，后结算。",
-      "transcation": "交易 #{id}",
+      "transaction": "交易 #{id}",
       "steps": {
         "aggregate": {
           "title": "{highlight} · 交易聚合",
@@ -88,6 +88,30 @@
           "highlight": "11区"
         }
       }
+    },
+    "beforeAfter": {
+      "title": {
+        "text": "NettedX 如何{highlight}结算流程",
+        "highlight": "改变"
+      },
+      "desc": "NettedX 将总债务转化为净结算。",
+      "compare": {
+        "before": {
+          "transaction": "交易：1,000",
+          "title": "传统结算",
+          "obligations": "义务：1,000",
+          "liquidity": "流动性：$10M",
+          "settlement": "结算转账：1,000"
+        },
+        "after": {
+          "title": "NettedX",
+          "transaction": "1,000",
+          "obligations": "240",
+          "liquidity": "$3.2M",
+          "settlement": "240"
+        }
+      },
+      "footer": "基于1000笔交易的假设，计算的 NettedX 效率。"
     }
   },
   "hero": {

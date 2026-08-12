@@ -74,7 +74,7 @@
         "highlight": "Block + N"
       },
       "lead": "Net first. Settle later.",
-      "transcation": "Transcation #{id}",
+      "transaction": "Transaction #{id}",
       "steps": {
         "aggregate": {
           "title": "{highlight} · Transaction Aggregation",
@@ -92,6 +92,30 @@
           "highlight": "Block 11"
         }
       }
+    },
+    "beforeAfter": {
+      "title": {
+        "text": "How NettedX {highlight} the Settlement Process",
+        "highlight": "Changes"
+      },
+      "desc": "NettedX turns gross obligations into net settlement.",
+      "compare": {
+        "before": {
+          "transaction": "Transactions: 1,000",
+          "title": "Traditional Settlement",
+          "obligations": "Obligations: 1,000",
+          "liquidity": "Liquidity: $10M",
+          "settlement": "Settlement Transfers: 1,000"
+        },
+        "after": {
+          "title": "NettedX",
+          "transaction": "1,000",
+          "obligations": "240",
+          "liquidity": "$3.2M",
+          "settlement": "240"
+        }
+      },
+      "footer": "Based on an assumption of 1000 transactions, the efficiency of NettedX is calculated."
     }
   }
 }

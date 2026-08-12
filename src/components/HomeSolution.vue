@@ -31,7 +31,7 @@
         :ref="(element) => setTransactionRef(element, transaction.id - 1)"
         class="transaction"
       >
-        {{ $t('home.solution.transcation', { id: transaction.id }) }}
+        {{ $t('home.solution.transaction', { id: transaction.id }) }}
       </span>
     </div>
 
