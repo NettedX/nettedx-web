@@ -70,7 +70,7 @@
         "highlight": "Block + N"
       },
       "lead": "先净额，后结算。",
-      "transcation": "交易 #{id}",
+      "transaction": "交易 #{id}",
       "steps": {
         "aggregate": {
           "title": "{highlight} · 交易聚合",
@@ -88,6 +88,74 @@
           "highlight": "11区"
         }
       }
+    },
+    "beforeAfter": {
+      "title": {
+        "text": "NettedX 如何{highlight}结算流程",
+        "highlight": "改变"
+      },
+      "desc": "NettedX 将总债务转化为净结算。",
+      "compare": {
+        "before": {
+          "transaction": "交易：1,000",
+          "title": "传统结算",
+          "obligations": "义务：1,000",
+          "liquidity": "流动性：$10M",
+          "settlement": "结算转账：1,000"
+        },
+        "after": {
+          "title": "NettedX",
+          "transaction": "1,000",
+          "obligations": "240",
+          "liquidity": "$3.2M",
+          "settlement": "240"
+        }
+      },
+      "footer": "基于1000笔交易的假设，计算的 NettedX 效率。"
+    },
+    "howWorks": {
+      "title": "它是如何运作的",
+      "desc": "在前沿技术的帮助下，我们不断创新。",
+      "card1": {
+        "title": "智能合约",
+        "desc": "我们使用智能合约来记录交易义务、验证净额结算结果并执行原子资产转移，确保结算完全完成或整体恢复。"
+      },
+      "card2": {
+        "title": "原子结算",
+        "desc": "所有净额资产转移均在单笔交易中执行，为参与者提供原子性并消除部分结算的风险。"
+      },
+      "card3": {
+        "title": "链上净额引擎",
+        "desc": "交易在固定的净额结算窗口内进行汇总，使 NettedX 能够计算每个参与者的净头寸，并将数千项双边义务压缩为更少的结算义务。"
+      },
+      "card4": {
+        "title": "流动性优化",
+        "desc": "通过抵消参与者之间的相互支付义务，NettedX 减少了结算相同交易量所需的流动性，使资本能够支持更多的活动。"
+      },
+      "card5": {
+        "title": "净额窗口",
+        "desc": "交易在结算前在定义的基于区块的窗口内累积。在窗口期间，不会移动任何资产——协议仅记录结算义务。"
+      },
+      "card6": {
+        "title": "可验证结算",
+        "desc": "净额结果可以在链上验证，使结算金额透明且可审计，同时减少对集中清算基础设施的依赖。"
+      },
+      "card7": {
+        "desc": "NettedX 独立计算不同资产的净头寸，并通过统一流程进行结算，从而提高多代币环境中的资本效率。",
+        "title": "多资产净额结算"
+      },
+      "card8": {
+        "title": "可组合架构",
+        "desc": "NettedX 提供模块化的净额结算和结算基础设施，可以与现有的 Web3 应用程序、协议和资产系统集成。"
+      }
+    },
+    "cta": {
+      "title": {
+        "text": "准备好少花钱多办事了吗？",
+        "button": "立即尝试"
+      },
+      "description": "让我们开始吧！",
+      "scroll": "NettedX · 原子结算与流动性效率的交汇点"
     }
   },
   "hero": {

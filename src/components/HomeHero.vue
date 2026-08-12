@@ -1,6 +1,14 @@
 <template>
   <section class="hero">
-    <video autoplay muted loop playsinline class="background-video">
+    <video
+      ref="bgVideo"
+      class="background-video"
+      poster="@/assets/images/bg/hero.png"
+      autoplay
+      muted
+      loop
+      playsinline
+    >
       <source src="@/assets/videos/hero-bg.mp4" type="video/mp4" />
     </video>
 
@@ -52,6 +60,8 @@ import {
 } from 'tdesign-icons-vue-next'
 
 const { t } = useLocale()
+
+const bgVideo = ref(null)
 
 const featureWords = computed(() => [
   t('home.hero.features.Liquidity-Saving'),
@@ -125,13 +135,23 @@ async function initAnimation() {
   })
 }
 
+function playVideo() {
+  if (bgVideo.value) {
+    bgVideo.value.play()
+  }
+}
+
 onMounted(async () => {
   initAnimation()
+  // auto play video on mobile devices
+  document.addEventListener('touchstart', playVideo, { once: true })
 })
 
 onBeforeUnmount(() => {
   featureTimeline?.kill()
   featureTimeline = null
+  //remove event listener
+  document.removeEventListener('touchstart', playVideo)
 })
 </script>
 

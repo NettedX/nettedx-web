@@ -74,7 +74,7 @@
         "highlight": "Block + N"
       },
       "lead": "Net first. Settle later.",
-      "transcation": "Transcation #{id}",
+      "transaction": "Transaction #{id}",
       "steps": {
         "aggregate": {
           "title": "{highlight} · Transaction Aggregation",
@@ -92,6 +92,74 @@
           "highlight": "Block 11"
         }
       }
+    },
+    "beforeAfter": {
+      "title": {
+        "text": "How NettedX {highlight} the Settlement Process",
+        "highlight": "Changes"
+      },
+      "desc": "NettedX turns gross obligations into net settlement.",
+      "compare": {
+        "before": {
+          "transaction": "Transactions: 1,000",
+          "title": "Traditional Settlement",
+          "obligations": "Obligations: 1,000",
+          "liquidity": "Liquidity: $10M",
+          "settlement": "Settlement Transfers: 1,000"
+        },
+        "after": {
+          "title": "NettedX",
+          "transaction": "1,000",
+          "obligations": "240",
+          "liquidity": "$3.2M",
+          "settlement": "240"
+        }
+      },
+      "footer": "Based on an assumption of 1000 transactions, the efficiency of NettedX is calculated."
+    },
+    "howWorks": {
+      "title": "How It Works",
+      "desc": "With the help of cutting-edge technologies, we continue to innovate.",
+      "card1": {
+        "title": "Smart Contract",
+        "desc": "We use smart contracts to record transaction obligations, verify netting results, and execute atomic asset transfers, ensuring that settlement either completes entirely or reverts as a whole."
+      },
+      "card2": {
+        "title": "Atomic Settlement",
+        "desc": "All netted asset transfers are executed within a single transaction, providing atomicity across participants and eliminating the risk of partial settlement."
+      },
+      "card3": {
+        "title": "On-chain Netting Engine",
+        "desc": "Transactions are aggregated within fixed netting windows, allowing NettedX to calculate each participant’s net position and compress thousands of bilateral obligations into fewer settlement obligations."
+      },
+      "card4": {
+        "title": "Liquidity Optimization",
+        "desc": "By offsetting mutual payment obligations between participants, NettedX reduces the liquidity required to settle the same transaction volume, enabling capital to support more activity."
+      },
+      "card5": {
+        "title": "Netting Windows",
+        "desc": "Transactions are accumulated within a defined block-based window before settlement. During the window, no assets are moved—the protocol only records settlement obligations."
+      },
+      "card6": {
+        "title": "Verifiable Settlement",
+        "desc": "Netting results can be verified on-chain, making settlement amounts transparent and auditable while reducing reliance on centralized clearing infrastructure."
+      },
+      "card7": {
+        "desc": "NettedX calculates net positions independently across different assets and settles them through a unified process, improving capital efficiency across multi-token environments.",
+        "title": "Multi-Asset Netting"
+      },
+      "card8": {
+        "title": "Composable Architecture",
+        "desc": "NettedX provides modular netting and settlement infrastructure that can integrate with existing Web3 applications, protocols, and asset systems."
+      }
+    },
+    "cta": {
+      "title": {
+        "text": "Ready to Move More With Less?",
+        "button": "Try Now"
+      },
+      "description": "Let's get started!",
+      "scroll": "NettedX · Where Atomic Settlement Meets Liquidity Efficiency"
     }
   }
 }

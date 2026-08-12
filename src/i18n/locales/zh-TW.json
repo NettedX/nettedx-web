@@ -70,7 +70,7 @@
         "highlight": "Block + N"
       },
       "lead": "先淨額，後結算。",
-      "transcation": "交易 #{id}",
+      "transaction": "交易 #{id}",
       "steps": {
         "aggregate": {
           "title": "{highlight} · 交易聚合",
@@ -88,6 +88,73 @@
           "highlight": "11区"
         }
       }
+    },
+    "beforeAfter": {
+      "title": {
+        "text": "NettedX 如何{highlight}結算流程",
+        "highlight": "變化"
+      },
+      "desc": "NettedX 將總債務轉化為淨結算。",
+      "compare": {
+        "before": {
+          "transaction": "交易：1,000",
+          "title": "傳統結算",
+          "obligations": "義務：1,000",
+          "liquidity": "流動性：$10M",
+          "settlement": "結算轉帳：1,000"
+        },
+        "after": {
+          "title": "NettedX",
+          "transaction": "1,000",
+          "obligations": "240",
+          "liquidity": "$3.2M",
+          "settlement": "240"
+        }
+      },
+      "footer": "基於1000筆交易的假設，計算的 NettedX 效率。"
+    },
+    "howWorks": {
+      "title": "它是如何運作的",
+      "desc": "在尖端技術的幫助下，我們不斷創新。",
+      "card1": {
+        "title": "智能合約",
+        "desc": "我們使用智能合約來記錄交易義務、驗證淨額結算結果並執行原子資產轉移，確保結算完全完成或整體恢復。"
+      },
+      "card2": {
+        "title": "原子結算",
+        "desc": "所有淨額資產轉移均在單筆交易中執行，為參與者提供原子性並消除部分結算的風險。"
+      },
+      "card3": {
+        "title": "鏈上淨額引擎",
+        "desc": "交易在固定的淨額結算窗口內進行匯總，使 NettedX 能夠計算每個參與者的淨頭寸，並將數千項雙邊義務壓縮為更少的結算義務。"
+      },
+      "card4": {
+        "title": "流動性優化",
+        "desc": "透過抵銷參與者之間的相互支付義務，NettedX 減少了結算相同交易量所需的流動性，使資本能夠支援更多的活動。"
+      },
+      "card5": {
+        "desc": "交易在結算前在定義的基於區塊的視窗內累積。在視窗期間，不會移動任何資產－協議僅記錄結算義務。"
+      },
+      "card6": {
+        "title": "可驗證結算",
+        "desc": "淨額結果可以在鏈上驗證，使結算金額透明且可審計，同時減少對集中清算基礎設施的依賴。"
+      },
+      "card7": {
+        "desc": "NettedX 獨立計算不同資產的淨頭寸，並透過統一流程進行結算，從而提高多代幣環境中的資本效率。",
+        "title": "多資產淨額結算"
+      },
+      "card8": {
+        "title": "可組合架構",
+        "desc": "NettedX 提供模組化的淨額結算和結算基礎設施，可與現有的 Web3 應用程式、協定和資產系統整合。"
+      }
+    },
+    "cta": {
+      "title": {
+        "text": "準備好少花錢多辦事了嗎？",
+        "button": "立即嘗試"
+      },
+      "description": "讓我們開始吧！",
+      "scroll": "NettedX·原子結算與流動性效率的交會點"
     }
   },
   "hero": {
