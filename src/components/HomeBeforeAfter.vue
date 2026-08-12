@@ -117,6 +117,9 @@
   color: var(--td-text-color-secondary);
   margin-bottom: 0.5rem;
   font-family: 'TCloudNumber';
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
 }
 
 .compare-item:last-child {
@@ -125,6 +128,7 @@
 
 .after .compare-item {
   color: var(--td-text-color-anti);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .footer {
