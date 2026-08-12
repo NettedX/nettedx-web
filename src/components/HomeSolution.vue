@@ -553,7 +553,7 @@ onBeforeUnmount(() => {
   }
 
   .animation-container {
-    min-height: 400px;
+    min-height: 320px;
   }
 
   .block-item {
