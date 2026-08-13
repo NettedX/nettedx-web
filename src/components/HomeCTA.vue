@@ -239,7 +239,7 @@ onBeforeUnmount(() => {
 <style scoped>
 .container {
   width: 100%;
-  min-height: 60vh;
+  min-height: 60svh;
   position: relative;
   padding: 6rem 2rem;
   box-sizing: border-box;

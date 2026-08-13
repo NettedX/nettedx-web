@@ -159,7 +159,7 @@ onBeforeUnmount(() => {
 .hero {
   position: relative;
   width: 100%;
-  height: 80vh;
+  height: 80svh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -237,7 +237,7 @@ onBeforeUnmount(() => {
 
 @media (max-width: 768px) {
   .hero {
-    height: 60vh;
+    height: 60svh;
   }
 
   .hero .hero-content {
