@@ -89,7 +89,7 @@ const selectedOption = ref(1)
   max-width: var(--nx-max-content-width);
   margin: 0 auto;
   padding: 0 2rem;
-  margin-top: 2rem;
+  margin-top: 4rem;
 }
 
 .option-group {
@@ -130,7 +130,7 @@ const selectedOption = ref(1)
 .option-content .card {
   position: relative;
   padding: 2rem 3rem;
-  border-radius: 1rem;
+  border-radius: 2rem;
   background-color: var(--td-bg-color-container);
   box-shadow: var(--td-box-shadow-1);
   min-height: 300px;
