@@ -7,8 +7,7 @@
     "home": "首页",
     "dashboard": "控制台",
     "support": "支持",
-    "rights": "All rights reserved.",
-    "language": "语言"
+    "rights": "All rights reserved."
   },
   "slogan": "原子结算与流动性效率的交汇点",
   "home": {
@@ -24,7 +23,6 @@
       }
     },
     "problem": {
-      "eyebrow": "NettedX 解决的问题",
       "title": "为什么需要 NettedX？",
       "lead": "传统结算的问题不在于价值不足，而在于总额义务不断堆积；每一次价值转移，都需要重新占用流动性。",
       "traditionalLabel": "传统结算",
@@ -168,6 +166,10 @@
       },
       "option2": {
         "desc": "结算前，合约会检查每位净付款人的余额和授权情况。任何无法履行付款义务的人都会被排除在外，其余人的持仓将重新计算，如此反复，直到剩余的交易人全部符合条件为止。被排除的交易将进入下一个结算周期，并与新交易进行抵消。"
+      },
+      "title": {
+        "highlight": "更智能",
+        "text": "为您提供 {highlight} 结算"
       }
     },
     "useCases": {
