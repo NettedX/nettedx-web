@@ -181,7 +181,6 @@ const selectedOption = ref(1)
     padding: 0 1rem;
   }
 
-
   .option-content .card {
     padding: 1rem 2rem;
   }
