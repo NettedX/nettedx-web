@@ -227,5 +227,9 @@ const shownDataList = computed(() => [
     display: inline-flex;
     flex-direction: column;
   }
+
+  .compare {
+    padding-right: 0;
+  }
 }
 </style>

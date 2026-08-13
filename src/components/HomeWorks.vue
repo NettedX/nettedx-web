@@ -95,19 +95,17 @@ async function initAnimation() {
 
   // 窗口滚动，scroller水平滚动
   const scrollerWidth = scroller.value.scrollWidth
-  const scrollDistance = scrollerWidth - window.innerWidth
+  let scrollDistance = scrollerWidth - window.innerWidth
 
   // 箭头滚动距离
   const arrowDistance = arrowWrapper.value.offsetWidth - arrowIcon.value.offsetWidth
 
-  console.log(
-    'arrowWrapper:',
-    arrowWrapper.value.offsetWidth,
-    'arrowIcon:',
-    arrowIcon.value.offsetWidth,
-    'arrowDistance:',
-    arrowDistance,
-  )
+  // 如果窗口宽度大于1200px，增加滚动距离(页边距)
+  if (window.innerWidth > 1200) {
+    const offSet = (window.innerWidth - 1200) / 2
+    scrollDistance += offSet
+    gsap.set(scroller.value, { x: offSet })
+  }
 
   timeline = gsap.timeline({
     scrollTrigger: {

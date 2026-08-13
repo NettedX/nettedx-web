@@ -384,7 +384,7 @@ onBeforeUnmount(() => {
   padding: 6rem 0;
   box-sizing: border-box;
   overflow: clip;
-  min-height: 100vh;
+  min-height: 100svh;
 }
 
 .title-container {

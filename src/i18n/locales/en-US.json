@@ -7,8 +7,7 @@
     "home": "Home",
     "dashboard": "Dashboard",
     "support": "Support",
-    "rights": "All rights reserved.",
-    "language": "Languages"
+    "rights": "All rights reserved."
   },
   "slogan": "Where Atomic Settlement Meets Liquidity Efficiency",
   "hero": {
@@ -28,7 +27,6 @@
       }
     },
     "problem": {
-      "eyebrow": "The Problem NettedX resolved",
       "title": "Why do we need NettedX?",
       "lead": "Traditional settlement is not broken because value is missing. It is expensive because gross obligations keep accumulating, and each movement of value demands fresh liquidity.",
       "traditionalLabel": "Traditional Settlement",
@@ -160,6 +158,46 @@
       },
       "description": "Let's get started!",
       "scroll": "NettedX · Where Atomic Settlement Meets Liquidity Efficiency"
+    },
+    "features": {
+      "title": {
+        "text": "Provides You {highlight} Settlement",
+        "highlight": "Smarter"
+      },
+      "desc": "NettedX provides robust fault tolerance mechanisms.",
+      "radio": {
+        "option1": "Liquidity Buffer",
+        "option2": "Failure Exclusion"
+      },
+      "option1": {
+        "desc": "When a participant is short at settlement, the buffer lends them the difference — inside the same transaction. The system detects the shortfall and covers it in one atomic execution, drawing on a facility the participant set up in advance. Nobody has to predict the shortfall or click anything at the cutoff."
+      },
+      "option2": {
+        "desc": "Before settling, the contract checks every net payer's balance and authorisation. Anyone who cannot perform is excluded, positions are recomputed for the rest, and this repeats until the remaining set is viable. Excluded trades roll into the next window and net against new trades."
+      }
+    },
+    "useCases": {
+      "desc": "Wherever value moves in both directions, netting creates efficiency.",
+      "title": {
+        "text": "Built for {highlight} Settlement",
+        "highlight": "High-Volume"
+      },
+      "case1": {
+        "title": "Cross-Border Payments",
+        "desc": "Net bilateral payment obligations across currencies and counterparties to reduce trapped liquidity and improve settlement efficiency."
+      },
+      "case2": {
+        "title": "Institutional Settlement",
+        "desc": "Compress high-volume trading obligations between institutions into fewer net positions, reducing the capital required for settlement."
+      },
+      "case3": {
+        "title": "DeFi Settlement",
+        "desc": "Aggregate recurring on-chain obligations across protocols and users before final settlement, reducing unnecessary asset movement on-chain."
+      },
+      "case4": {
+        "title": "Treasury Management",
+        "desc": "Reduce idle settlement capital by offsetting incoming and outgoing obligations before funds need to move."
+      }
     }
   }
 }
