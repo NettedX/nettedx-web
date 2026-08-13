@@ -160,6 +160,23 @@
       },
       "description": "Let's get started!",
       "scroll": "NettedX · Where Atomic Settlement Meets Liquidity Efficiency"
+    },
+    "features": {
+      "title": {
+        "text": "Provides You {highlight} Settlement",
+        "highlight": "Smarter"
+      },
+      "desc": "NettedX provides robust fault tolerance mechanisms.",
+      "radio": {
+        "option1": "Liquidity Buffer",
+        "option2": "Failure Exclusion"
+      },
+      "option1": {
+        "desc": "When a participant is short at settlement, the buffer lends them the difference — inside the same transaction. The system detects the shortfall and covers it in one atomic execution, drawing on a facility the participant set up in advance. Nobody has to predict the shortfall or click anything at the cutoff."
+      },
+      "option2": {
+        "desc": "Before settling, the contract checks every net payer's balance and authorisation. Anyone who cannot perform is excluded, positions are recomputed for the rest, and this repeats until the remaining set is viable. Excluded trades roll into the next window and net against new trades."
+      }
     }
   }
 }
