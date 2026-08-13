@@ -34,7 +34,7 @@ function openEmail() {
 .bg {
   position: relative;
   background-color: var(--td-bg-color-container);
-  background-image: url('@/assets/images/bg/ntu.png');
+  background-image: url('@/assets/images/bg/ntu.webp');
   background-size: cover;
   background-position: center;
 }
