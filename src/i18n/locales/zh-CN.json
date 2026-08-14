@@ -36,7 +36,7 @@
       }
     },
     "data": {
-      "description": "与 NettedX 一起",
+      "description": "使用 NettedX",
       "title": {
         "settlement": "结算",
         "more": "更多的",
@@ -68,7 +68,7 @@
         "text": "介绍 {highlight} 结算窗口",
         "highlight": "Block + N"
       },
-      "lead": "先接单、后冻结、再等待、最终净额结算。",
+      "lead": "先净额，后结算。",
       "transaction": "交易 #{id}",
       "steps": {
         "aggregate": {
@@ -87,8 +87,8 @@
           "highlight": "12~13区"
         },
         "settle": {
-          "title": "{highlight} · 转账与结算",
-          "text": "第 14 区块执行最终净额计算与原子结算。所有应收应付在同一笔交易中一起清算，要么全部完成，要么整体回滚。",
+          "title": "{highlight} · 结算",
+          "text": "第 14 区块执行最终净额计算与原子结算。所有应收应付在同一笔交易中一起结算，要么全部完成，要么整体回滚。",
           "highlight": "14区"
         }
       }
@@ -115,7 +115,7 @@
           "settlement": "240"
         }
       },
-      "footer": "基于1000笔交易的假设，计算的 NettedX 效率。"
+      "footer": "基于 1000 笔交易的假设，计算的 NettedX 效率。"
     },
     "howWorks": {
       "title": "它是如何运作的",
@@ -163,10 +163,10 @@
       "scroll": "NettedX · 原子结算与流动性效率的交汇点"
     },
     "features": {
-      "desc": "NettedX提供完善的容错机制。",
+      "desc": "NettedX 提供完善的容错机制。",
       "radio": {
         "option1": "流动性缓冲",
-        "option2": "排除故障"
+        "option2": "违约排除"
       },
       "option1": {
         "desc": "当参与者结算时资金不足，缓冲机制会在同一笔交易中为其提供差额。系统会检测到资金缺口，并利用参与者预先设置的资金，通过一次原子操作即可弥补。任何人都无需预测资金缺口，也无需在结算截止时进行任何操作。"
@@ -175,8 +175,8 @@
         "desc": "结算前，合约会检查每位净付款人的余额和授权情况。任何无法履行付款义务的人都会被排除在外，其余人的持仓将重新计算，如此反复，直到剩余的交易人全部符合条件为止。被排除的交易将进入下一个结算周期，并与新交易进行抵消。"
       },
       "title": {
-        "highlight": "更智能",
-        "text": "为您提供 {highlight} 结算"
+        "highlight": "更智能的",
+        "text": "为您提供{highlight}结算"
       }
     },
     "useCases": {

@@ -36,7 +36,7 @@
       }
     },
     "data": {
-      "description": "與 NettedX 一起",
+      "description": "使用 NettedX",
       "title": {
         "settlement": "結算",
         "more": "更多的",
@@ -68,7 +68,7 @@
         "text": "介紹 {highlight} 結算窗口",
         "highlight": "Block + N"
       },
-      "lead": "先接單、後凍結、再等待、最終淨額結算。",
+      "lead": "先淨額，後結算。",
       "transaction": "交易 #{id}",
       "steps": {
         "aggregate": {
@@ -87,8 +87,8 @@
           "highlight": "12~13區"
         },
         "settle": {
-          "title": "{highlight} · 轉帳與結算",
-          "text": "第 14 區塊執行最終淨額計算與原子結算。所有應收應付在同一筆交易中一起清算，要么全部完成，要么整體回滾。",
+          "title": "{highlight} · 結算",
+          "text": "第 14 區塊執行最終淨額計算與原子結算。所有應收應付在同一筆交易中一起結算，要么全部完成，要么整體回滾。",
           "highlight": "14區"
         }
       }
@@ -115,7 +115,7 @@
           "settlement": "240"
         }
       },
-      "footer": "基於1000筆交易的假設，計算的 NettedX 效率。"
+      "footer": "基於 1000 筆交易的假設，計算的 NettedX 效率。"
     },
     "howWorks": {
       "title": "它是如何運作的",
@@ -163,10 +163,10 @@
       "scroll": "NettedX·原子結算與流動性效率的交會點"
     },
     "features": {
-      "desc": "NettedX提供完善的容錯機制",
+      "desc": "NettedX 提供完善的容錯機制",
       "radio": {
         "option1": "流動性緩衝",
-        "option2": "排除故障"
+        "option2": "違約排除"
       },
       "option1": {
         "desc": "當參與者結算時資金不足，緩衝機制會在同一筆交易中為其提供差額。系統會偵測到資金缺口，並利用參與者預先設定的資金，透過一次原子操作即可彌補。任何人都無需預測資金缺口，也無需在結算截止時進行任何操作。"
@@ -175,8 +175,8 @@
         "desc": "結算前，合約會檢查每位淨付款人的餘額和授權情況。任何無法履行付款義務的人都會被排除在外，其餘人的持倉將重新計算，如此反复，直到剩餘的交易人全部符合條件為止。被排除的交易將進入下一個結算週期，並與新交易進行抵銷。"
       },
       "title": {
-        "highlight": "更智能",
-        "text": "為您提供 {highlight} 結算"
+        "highlight": "更智慧的",
+        "text": "為您提供{highlight}結算"
       }
     },
     "useCases": {

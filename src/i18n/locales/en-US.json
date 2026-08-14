@@ -72,7 +72,7 @@
         "text": "Introducing {highlight} Settlement Window",
         "highlight": "Block + N"
       },
-      "lead": "Receive, freeze, wait, and settle.",
+      "lead": "Net first. Settle later.",
       "transaction": "Transaction #{id}",
       "steps": {
         "aggregate": {
@@ -91,7 +91,7 @@
           "highlight": "Block 12~13"
         },
         "settle": {
-          "title": "{highlight} · Transfer & Settlement",
+          "title": "{highlight} · Settlement",
           "text": "In Block 14, the network executes the final netting and atomic settlement. All receivables and payables are cleared in the same transaction, with all-or-nothing execution guaranteed.",
           "highlight": "Block 14"
         }
