@@ -205,7 +205,8 @@ onUnmounted(() => {
 }
 
 .animation-container .card {
-  padding: 2rem 3rem;
+  padding: 4rem 6rem;
+  box-sizing: border-box;
   background-color: var(--td-bg-brand-color);
   border-radius: 2rem;
   background-image: linear-gradient(to right, #1d9dff, #1723f5), url('@/assets/images/bg/pit.png');
@@ -217,7 +218,7 @@ onUnmounted(() => {
   color: var(--td-text-color-anti);
   position: absolute;
   top: 0;
-  min-height: 200px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -242,6 +243,10 @@ onUnmounted(() => {
 
   .animation-container {
     margin-top: calc(4rem + 40px);
+  }
+
+  .animation-container .card {
+    padding: 2rem 3rem;
   }
 }
 </style>

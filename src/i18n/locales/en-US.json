@@ -30,13 +30,13 @@
       "title": "Why do we need NettedX?",
       "lead": "Traditional settlement is not broken because value is missing. It is expensive because gross obligations keep accumulating, and each movement of value demands fresh liquidity.",
       "traditionalLabel": "Traditional Settlement",
-      "obligations": "Gross obligations pile up.",
+      "obligations": "Every obligation moves in full.",
       "conclusion": "The problem isn't the amount of value being moved. It's how much liquidity must be committed to move it.",
       "impacts": {
         "capitalLocked": "Capital gets locked",
         "liquidityRequirements": "Liquidity requirements increase",
-        "settlementOperations": "More settlement operations",
-        "onChainActivity": "More on-chain activity"
+        "settlementOperations": "More transfers to execute",
+        "comlex": "More complex settlement"
       }
     },
     "fromNTU": {
@@ -47,12 +47,13 @@
       "description": "With NettedX",
       "title": {
         "space": ". ",
-        "trades": " trades",
+        "trades": " Trades",
         "more": "More",
         "smarter": "Smarter",
         "liquidity": " liquidity",
         "settlement": " settlement",
-        "less": "Less"
+        "less": "Less",
+        "text": "{More} Trades. {Less} Capital. {Smarter} Settlement."
       },
       "visualization": {
         "TotalSettlementVolume": "Total Settlement Volume",
@@ -75,19 +76,24 @@
       "transaction": "Transaction #{id}",
       "steps": {
         "aggregate": {
-          "title": "{highlight} · Transaction Aggregation",
-          "text": "Transactions accumulate within a fixed window of N blocks. During the window, no assets move at all; the contract only records obligations.",
+          "title": "{highlight} · Trade Intake",
+          "text": "The system continuously accepts and aggregates pending obligations. No assets move during this window; only the netting intent is recorded on-chain.",
           "highlight": "Block 1~10"
         },
-        "net": {
-          "title": "{highlight} · Netting",
-          "text": "Once the window closes, the smart contract will calculate the net amount for each participant. DvP is still guaranteed by atomicity, rather than by a trusted intermediary; participants retain control of their assets throughout the process.",
+        "freeze": {
+          "title": "{highlight} · Window Closed & Netting",
+          "text": "Starting from block 11, new transactions enter the next settlement window. The smart contract then calculates and notifies each participant’s net position based on the fixed transaction set, ensuring stable obligations during settlement.",
           "highlight": "Block 11"
+        },
+        "waiting": {
+          "title": "{highlight} · Funding Wait",
+          "text": "This period are reserved for funding verification, risk checks, and final readiness confirmation. Assets remain under each participant's control while the protocol waits for completion.",
+          "highlight": "Block 12~13"
         },
         "settle": {
           "title": "{highlight} · Settlement",
-          "text": "Settlement is performed within the same transaction for all transfers; either all are completed or none occur. We restored the netting, but did not reintroduce a trusted third party.",
-          "highlight": "Block 11"
+          "text": "In Block 14, the network executes the final netting and atomic settlement. All receivables and payables are cleared in the same transaction, with all-or-nothing execution guaranteed.",
+          "highlight": "Block 14"
         }
       }
     },
@@ -123,12 +129,12 @@
         "desc": "We use smart contracts to record transaction obligations, verify netting results, and execute atomic asset transfers, ensuring that settlement either completes entirely or reverts as a whole."
       },
       "card2": {
-        "title": "Atomic Settlement",
-        "desc": "All netted asset transfers are executed within a single transaction, providing atomicity across participants and eliminating the risk of partial settlement."
-      },
-      "card3": {
         "title": "On-chain Netting Engine",
         "desc": "Transactions are aggregated within fixed netting windows, allowing NettedX to calculate each participant’s net position and compress thousands of bilateral obligations into fewer settlement obligations."
+      },
+      "card3": {
+        "title": "Atomic Settlement",
+        "desc": "All netted asset transfers are executed within a single transaction, providing atomicity across participants and eliminating the risk of partial settlement."
       },
       "card4": {
         "title": "Liquidity Optimization",
@@ -140,23 +146,24 @@
       },
       "card6": {
         "title": "Verifiable Settlement",
-        "desc": "Netting results can be verified on-chain, making settlement amounts transparent and auditable while reducing reliance on centralized clearing infrastructure."
+        "desc": "Settlement results can be independently verified on-chain by authorized participants, providing a tamper-resistant record of netting and settlement while reducing reliance on centralized clearing infrastructure."
       },
       "card7": {
-        "desc": "NettedX calculates net positions independently across different assets and settles them through a unified process, improving capital efficiency across multi-token environments.",
-        "title": "Multi-Asset Netting"
+        "desc": "Net positions are calculated separately for the cash leg and the securities leg, then settled together in a single transaction. Neither side can complete without the other.",
+        "title": "Cross-Asset Netting"
       },
       "card8": {
         "title": "Composable Architecture",
-        "desc": "NettedX provides modular netting and settlement infrastructure that can integrate with existing Web3 applications, protocols, and asset systems."
-      }
+        "desc": "NettedX provides modular netting and settlement infrastructure that can integrate with existing IT system, protocols, and asset systems."
+      },
+      "card33": {}
     },
     "cta": {
       "title": {
         "text": "Ready to Move More With Less?",
         "button": "Try Now"
       },
-      "description": "Let's get started!",
+      "description": "Let's get started from now!",
       "scroll": "NettedX · Where Atomic Settlement Meets Liquidity Efficiency"
     },
     "features": {
@@ -191,7 +198,7 @@
         "desc": "Compress high-volume trading obligations between institutions into fewer net positions, reducing the capital required for settlement."
       },
       "case3": {
-        "title": "DeFi Settlement",
+        "title": "On-chain Settlement",
         "desc": "Aggregate recurring on-chain obligations across protocols and users before final settlement, reducing unnecessary asset movement on-chain."
       },
       "case4": {

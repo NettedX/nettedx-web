@@ -44,15 +44,16 @@ const cardList = computed(() => [
     desc: t('home.howWorks.card1.desc'),
   },
   {
-    icon: 'arrow-left-right-1',
+    icon: 'link-1',
     title: t('home.howWorks.card2.title'),
     desc: t('home.howWorks.card2.desc'),
   },
   {
-    icon: 'link-1',
+    icon: 'arrow-left-right-1',
     title: t('home.howWorks.card3.title'),
     desc: t('home.howWorks.card3.desc'),
   },
+
   {
     icon: 'saving-pot',
     title: t('home.howWorks.card4.title'),
