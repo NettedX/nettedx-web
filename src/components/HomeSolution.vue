@@ -605,16 +605,8 @@ onBeforeUnmount(() => {
 }
 
 .step-title .highlight {
-  background: linear-gradient(90deg, #1d9dff, #1723f5);
-  background-clip: text;
   color: var(--td-brand-color);
   white-space: nowrap;
-}
-
-.description-step:nth-child(4) .highlight {
-  background: linear-gradient(90deg, #4c8bff 0%, #1b46ff 100%);
-  background-clip: text;
-  color: transparent;
 }
 
 .step-text {
