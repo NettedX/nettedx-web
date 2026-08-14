@@ -72,23 +72,28 @@
         "text": "Introducing {highlight} Settlement Window",
         "highlight": "Block + N"
       },
-      "lead": "Net first. Settle later.",
+      "lead": "Receive, freeze, wait, and settle.",
       "transaction": "Transaction #{id}",
       "steps": {
         "aggregate": {
-          "title": "{highlight} · Transaction Aggregation",
-          "text": "Transactions accumulate within a fixed window of N blocks. During the window, no assets move at all; the contract only records obligations.",
+          "title": "{highlight} · Trade Intake",
+          "text": "The system continuously accepts and aggregates pending obligations. No assets move during this window; only the netting intent is recorded on-chain.",
           "highlight": "Block 1~10"
         },
-        "net": {
-          "title": "{highlight} · Netting",
-          "text": "Once the window closes, the smart contract will calculate the net amount for each participant. DvP is still guaranteed by atomicity, rather than by a trusted intermediary; participants retain control of their assets throughout the process.",
+        "freeze": {
+          "title": "{highlight} · Window Closed & Netting",
+          "text": "Starting from block 11, new transactions enter the next settlement window. The smart contract then calculates and notifies each participant’s net position based on the fixed transaction set, ensuring stable obligations during settlement.",
           "highlight": "Block 11"
         },
+        "waiting": {
+          "title": "{highlight} · Funding Wait",
+          "text": "This period are reserved for funding verification, risk checks, and final readiness confirmation. Assets remain under each participant's control while the protocol waits for completion.",
+          "highlight": "Block 12~13"
+        },
         "settle": {
-          "title": "{highlight} · Settlement",
-          "text": "Settlement is performed within the same transaction for all transfers; either all are completed or none occur. We restored the netting, but did not reintroduce a trusted third party.",
-          "highlight": "Block 11"
+          "title": "{highlight} · Transfer & Settlement",
+          "text": "In Block 14, the network executes the final netting and atomic settlement. All receivables and payables are cleared in the same transaction, with all-or-nothing execution guaranteed.",
+          "highlight": "Block 14"
         }
       }
     },

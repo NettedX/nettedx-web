@@ -54,22 +54,37 @@
       <div
         :ref="(element) => setDescriptionRef(element, 1)"
         class="description-step"
-        :class="{ active: currentStage === 'final' }"
+        :class="{ active: currentStage === 'freeze' }"
       >
         <p class="step-title">
-          <i18n-t keypath="home.solution.steps.net.title" tag="span" scope="global">
+          <i18n-t keypath="home.solution.steps.freeze.title" tag="span" scope="global">
             <template #highlight>
-              <span class="highlight">{{ $t('home.solution.steps.net.highlight') }}</span>
+              <span class="highlight">{{ $t('home.solution.steps.freeze.highlight') }}</span>
             </template>
           </i18n-t>
         </p>
-        <p class="step-text">{{ $t('home.solution.steps.net.text') }}</p>
+        <p class="step-text">{{ $t('home.solution.steps.freeze.text') }}</p>
       </div>
 
       <div
         :ref="(element) => setDescriptionRef(element, 2)"
         class="description-step"
-        :class="{ active: currentStage === 'final' }"
+        :class="{ active: currentStage === 'waiting' }"
+      >
+        <p class="step-title">
+          <i18n-t keypath="home.solution.steps.waiting.title" tag="span" scope="global">
+            <template #highlight>
+              <span class="highlight">{{ $t('home.solution.steps.waiting.highlight') }}</span>
+            </template>
+          </i18n-t>
+        </p>
+        <p class="step-text">{{ $t('home.solution.steps.waiting.text') }}</p>
+      </div>
+
+      <div
+        :ref="(element) => setDescriptionRef(element, 3)"
+        class="description-step"
+        :class="{ active: currentStage === 'settle' }"
       >
         <p class="step-title">
           <i18n-t keypath="home.solution.steps.settle.title" tag="span" scope="global">
@@ -91,7 +106,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const blockCount = 11
+const blockCount = 14
 const transactionsPerBlock = 2
 
 const blocks = Array.from({ length: blockCount }, (_, index) => ({
@@ -114,11 +129,19 @@ const descriptionRefs = ref([])
 const currentBlock = ref(1)
 
 const currentStage = computed(() => {
-  if (currentBlock.value < blockCount) {
+  if (currentBlock.value <= 10) {
     return 'aggregate'
   }
 
-  return 'final'
+  if (currentBlock.value === 11) {
+    return 'freeze'
+  }
+
+  if (currentBlock.value <= 13) {
+    return 'waiting'
+  }
+
+  return 'settle'
 })
 
 let solutionTimeline = null
@@ -177,8 +200,8 @@ async function initAnimation() {
     return
   }
 
-  const aggregateDescription = descriptionElements[0]
-  const trailingDescriptions = descriptionElements.slice(1)
+  const [aggregateDescription, freezeDescription, waitingDescription, settleDescription] =
+    descriptionElements
 
   currentBlock.value = 1
 
@@ -210,7 +233,7 @@ async function initAnimation() {
     scrollTrigger: {
       trigger: sectionRef.value,
       start: 'top top',
-      end: () => `+=${Math.max(window.innerHeight * 6.3, 3600)}`,
+      end: () => `+=${Math.max(window.innerHeight * 6.3, 4200)}`,
       scrub: 1,
       pin: true,
       anticipatePin: 1,
@@ -245,6 +268,26 @@ async function initAnimation() {
     const stepStart = index * 1.15
     const blockTargetX = getCenteredBlockX(trackWidth, blockElement)
 
+    const isFreezeBlock = index === 10
+    const isWaitingBlock = index >= 11 && index <= 12
+    const isSettleBlock = index === 13
+
+    const blockColor = isSettleBlock
+      ? 'linear-gradient(180deg, #2b7dff 0%, #0f2fff 100%)'
+      : isWaitingBlock
+        ? 'linear-gradient(180deg, #9ea6ff 0%, #5d6ef7 100%)'
+        : isFreezeBlock
+          ? 'linear-gradient(180deg, #7c85ff 0%, #3e4df0 100%)'
+          : 'linear-gradient(180deg, #1d9dff 0%, #1723f5 100%)'
+
+    const blockShadow = isSettleBlock
+      ? '0 18px 38px rgba(47, 96, 255, 0.38)'
+      : isWaitingBlock
+        ? '0 14px 28px rgba(102, 115, 255, 0.26)'
+        : isFreezeBlock
+          ? '0 16px 32px rgba(77, 90, 255, 0.3)'
+          : '0 18px 30px rgba(23, 35, 245, 0.26)'
+
     solutionTimeline
       .to(
         blockchainRef.value,
@@ -262,10 +305,13 @@ async function initAnimation() {
           scale: 1,
           duration: 0.4,
           ease: 'power3.out',
+          boxShadow: blockShadow,
+          background: blockColor,
         },
         stepStart,
       )
-    if (pairedTransactions.length) {
+
+    if (index < 10 && pairedTransactions.length) {
       solutionTimeline
         .to(
           pairedTransactions,
@@ -293,24 +339,26 @@ async function initAnimation() {
     }
   })
 
-  const descriptionStart = blockCount * 1.15 + 0.4
+  const describeFreezeStart = 10 * 1.15 + 0.3
+  const describeWaitingStart = 11 * 1.15 + 0.6
+  const describeSettleStart = 13 * 1.15 + 0.9
 
-  if (trailingDescriptions[0]) {
+  if (freezeDescription) {
     solutionTimeline
       .to(
         aggregateDescription,
         {
-          y: -16,
+          y: -18,
           scale: 0.95,
-          autoAlpha: 0.78,
+          autoAlpha: 0.75,
           zIndex: 1,
           duration: 0.28,
           ease: 'power2.inOut',
         },
-        descriptionStart,
+        describeFreezeStart,
       )
       .to(
-        trailingDescriptions[0],
+        freezeDescription,
         {
           y: 0,
           scale: 1,
@@ -320,38 +368,26 @@ async function initAnimation() {
           duration: 0.38,
           ease: 'power2.out',
         },
-        descriptionStart,
+        describeFreezeStart,
       )
   }
 
-  if (trailingDescriptions[1]) {
+  if (waitingDescription) {
     solutionTimeline
       .to(
-        aggregateDescription,
+        freezeDescription,
         {
-          y: -28,
-          scale: 0.9,
-          autoAlpha: 0.6,
-          zIndex: 0,
-          duration: 0.22,
-          ease: 'power2.inOut',
-        },
-        descriptionStart + 0.34,
-      )
-      .to(
-        trailingDescriptions[0],
-        {
-          y: -16,
+          y: -18,
           scale: 0.95,
-          autoAlpha: 0.82,
+          autoAlpha: 0.76,
           zIndex: 2,
           duration: 0.22,
           ease: 'power2.inOut',
         },
-        descriptionStart + 0.34,
+        describeWaitingStart,
       )
       .to(
-        trailingDescriptions[1],
+        waitingDescription,
         {
           y: 0,
           scale: 1,
@@ -361,7 +397,36 @@ async function initAnimation() {
           duration: 0.38,
           ease: 'power2.out',
         },
-        descriptionStart + 0.34,
+        describeWaitingStart,
+      )
+  }
+
+  if (settleDescription) {
+    solutionTimeline
+      .to(
+        waitingDescription,
+        {
+          y: -18,
+          scale: 0.95,
+          autoAlpha: 0.76,
+          zIndex: 2,
+          duration: 0.22,
+          ease: 'power2.inOut',
+        },
+        describeSettleStart,
+      )
+      .to(
+        settleDescription,
+        {
+          y: 0,
+          scale: 1,
+          autoAlpha: 1,
+          zIndex: 4,
+          filter: 'blur(0px)',
+          duration: 0.42,
+          ease: 'power2.out',
+        },
+        describeSettleStart,
       )
   }
 }
@@ -527,6 +592,12 @@ onBeforeUnmount(() => {
   box-shadow: 0 18px 36px rgba(23, 35, 245, 0.12);
 }
 
+.description-step:nth-child(4).active {
+  background: rgba(238, 245, 255, 0.96);
+  border-color: rgba(39, 97, 255, 0.9);
+  box-shadow: 0 20px 42px rgba(31, 90, 255, 0.18);
+}
+
 .step-title {
   margin: 0;
   font: var(--td-font-headline-small);
@@ -538,6 +609,12 @@ onBeforeUnmount(() => {
   background-clip: text;
   color: var(--td-brand-color);
   white-space: nowrap;
+}
+
+.description-step:nth-child(4) .highlight {
+  background: linear-gradient(90deg, #4c8bff 0%, #1b46ff 100%);
+  background-clip: text;
+  color: transparent;
 }
 
 .step-text {
@@ -578,7 +655,7 @@ onBeforeUnmount(() => {
   }
 
   .description-panel {
-    min-height: 130px;
+    min-height: 180px;
   }
 
   .description-step:nth-child(2) {
@@ -587,6 +664,10 @@ onBeforeUnmount(() => {
 
   .description-step:nth-child(3) {
     transform: translateY(28px) scale(0.92);
+  }
+
+  .description-step:nth-child(4) {
+    transform: translateY(42px) scale(0.88);
   }
 }
 </style>
