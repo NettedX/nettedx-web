@@ -3,23 +3,19 @@
     <div class="title-container">
       <p class="data-description">{{ $t('home.data.description') }}</p>
       <h2 class="data-title">
-        <span>
-          <span class="highlight red">{{ $t('home.data.title.more') }}</span>
-          <span>{{ $t('home.data.title.trades') }}</span>
-          <span>{{ $t('home.data.title.space') }}</span>
-        </span>
+        <i18n-t keypath="home.data.title.text" scope="global">
+          <template #More>
+            <span class="highlight red">{{ $t('home.data.title.more') }}</span>
+          </template>
 
-        <span>
-          <span class="highlight yellow">{{ $t('home.data.title.less') }}</span>
-          <span>{{ $t('home.data.title.liquidity') }}</span>
-          <span>{{ $t('home.data.title.space') }}</span>
-        </span>
+          <template #Less>
+            <span class="highlight yellow">{{ $t('home.data.title.less') }}</span>
+          </template>
 
-        <span>
-          <span class="highlight blue">{{ $t('home.data.title.smarter') }}</span>
-          <span>{{ $t('home.data.title.settlement') }}</span>
-          <span>{{ $t('home.data.title.space') }}</span>
-        </span>
+          <template #Smarter>
+            <span class="highlight blue">{{ $t('home.data.title.smarter') }}</span>
+          </template>
+        </i18n-t>
       </h2>
     </div>
 

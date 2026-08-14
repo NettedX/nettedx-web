@@ -39,7 +39,7 @@
       </div>
 
       <div class="impact-grid">
-        <div v-for="item in impactItems" :key="item.key" class="impact-card">
+        <div v-for="(item, index) in impactItems" :key="index" class="impact-card">
           <span class="impact-icon">
             <t-icon :name="item.icon" size="28" style="color: white" />
           </span>
@@ -92,18 +92,22 @@ onBeforeUnmount(() => {
 })
 
 const impactItems = computed(() => [
-  { icon: 'lock-on', index: '01', label: t('home.problem.impacts.capitalLocked') },
+  {
+    icon: 'lock-on',
+    label: t('home.problem.impacts.capitalLocked'),
+  },
   {
     icon: 'trending-up',
-    index: '02',
     label: t('home.problem.impacts.liquidityRequirements'),
   },
   {
     icon: 'currency-exchange',
-    index: '03',
     label: t('home.problem.impacts.settlementOperations'),
   },
-  { icon: 'link-1', index: '04', label: t('home.problem.impacts.onChainActivity') },
+  {
+    icon: 'link-1',
+    label: t('home.problem.impacts.comlex'),
+  },
 ])
 </script>
 

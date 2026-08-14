@@ -30,13 +30,13 @@
       "title": "Why do we need NettedX?",
       "lead": "Traditional settlement is not broken because value is missing. It is expensive because gross obligations keep accumulating, and each movement of value demands fresh liquidity.",
       "traditionalLabel": "Traditional Settlement",
-      "obligations": "Gross obligations pile up.",
+      "obligations": "Every obligation moves in full.",
       "conclusion": "The problem isn't the amount of value being moved. It's how much liquidity must be committed to move it.",
       "impacts": {
         "capitalLocked": "Capital gets locked",
         "liquidityRequirements": "Liquidity requirements increase",
-        "settlementOperations": "More settlement operations",
-        "onChainActivity": "More on-chain activity"
+        "settlementOperations": "More transfers to execute",
+        "comlex": "More complex settlement"
       }
     },
     "fromNTU": {
@@ -47,12 +47,13 @@
       "description": "With NettedX",
       "title": {
         "space": ". ",
-        "trades": " trades",
+        "trades": " Trades",
         "more": "More",
         "smarter": "Smarter",
         "liquidity": " liquidity",
         "settlement": " settlement",
-        "less": "Less"
+        "less": "Less",
+        "text": "{More} Trades. {Less} Capital. {Smarter} Settlement."
       },
       "visualization": {
         "TotalSettlementVolume": "Total Settlement Volume",
@@ -123,12 +124,12 @@
         "desc": "We use smart contracts to record transaction obligations, verify netting results, and execute atomic asset transfers, ensuring that settlement either completes entirely or reverts as a whole."
       },
       "card2": {
-        "title": "Atomic Settlement",
-        "desc": "All netted asset transfers are executed within a single transaction, providing atomicity across participants and eliminating the risk of partial settlement."
-      },
-      "card3": {
         "title": "On-chain Netting Engine",
         "desc": "Transactions are aggregated within fixed netting windows, allowing NettedX to calculate each participant’s net position and compress thousands of bilateral obligations into fewer settlement obligations."
+      },
+      "card3": {
+        "title": "Atomic Settlement",
+        "desc": "All netted asset transfers are executed within a single transaction, providing atomicity across participants and eliminating the risk of partial settlement."
       },
       "card4": {
         "title": "Liquidity Optimization",
@@ -140,23 +141,24 @@
       },
       "card6": {
         "title": "Verifiable Settlement",
-        "desc": "Netting results can be verified on-chain, making settlement amounts transparent and auditable while reducing reliance on centralized clearing infrastructure."
+        "desc": "Settlement results can be independently verified on-chain by authorized participants, providing a tamper-resistant record of netting and settlement while reducing reliance on centralized clearing infrastructure."
       },
       "card7": {
-        "desc": "NettedX calculates net positions independently across different assets and settles them through a unified process, improving capital efficiency across multi-token environments.",
-        "title": "Multi-Asset Netting"
+        "desc": "Net positions are calculated separately for the cash leg and the securities leg, then settled together in a single transaction. Neither side can complete without the other.",
+        "title": "Cross-Asset Netting"
       },
       "card8": {
         "title": "Composable Architecture",
-        "desc": "NettedX provides modular netting and settlement infrastructure that can integrate with existing Web3 applications, protocols, and asset systems."
-      }
+        "desc": "NettedX provides modular netting and settlement infrastructure that can integrate with existing IT system, protocols, and asset systems."
+      },
+      "card33": {}
     },
     "cta": {
       "title": {
         "text": "Ready to Move More With Less?",
         "button": "Try Now"
       },
-      "description": "Let's get started!",
+      "description": "Let's get started from now!",
       "scroll": "NettedX · Where Atomic Settlement Meets Liquidity Efficiency"
     },
     "features": {
