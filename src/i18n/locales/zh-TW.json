@@ -45,7 +45,7 @@
         "liquidity": "流動性",
         "smarter": "更智慧的",
         "less": "更少的",
-        "text": "{Moren}交易，{Less}資金，{Smarter}結算。"
+        "text": "{More}交易，{Less}資金，{Smarter}結算。"
       },
       "visualization": {
         "TotalSettlementVolume": "總結算量",
@@ -78,7 +78,7 @@
         },
         "freeze": {
           "title": "{highlight} · 視窗關閉 & 淨額計算",
-          "text": "從第 11 個區塊開始，新的交易將進入下一個結算視窗。智能合約隨後會根據固定的交易集計算並通知每個參與者的淨頭寸，從而確保結算期間義務的穩定性。",
+          "text": "從第 11 個區塊開始，新的交易將進入下一個結算窗口。智能合約隨後會根據固定的交易集計算並通知每個參與者的淨頭寸，從而確保結算期間義務的穩定性。",
           "highlight": "11區"
         },
         "waiting": {
