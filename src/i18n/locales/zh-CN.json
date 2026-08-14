@@ -45,7 +45,7 @@
         "liquidity": "流动性",
         "smarter": "更智慧的",
         "less": "更少的",
-        "text": "{More}交易，{More}资金，{Smarter}结算。"
+        "text": "{More}交易，{Less}资金，{Smarter}结算。"
       },
       "visualization": {
         "TotalSettlementVolume": "总结算量",

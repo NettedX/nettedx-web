@@ -127,6 +127,7 @@ const shownDataList = computed(() => [
 .data-title {
   font: var(--td-font-headline-large);
   margin: 0;
+  width: 100%;
 }
 
 .highlight {
@@ -220,8 +221,6 @@ const shownDataList = computed(() => [
 
   .data-title {
     font: var(--td-font-headline-medium);
-    display: inline-flex;
-    flex-direction: column;
   }
 
   .compare {
