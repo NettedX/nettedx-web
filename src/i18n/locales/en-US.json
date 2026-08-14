@@ -193,7 +193,7 @@
         "desc": "Compress high-volume trading obligations between institutions into fewer net positions, reducing the capital required for settlement."
       },
       "case3": {
-        "title": "DeFi Settlement",
+        "title": "On-chain Settlement",
         "desc": "Aggregate recurring on-chain obligations across protocols and users before final settlement, reducing unnecessary asset movement on-chain."
       },
       "case4": {
