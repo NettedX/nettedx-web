@@ -105,7 +105,7 @@ const impactItems = computed(() => [
     label: t('home.problem.impacts.settlementOperations'),
   },
   {
-    icon: 'link-1',
+    icon: 'send-cancel',
     label: t('home.problem.impacts.comlex'),
   },
 ])
