@@ -7,9 +7,9 @@ const MODE = 'PROD'
 const appName = 'NettedX'
 
 const _apiUrlConfig = {
-  PROD: 'https://api.nettedx.com',
-  TEST: 'https://apitest.nettedx.com',
-  DEV: 'http://localhost:8000',
+  PROD: 'https://api.nettedx.com/v1',
+  TEST: 'https://apitest.nettedx.com/v1',
+  DEV: 'http://localhost:8000/v1',
 }
 const apiUrl = _apiUrlConfig[MODE] || _apiUrlConfig.DEV
 

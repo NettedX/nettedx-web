@@ -206,5 +206,12 @@
         "desc": "Reduce idle settlement capital by offsetting incoming and outgoing obligations before funds need to move."
       }
     }
+  },
+  "common": {
+    "msg": {
+      "404": "The API you requested is not found.",
+      "500": "Internal Server error, retry later.",
+      "defaultError": "Request failed, check your network connection."
+    }
   }
 }

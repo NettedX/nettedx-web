@@ -2,6 +2,9 @@ import axios from 'axios'
 import config from '@/config'
 import { useAuthStore } from '@/stores/auth'
 import { MessagePlugin } from 'tdesign-vue-next'
+import i18n from '@/i18n'
+
+const t = i18n.global.t
 
 // 创建 axios 实例
 const api = axios.create({
@@ -51,15 +54,17 @@ api.interceptors.response.use(
   },
   (error) => {
     if (error.response.status === 500) {
-      MessagePlugin.error('服务器内部错误，请稍后重试。')
+      MessagePlugin.error(t('common.msg.500'))
     } else if (error.response.status === 404) {
-      MessagePlugin.error('请求的 API 不存在，请检查后重试。')
+      MessagePlugin.error(t('common.msg.404'))
     } else {
-      MessagePlugin.error('请求失败，请稍后重试。')
+      MessagePlugin.error(t('common.msg.defaultError'))
     }
-    console.error('[api.js] API 请求错误：', error)
+    console.error('[API Error]: ', error)
     return Promise.reject(error)
   },
 )
 
 export default api
+
+export { api }
