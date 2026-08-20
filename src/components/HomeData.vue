@@ -42,7 +42,7 @@
     <div class="compare">
       <div class="compare-item">
         <span class="progress-bar traditional" />
-        <div>{{ $t('home.data.compare.without') }} ${{ dataList.totalSettlementVolume }}</div>
+        <div>{{ $t('home.data.compare.without') }} ${{ dataList.totalSettlementAmount }}</div>
       </div>
 
       <div class="compare-item">
@@ -63,32 +63,34 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 import { useLocale } from '@/utils/i18n'
+import api from '@/utils/api'
+import { MessagePlugin } from 'tdesign-vue-next'
 
 const { t } = useLocale()
 
 const dataList = ref({
-  totalSettlementVolume: 1234567,
-  transactionsNetted: 1234567,
-  liquiditySaved: 888888,
-  obligationsReduced: 72,
+  totalSettlementAmount: 0,
+  totalTradeCount: 0,
+  liquiditySaved: 0,
+  obligationsReduced: 0,
 })
 
 const afterNettedVolume = computed(
-  () => dataList.value.totalSettlementVolume - dataList.value.liquiditySaved,
+  () => dataList.value.totalSettlementAmount - dataList.value.liquiditySaved,
 )
 
 const shownDataList = computed(() => [
   {
     title: t('home.data.visualization.TotalSettlementVolume'),
-    value: dataList.value.totalSettlementVolume,
+    value: dataList.value.totalSettlementAmount,
     prefix: '$',
     unit: null,
   },
   {
     title: t('home.data.visualization.TransactionsNetted'),
-    value: dataList.value.transactionsNetted,
+    value: dataList.value.totalTradeCount,
     prefix: null,
     unit: null,
   },
@@ -105,6 +107,24 @@ const shownDataList = computed(() => [
     unit: '%',
   },
 ])
+
+const getData = async () => {
+  try {
+    const res = await api.get('/public/analytics')
+    if (res.data.code == 200) {
+      dataList.value = res.data.data
+    } else {
+      throw new Error(`API error: ${res.data.code} ${res.data.msg}`)
+    }
+  } catch (error) {
+    MessagePlugin.error(t('common.msg.defaultError'))
+    console.error(error)
+  }
+}
+
+onMounted(() => {
+  getData()
+})
 </script>
 
 <style scoped>
