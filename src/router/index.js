@@ -14,6 +14,10 @@ const routes = computed(() => [
         path: '',
         component: () => import('@/views/HomeView.vue'),
       },
+      {
+        path: '/:pathMatch(.*)*',
+        component: () => import('@/views/NotFoundView.vue'),
+      },
     ],
   },
 
@@ -27,11 +31,6 @@ const routes = computed(() => [
         component: () => import('@/views/DashboardView.vue'),
       },
     ],
-  },
-
-  {
-    path: '/:pathMatch(.*)*',
-    component: () => import('@/views/NotFoundView.vue'),
   },
 ])
 

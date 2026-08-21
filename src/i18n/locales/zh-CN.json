@@ -213,5 +213,16 @@
       "500": "服务器内部错误，请稍后重试。",
       "defaultError": "请求失败，请检查您的网络连接。"
     }
+  },
+  "navbar": {
+    "btn": {
+      "login": "登录"
+    }
+  },
+  "notFound": {
+    "description": "你好像迷路了，我们回去吧！",
+    "btn": {
+      "backToHome": "返回首页"
+    }
   }
 }

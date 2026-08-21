@@ -213,5 +213,17 @@
       "500": "Internal Server error, retry later.",
       "defaultError": "Request failed, check your network connection."
     }
+  },
+  "navbar": {
+    "btn": {
+      "login": "Login"
+    }
+  },
+  "notFound": {
+    "title": "404 Not Found",
+    "description": "It seems like you are lost, let's get back!",
+    "btn": {
+      "backToHome": "Back to Home"
+    }
   }
 }
