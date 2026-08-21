@@ -18,7 +18,7 @@
             <template #icon>
               <LoginIcon />
             </template>
-            Login
+            {{ $t('navbar.btn.login') }}
           </t-button>
 
           <div v-else class="user-container">

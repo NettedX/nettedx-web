@@ -213,5 +213,16 @@
       "500": "伺服器內部錯誤，請稍後重試。",
       "defaultError": "請求失敗，請檢查您的網路連線。"
     }
+  },
+  "navbar": {
+    "btn": {
+      "login": "登入"
+    }
+  },
+  "notFound": {
+    "description": "你好像迷路了，我們回去吧！",
+    "btn": {
+      "backToHome": "回首頁"
+    }
   }
 }
