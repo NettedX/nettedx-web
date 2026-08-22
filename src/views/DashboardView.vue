@@ -7,83 +7,150 @@
         <p>{{ t('dashboard.subtitle') }}</p>
       </div>
 
-      <div class="forecast-card">
-        <div class="forecast-card__title-row">
-          <div class="forecast-card__title">{{ t('dashboard.forecast.title') }}</div>
-          <t-tooltip :content="t('dashboard.forecast.refresh')">
-            <t-button
-              variant="text"
-              theme="default"
-              size="small"
-              :loading="loading"
-              @click="fetchForecast"
-            >
-              <template #icon>
-                <RefreshIcon />
-              </template>
-            </t-button>
-          </t-tooltip>
-        </div>
-        <p class="forecast-card__desc">{{ t('dashboard.forecast.desc') }}</p>
-
-        <div class="forecast-body">
-          <div class="block-visual">
-            <span ref="blockCoreRef" class="block-visual__core active">
-              <LayersIcon size="28px" />
-            </span>
-            <span class="block-visual__label">
-              {{ t('dashboard.forecast.active') }}
-            </span>
-          </div>
-
-          <div class="stat-grid">
-            <div class="stat-item">
-              <span class="stat-item__label">
-                <RootListIcon /> {{ t('dashboard.forecast.windowId') }}
-              </span>
-              <span class="stat-item__value">{{ forecast.windowId ?? '-' }}</span>
+      <div class="dashboard-grid">
+        <div class="forecast-card">
+          <div class="forecast-card__title-row">
+            <div class="forecast-card__title">
+              <TaskTimeIcon /> {{ t('dashboard.forecast.title') }}
             </div>
-            <div class="stat-item">
-              <span class="stat-item__label">
-                <ChartRing1Icon /> {{ t('dashboard.forecast.settlementBlock') }}
-              </span>
-              <span class="stat-item__value">{{ forecast.settlementBlock ?? '-' }}</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-item__label">
-                <HourglassIcon /> {{ t('dashboard.forecast.blocksRemaining') }}
-              </span>
-              <span class="stat-item__value">
-                <template v-if="forecast.blocksRemaining === 0">
-                  {{ t('dashboard.forecast.reached') }}
-                </template>
-                <template v-else>
-                  {{ forecast.blocksRemaining ?? '-' }}
-                  <span v-if="forecast.blocksRemaining != null" class="stat-item__unit">{{
-                    t('dashboard.forecast.blocksUnit')
-                  }}</span>
-                </template>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <p class="forecast-card__footer">
-          {{ t('dashboard.forecast.lastUpdated.label', { time: lastUpdatedText }) }}
-        </p>
-      </div>
-
-      <div class="panel-grid">
-        <div class="panel-card">
-          <div class="panel-card__title-row">
-            <div class="panel-card__title">{{ t('dashboard.netPositions.title') }}</div>
             <t-tooltip :content="t('dashboard.forecast.refresh')">
               <t-button
                 variant="text"
                 theme="default"
                 size="small"
-                :loading="netPositions.loading"
-                @click="fetchNetPositions"
+                :loading="loading"
+                @click="fetchForecast"
+              >
+                <template #icon>
+                  <RefreshIcon />
+                </template>
+              </t-button>
+            </t-tooltip>
+          </div>
+          <p class="forecast-card__desc">{{ t('dashboard.forecast.desc') }}</p>
+
+          <div class="forecast-body">
+            <div class="block-visual">
+              <span ref="blockCoreRef" class="block-visual__core active">
+                <LayersIcon size="28px" />
+              </span>
+              <span class="block-visual__label">
+                {{ t('dashboard.forecast.active') }}
+              </span>
+            </div>
+
+            <div class="stat-grid">
+              <div class="stat-item">
+                <span class="stat-item__label">
+                  <RootListIcon /> {{ t('dashboard.forecast.windowId') }}
+                </span>
+                <span v-if="loading" class="stat-item__value stat-item__value--loading">
+                  <t-skeleton theme="text" animation="gradient" />
+                </span>
+                <span v-else class="stat-item__value">{{ forecast.windowId ?? '-' }}</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-item__label">
+                  <ChartRing1Icon /> {{ t('dashboard.forecast.settlementBlock') }}
+                </span>
+                <span v-if="loading" class="stat-item__value stat-item__value--loading">
+                  <t-skeleton theme="text" animation="gradient" />
+                </span>
+                <span v-else class="stat-item__value">{{ forecast.settlementBlock ?? '-' }}</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-item__label">
+                  <HourglassIcon /> {{ t('dashboard.forecast.blocksRemaining') }}
+                </span>
+                <span v-if="loading" class="stat-item__value stat-item__value--loading">
+                  <t-skeleton theme="text" animation="gradient" />
+                </span>
+                <span v-else class="stat-item__value">
+                  <template v-if="forecast.blocksRemaining === 0">
+                    {{ t('dashboard.forecast.reached') }}
+                  </template>
+                  <template v-else>
+                    {{ forecast.blocksRemaining ?? '-' }}
+                    <span v-if="forecast.blocksRemaining != null" class="stat-item__unit">{{
+                      t('dashboard.forecast.blocksUnit')
+                    }}</span>
+                  </template>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <p class="forecast-card__footer">
+            {{ t('dashboard.forecast.lastUpdated.label', { time: lastUpdatedText }) }}
+          </p>
+        </div>
+
+        <div class="panel-card">
+          <div class="panel-card__title-row">
+            <div class="panel-card__title">
+              <WalletIcon /> {{ t('dashboard.walletBalances.title') }}
+            </div>
+            <t-tooltip :content="t('dashboard.forecast.refresh')">
+              <t-button
+                variant="text"
+                theme="default"
+                size="small"
+                :loading="overviewLoading"
+                @click="fetchOverview"
+              >
+                <template #icon>
+                  <RefreshIcon />
+                </template>
+              </t-button>
+            </t-tooltip>
+          </div>
+          <p class="panel-card__desc">{{ t('dashboard.walletBalances.desc') }}</p>
+
+          <t-skeleton
+            v-if="overviewLoading"
+            theme="paragraph"
+            animation="gradient"
+            :row-col="[{ width: '100%' }, { width: '88%' }, { width: '76%' }]"
+            class="panel-card__data-skeleton"
+          />
+          <t-empty
+            v-else-if="!overview.balances?.length"
+            :description="t('dashboard.walletBalances.empty')"
+          />
+          <ul v-else class="asset-list">
+            <li
+              v-for="item in overview.balances"
+              :key="item.asset.address"
+              class="asset-list__item"
+            >
+              <span class="asset-list__address">{{
+                item.asset.name || formatAsset(item.asset)
+              }}</span>
+              <span class="asset-list__amounts">
+                <span class="asset-list__amount">
+                  {{ t('dashboard.walletBalances.balance') }}: {{ formatAmount(item.amount) }}
+                  {{ item.asset.symbol }}
+                </span>
+              </span>
+            </li>
+          </ul>
+          <p class="panel-card__footer">
+            {{ t('dashboard.forecast.lastUpdated.label', { time: overviewLastUpdatedText }) }}
+          </p>
+        </div>
+
+        <div class="panel-card">
+          <div class="panel-card__title-row">
+            <div class="panel-card__title">
+              <CurrencyExchangeIcon /> {{ t('dashboard.netPositions.title') }}
+            </div>
+            <t-tooltip :content="t('dashboard.forecast.refresh')">
+              <t-button
+                variant="text"
+                theme="default"
+                size="small"
+                :loading="overviewLoading"
+                @click="fetchOverview"
               >
                 <template #icon>
                   <RefreshIcon />
@@ -93,44 +160,51 @@
           </div>
           <p class="panel-card__desc">{{ t('dashboard.netPositions.desc') }}</p>
 
+          <t-skeleton
+            v-if="overviewLoading"
+            theme="paragraph"
+            animation="gradient"
+            :row-col="[{ width: '100%' }, { width: '88%' }, { width: '76%' }]"
+            class="panel-card__data-skeleton"
+          />
           <t-empty
-            v-if="!netPositions.items.length"
+            v-else-if="!overview.netAmounts?.length"
             :description="t('dashboard.netPositions.empty')"
           />
           <ul v-else class="asset-list">
-            <li v-for="item in netPositions.items" :key="item.asset" class="asset-list__item">
-              <span class="asset-list__address">{{ shortenAddress(item.asset) }}</span>
+            <li
+              v-for="item in overview.netAmounts"
+              :key="item.asset.address"
+              class="asset-list__item"
+            >
+              <span class="asset-list__address">{{
+                item.asset.name || formatAsset(item.asset)
+              }}</span>
               <span class="asset-list__amounts">
                 <span class="asset-list__amount asset-list__amount--payable">
-                  {{ t('dashboard.netPositions.payable') }}: {{ formatAmount(item.payableAmount) }}
-                </span>
-                <span class="asset-list__amount asset-list__amount--receivable">
-                  {{ t('dashboard.netPositions.receivable') }}:
-                  {{ formatAmount(item.receivableAmount) }}
+                  {{ t('dashboard.netPositions.amount') }}: {{ formatAmount(item.amount) }}
+                  {{ item.asset.symbol }}
                 </span>
               </span>
             </li>
           </ul>
-
           <p class="panel-card__footer">
-            {{
-              t('dashboard.forecast.lastUpdated.label', {
-                time: formatRelativeTime(netPositions.lastUpdatedAt),
-              })
-            }}
+            {{ t('dashboard.forecast.lastUpdated.label', { time: overviewLastUpdatedText }) }}
           </p>
         </div>
 
         <div class="panel-card">
           <div class="panel-card__title-row">
-            <div class="panel-card__title">{{ t('dashboard.assetRequirements.title') }}</div>
+            <div class="panel-card__title">
+              <ChartAnalyticsIcon /> {{ t('dashboard.assetRequirements.title') }}
+            </div>
             <t-tooltip :content="t('dashboard.forecast.refresh')">
               <t-button
                 variant="text"
                 theme="default"
                 size="small"
-                :loading="assetRequirements.loading"
-                @click="fetchAssetRequirements"
+                :loading="overviewLoading"
+                @click="fetchOverview"
               >
                 <template #icon>
                   <RefreshIcon />
@@ -140,41 +214,51 @@
           </div>
           <p class="panel-card__desc">{{ t('dashboard.assetRequirements.desc') }}</p>
 
+          <t-skeleton
+            v-if="overviewLoading"
+            theme="paragraph"
+            animation="gradient"
+            :row-col="[{ width: '100%' }, { width: '88%' }, { width: '76%' }]"
+            class="panel-card__data-skeleton"
+          />
           <t-empty
-            v-if="!assetRequirements.items.length"
+            v-else-if="!overview.cumulativeGrossTradeAmounts?.length"
             :description="t('dashboard.assetRequirements.empty')"
           />
           <ul v-else class="asset-list">
-            <li v-for="item in assetRequirements.items" :key="item.asset" class="asset-list__item">
-              <span class="asset-list__address">{{ shortenAddress(item.asset) }}</span>
+            <li
+              v-for="item in overview.cumulativeGrossTradeAmounts"
+              :key="item.asset.address"
+              class="asset-list__item"
+            >
+              <span class="asset-list__address">{{
+                item.asset.name || formatAsset(item.asset)
+              }}</span>
               <span class="asset-list__amounts">
                 <span class="asset-list__amount">
-                  {{ t('dashboard.assetRequirements.required') }}:
-                  {{ formatAmount(item.requiredAmount) }}
+                  {{ t('dashboard.assetRequirements.required') }}: {{ formatAmount(item.amount) }}
+                  {{ item.asset.symbol }}
                 </span>
               </span>
             </li>
           </ul>
-
           <p class="panel-card__footer">
-            {{
-              t('dashboard.forecast.lastUpdated.label', {
-                time: formatRelativeTime(assetRequirements.lastUpdatedAt),
-              })
-            }}
+            {{ t('dashboard.forecast.lastUpdated.label', { time: overviewLastUpdatedText }) }}
           </p>
         </div>
 
         <div class="panel-card">
           <div class="panel-card__title-row">
-            <div class="panel-card__title">{{ t('dashboard.liquidityShortfalls.title') }}</div>
+            <div class="panel-card__title">
+              <MoneyIcon /> {{ t('dashboard.liquidityShortfalls.title') }}
+            </div>
             <t-tooltip :content="t('dashboard.forecast.refresh')">
               <t-button
                 variant="text"
                 theme="default"
                 size="small"
-                :loading="liquidityShortfalls.loading"
-                @click="fetchLiquidityShortfalls"
+                :loading="overviewLoading"
+                @click="fetchOverview"
               >
                 <template #icon>
                   <RefreshIcon />
@@ -184,40 +268,36 @@
           </div>
           <p class="panel-card__desc">{{ t('dashboard.liquidityShortfalls.desc') }}</p>
 
+          <t-skeleton
+            v-if="overviewLoading"
+            theme="paragraph"
+            animation="gradient"
+            :row-col="[{ width: '100%' }, { width: '88%' }, { width: '76%' }]"
+            class="panel-card__data-skeleton"
+          />
           <t-empty
-            v-if="!liquidityShortfalls.items.length"
+            v-else-if="!overview.liquidityBufferDebts?.length"
             :description="t('dashboard.liquidityShortfalls.empty')"
           />
           <ul v-else class="asset-list">
             <li
-              v-for="item in liquidityShortfalls.items"
-              :key="item.asset"
+              v-for="item in overview.liquidityBufferDebts"
+              :key="item.asset.address"
               class="asset-list__item"
             >
-              <span class="asset-list__address">{{ shortenAddress(item.asset) }}</span>
+              <span class="asset-list__address">{{
+                item.asset.name || formatAsset(item.asset)
+              }}</span>
               <span class="asset-list__amounts">
                 <span class="asset-list__amount">
-                  {{ t('dashboard.liquidityShortfalls.required') }}:
-                  {{ formatAmount(item.requiredAmount) }}
-                </span>
-                <span class="asset-list__amount">
-                  {{ t('dashboard.liquidityShortfalls.available') }}:
-                  {{ formatAmount(item.availableBalance) }}
-                </span>
-                <span class="asset-list__amount asset-list__amount--payable">
-                  {{ t('dashboard.liquidityShortfalls.borrow') }}:
-                  {{ formatAmount(item.borrowAmount) }}
+                  {{ t('dashboard.liquidityShortfalls.amount') }}: {{ formatAmount(item.amount) }}
+                  {{ item.asset.symbol }}
                 </span>
               </span>
             </li>
           </ul>
-
           <p class="panel-card__footer">
-            {{
-              t('dashboard.forecast.lastUpdated.label', {
-                time: formatRelativeTime(liquidityShortfalls.lastUpdatedAt),
-              })
-            }}
+            {{ t('dashboard.forecast.lastUpdated.label', { time: overviewLastUpdatedText }) }}
           </p>
         </div>
       </div>
@@ -235,6 +315,11 @@ import {
   RootListIcon,
   ChartRing1Icon,
   HourglassIcon,
+  TaskTimeIcon,
+  WalletIcon,
+  CurrencyExchangeIcon,
+  ChartAnalyticsIcon,
+  MoneyIcon,
 } from 'tdesign-icons-vue-next'
 import api from '@/utils/api'
 import { useLocale } from '@/utils/i18n'
@@ -327,6 +412,13 @@ function shortenAddress(address) {
   return `${address.slice(0, 6)}...${address.slice(-4)}`
 }
 
+function formatAsset(asset) {
+  if (!asset) {
+    return '-'
+  }
+  return asset.symbol || shortenAddress(asset.address)
+}
+
 function formatAmount(amount) {
   if (amount === null || amount === undefined) {
     return '-'
@@ -334,61 +426,31 @@ function formatAmount(amount) {
   return Number(amount).toLocaleString()
 }
 
-const netPositions = ref({ items: [], loading: false, lastUpdatedAt: null })
-const assetRequirements = ref({ items: [], loading: false, lastUpdatedAt: null })
-const liquidityShortfalls = ref({ items: [], loading: false, lastUpdatedAt: null })
+const overview = ref({
+  balances: [],
+  netAmounts: [],
+  cumulativeGrossTradeAmounts: [],
+  liquidityBufferDebts: [],
+})
+const overviewLoading = ref(false)
+const overviewLastUpdatedAt = ref(null)
+const overviewLastUpdatedText = computed(() => formatRelativeTime(overviewLastUpdatedAt.value))
 
-async function fetchNetPositions() {
-  netPositions.value.loading = true
+async function fetchOverview() {
+  overviewLoading.value = true
   try {
-    const res = await api({ method: 'get', url: '/dashboard/net-positions' })
+    const res = await api({ method: 'get', url: '/dashboard/overview' })
     if (res.data.code === 200) {
-      netPositions.value.items = res.data.data
-      netPositions.value.lastUpdatedAt = new Date()
+      overview.value = res.data.data
+      overviewLastUpdatedAt.value = res.data.time ? new Date(res.data.time * 1000) : new Date()
     } else {
       throw new Error(res.data.msg)
     }
   } catch (e) {
     console.error(e)
-    MessagePlugin.error(t('dashboard.netPositions.msg.fetchFailed'))
+    MessagePlugin.error(t('dashboard.overview.msg.fetchFailed'))
   } finally {
-    netPositions.value.loading = false
-  }
-}
-
-async function fetchAssetRequirements() {
-  assetRequirements.value.loading = true
-  try {
-    const res = await api({ method: 'get', url: '/dashboard/settlement-asset-requirements' })
-    if (res.data.code === 200) {
-      assetRequirements.value.items = res.data.data
-      assetRequirements.value.lastUpdatedAt = new Date()
-    } else {
-      throw new Error(res.data.msg)
-    }
-  } catch (e) {
-    console.error(e)
-    MessagePlugin.error(t('dashboard.assetRequirements.msg.fetchFailed'))
-  } finally {
-    assetRequirements.value.loading = false
-  }
-}
-
-async function fetchLiquidityShortfalls() {
-  liquidityShortfalls.value.loading = true
-  try {
-    const res = await api({ method: 'get', url: '/dashboard/liquidity-shortfalls' })
-    if (res.data.code === 200) {
-      liquidityShortfalls.value.items = res.data.data
-      liquidityShortfalls.value.lastUpdatedAt = new Date()
-    } else {
-      throw new Error(res.data.msg)
-    }
-  } catch (e) {
-    console.error(e)
-    MessagePlugin.error(t('dashboard.liquidityShortfalls.msg.fetchFailed'))
-  } finally {
-    liquidityShortfalls.value.loading = false
+    overviewLoading.value = false
   }
 }
 
@@ -396,14 +458,9 @@ onMounted(async () => {
   clockTimer = setInterval(() => {
     currentTime.value = new Date()
   }, 1000)
-  await Promise.all([
-    fetchForecast(),
-    fetchNetPositions(),
-    fetchAssetRequirements(),
-    fetchLiquidityShortfalls(),
-  ])
+  await Promise.all([fetchForecast(), fetchOverview()])
   startBreathing()
-  pollTimer = setInterval(fetchForecast, 5000)
+  pollTimer = setInterval(fetchForecast, 60 * 1000)
 })
 
 onBeforeUnmount(() => {
@@ -463,11 +520,23 @@ onBeforeUnmount(() => {
 
 .forecast-card {
   position: relative;
-  max-width: 640px;
+  grid-column: span 2;
   padding: 2rem;
   border-radius: 28px;
   background-color: var(--td-bg-color-container);
   border: 1px solid var(--td-component-stroke);
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 678px) {
+  .forecast-card {
+    grid-column: span 1;
+  }
 }
 
 .forecast-card__title-row {
@@ -479,6 +548,9 @@ onBeforeUnmount(() => {
 .forecast-card__title {
   font: var(--td-font-title-large);
   color: var(--td-text-color-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .forecast-card__desc {
@@ -541,6 +613,7 @@ onBeforeUnmount(() => {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  height: 1.5rem;
 }
 
 .stat-item__label {
@@ -569,13 +642,6 @@ onBeforeUnmount(() => {
   color: var(--td-text-color-placeholder);
 }
 
-.panel-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-}
-
 .panel-card {
   padding: 2rem;
   border-radius: 28px;
@@ -592,6 +658,9 @@ onBeforeUnmount(() => {
 .panel-card__title {
   font: var(--td-font-title-large);
   color: var(--td-text-color-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .panel-card__desc {
@@ -605,6 +674,14 @@ onBeforeUnmount(() => {
   text-align: right;
   font: var(--td-font-body-small);
   color: var(--td-text-color-placeholder);
+}
+
+.panel-card__data-skeleton {
+  min-height: 6.5rem;
+}
+
+.stat-item__value--loading {
+  width: 7rem;
 }
 
 .asset-list {
