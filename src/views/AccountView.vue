@@ -257,6 +257,7 @@ async function copyField(value, label) {
   margin: 0;
   font: var(--td-font-title-large);
   color: var(--td-text-color-primary);
+  text-align: center;
 }
 
 .summary__meta {
