@@ -12,10 +12,11 @@
           <t-input
             v-model="hashInput"
             clearable
+            size="large"
             :placeholder="t('verify.placeholder')"
             @enter="verify"
           />
-          <t-button theme="primary" :loading="verifying" @click="verify">
+          <t-button theme="primary" :loading="verifying" size="large" @click="verify">
             {{ t('verify.button') }}
           </t-button>
         </div>
