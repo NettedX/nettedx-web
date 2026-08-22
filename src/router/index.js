@@ -2,6 +2,7 @@ import { computed } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import i18n from '@/i18n'
 import config from '@/config'
+import { useAuthStore } from '@/stores/auth'
 
 const t = i18n.global.t
 
@@ -15,6 +16,10 @@ const routes = computed(() => [
         component: () => import('@/views/HomeView.vue'),
       },
       {
+        path: '/login',
+        component: () => import('@/views/LoginView.vue'),
+      },
+      {
         path: '/:pathMatch(.*)*',
         component: () => import('@/views/NotFoundView.vue'),
       },
@@ -24,6 +29,7 @@ const routes = computed(() => [
   {
     path: '',
     component: () => import('@/layouts/AppLayout.vue'),
+    meta: { requiresAuth: true },
     children: [
       {
         path: 'dashboard',
@@ -60,6 +66,19 @@ router.beforeEach((to) => {
     document.title = `${title} - ${config.appName}`
   } else {
     document.title = `${config.appName} - ${t('slogan')}`
+  }
+
+  const authStore = useAuthStore()
+
+  // login
+  if (to.path === '/login' && authStore.isLogined) {
+    router.push('/dashboard')
+  }
+
+  // requires auth
+  if (to.meta.requiresAuth && !authStore.isLogined) {
+    const redirect = encodeURIComponent(to.fullPath)
+    router.push(`/login?redirect=${redirect}`)
   }
 })
 

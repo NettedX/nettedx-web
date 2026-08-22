@@ -7,7 +7,7 @@
         </RouterLink>
       </template>
 
-      <template #operations>
+      <template v-if="$route.path !== '/login'" #operations>
         <div class="operations">
           <t-button
             v-if="!authStore.isLogined"
@@ -21,7 +21,7 @@
             {{ $t('navbar.btn.login') }}
           </t-button>
 
-          <div v-else class="user-container">
+          <div v-else>
             <t-dropdown
               placement="bottom-right"
               trigger="click"
@@ -29,12 +29,25 @@
               :max-height="400"
               direction="left"
             >
+              <t-avatar class="user-avatar" :size="32">
+                <template #icon>
+                  <UserIcon />
+                </template>
+              </t-avatar>
+
               <t-dropdown-menu>
-                <t-dropdown-item value="nickname" @click="$router.push('/account')">
+                <t-dropdown-item value="displayName" @click="$router.push('/account')">
                   <template #prefixIcon>
                     <UserIcon />
                   </template>
-                  {{ authStore.userProfile?.nickname || '未命名用户' }}
+                  {{ authStore.userProfile?.displayName }}
+                </t-dropdown-item>
+
+                <t-dropdown-item value="dashboard" @click="$router.push('/dashboard')">
+                  <template #prefixIcon>
+                    <Dashboard1Icon />
+                  </template>
+                  <span>{{ $t('navbar.item.dashboard') }}</span>
                 </t-dropdown-item>
 
                 <t-dropdown-item
@@ -42,7 +55,7 @@
                   theme="error"
                   @click="
                     () => {
-                      MessagePlugin.success('已退出登录')
+                      MessagePlugin.success($t('navbar.msg.logout'))
                       authStore.logout()
                     }
                   "
@@ -50,7 +63,7 @@
                   <template #prefixIcon>
                     <LogoutIcon />
                   </template>
-                  <span>退出登录</span>
+                  <span>{{ $t('navbar.item.logout') }}</span>
                 </t-dropdown-item>
               </t-dropdown-menu>
             </t-dropdown>
@@ -62,7 +75,7 @@
 </template>
 
 <script setup>
-import { UserIcon, LoginIcon, LogoutIcon } from 'tdesign-icons-vue-next'
+import { UserIcon, LoginIcon, LogoutIcon, Dashboard1Icon } from 'tdesign-icons-vue-next'
 import { useAuthStore } from '@/stores/auth'
 import { MessagePlugin } from 'tdesign-vue-next'
 
@@ -99,5 +112,9 @@ const authStore = useAuthStore()
   align-items: center;
   gap: 1rem;
   padding-right: 1rem;
+}
+
+.user-avatar {
+  cursor: pointer;
 }
 </style>

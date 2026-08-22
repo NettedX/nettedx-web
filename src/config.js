@@ -13,7 +13,10 @@ const _apiUrlConfig = {
 }
 const apiUrl = _apiUrlConfig[MODE] || _apiUrlConfig.DEV
 
+const rpcUrl = 'https://rpc.nettedx.com'
+
 export default {
   appName,
   apiUrl,
+  rpcUrl,
 }
