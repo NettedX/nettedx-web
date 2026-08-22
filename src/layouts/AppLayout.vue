@@ -56,5 +56,6 @@ import SiderBar from '@/components/SiderBar.vue'
   padding: 1rem;
   font: var(--td-font-body-small);
   color: var(--td-text-color-placeholder);
+  margin-top: 2rem;
 }
 </style>
