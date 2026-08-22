@@ -26,17 +26,7 @@
     <div class="footer-bottom">
       <span>© {{ currentYear }} NettedX {{ t('footer.rights') }}</span>
 
-      <div class="language-selector">
-        <earth-icon class="icon" size="32" />
-        <t-select borderless auto-width :value="locale" @change="handleLocaleChange">
-          <t-option
-            v-for="option in localeOptions"
-            :key="option.value"
-            :label="option.label"
-            :value="option.value"
-          />
-        </t-select>
-      </div>
+      <LanguageSelector />
     </div>
 
     <div class="language-wrapper"></div>
@@ -46,14 +36,10 @@
 <script setup>
 import { computed } from 'vue'
 import { useLocale } from '@/utils/i18n'
-import { EarthIcon } from 'tdesign-icons-vue-next'
-const { locale, t, localeOptions, changeLocale } = useLocale()
+import LanguageSelector from '@/components/LanguageSelector.vue'
+const { t } = useLocale()
 
 const currentYear = computed(() => new Date().getFullYear())
-
-function handleLocaleChange(newLocale) {
-  changeLocale(newLocale)
-}
 </script>
 
 <style scoped>
@@ -136,16 +122,5 @@ function handleLocaleChange(newLocale) {
   margin-top: 1rem;
   padding: 1rem 0;
   box-sizing: border-box;
-}
-
-.language-selector {
-  width: fit-content;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.language-selector .icon {
-  color: var(--td-brand-color);
 }
 </style>

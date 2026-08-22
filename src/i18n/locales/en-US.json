@@ -299,7 +299,8 @@
     },
     "item": {
       "logout": "Logout",
-      "dashboard": "Dashboard"
+      "dashboard": "Dashboard",
+      "language": "Language"
     }
   },
   "notFound": {

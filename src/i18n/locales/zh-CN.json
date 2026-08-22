@@ -299,7 +299,8 @@
     },
     "item": {
       "logout": "注销",
-      "dashboard": "仪表板"
+      "dashboard": "仪表板",
+      "language": "语言"
     }
   },
   "notFound": {

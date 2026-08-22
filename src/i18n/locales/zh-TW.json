@@ -299,7 +299,8 @@
     },
     "item": {
       "logout": "註銷",
-      "dashboard": "儀表板"
+      "dashboard": "儀表板",
+      "language": "語言"
     }
   },
   "notFound": {
