@@ -211,7 +211,8 @@
     "msg": {
       "404": "您所請求的 API 不存在。",
       "500": "伺服器內部錯誤，請稍後重試。",
-      "defaultError": "請求失敗，請檢查您的網路連線。"
+      "defaultError": "請求失敗，請檢查您的網路連線。",
+      "sessionExpired": "會話已過期，請重新登入。"
     }
   },
   "navbar": {
@@ -223,6 +224,15 @@
     "description": "你好像迷路了，我們回去吧！",
     "btn": {
       "backToHome": "回首頁"
+    }
+  },
+  "login": {
+    "title": "歡迎回到 NettedX！",
+    "subtitle": "登入方便，使用簡單。",
+    "btn": "使用電子錢包繼續",
+    "msg": {
+      "failedVerify": "驗證失敗。",
+      "success": "登入成功"
     }
   }
 }

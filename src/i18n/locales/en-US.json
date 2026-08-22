@@ -211,7 +211,8 @@
     "msg": {
       "404": "The API you requested is not found.",
       "500": "Internal Server error, retry later.",
-      "defaultError": "Request failed, check your network connection."
+      "defaultError": "Request failed, check your network connection.",
+      "sessionExpired": "Session expired, please login again"
     }
   },
   "navbar": {
@@ -224,6 +225,16 @@
     "description": "It seems like you are lost, let's get back!",
     "btn": {
       "backToHome": "Back to Home"
+    }
+  },
+  "login": {
+    "title": "Welcome back to NettedX!",
+    "subtitle": "Easy login, esay use.",
+    "btn": "Continue with e-wallet",
+    "msg": {
+      "failedGetNonce": "Failed to get nonce from server",
+      "failedVerify": "Failed to verify.",
+      "success": "Login success"
     }
   }
 }
