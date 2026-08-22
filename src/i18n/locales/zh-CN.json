@@ -1,6 +1,28 @@
 {
   "dashboard": {
-    "title": "仪表板"
+    "title": "仪表板",
+    "subtitle": "实时监控净额结算窗口与目标结算区块",
+    "forecast": {
+      "title": "结算窗口预测",
+      "desc": "数据来自链上合约的只读调用，不发送交易，不消耗 Gas",
+      "refresh": "刷新",
+      "active": "活跃中",
+      "windowId": "待结算窗口 ID",
+      "settlementBlock": "目标结算区块",
+      "blocksRemaining": "剩余区块数",
+      "blocksUnit": "个区块",
+      "reached": "已到达目标区块",
+      "lastUpdated": {
+        "label": "最后更新于 {time}",
+        "justNow": "刚刚",
+        "minutesAgo": "{minutes} 分钟前",
+        "hoursAgo": "{hours} 小时前",
+        "daysAgo": "{days} 天前"
+      },
+      "msg": {
+        "fetchFailed": "获取结算窗口预测失败"
+      }
+    }
   },
   "account": {
     "title": "账户中心",

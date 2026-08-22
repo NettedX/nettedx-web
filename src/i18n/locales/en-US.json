@@ -1,6 +1,28 @@
 {
   "dashboard": {
-    "title": "Dashboard"
+    "title": "Dashboard",
+    "subtitle": "Real-time monitoring of the settlement window and target block",
+    "forecast": {
+      "title": "Settlement Window Forecast",
+      "desc": "Data is read via an on-chain read-only call. No transaction is sent and no gas is consumed.",
+      "refresh": "Refresh",
+      "active": "Active",
+      "windowId": "Pending Window ID",
+      "settlementBlock": "Target Settlement Block",
+      "blocksRemaining": "Blocks Remaining",
+      "blocksUnit": "blocks",
+      "reached": "Target block reached",
+      "lastUpdated": {
+        "label": "Last updated at {time}",
+        "justNow": "just now",
+        "minutesAgo": "{minutes} minutes ago",
+        "hoursAgo": "{hours} hours ago",
+        "daysAgo": "{days} days ago"
+      },
+      "msg": {
+        "fetchFailed": "Failed to fetch settlement window forecast"
+      }
+    }
   },
   "account": {
     "title": "Account",

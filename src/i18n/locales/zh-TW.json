@@ -1,6 +1,28 @@
 {
   "dashboard": {
-    "title": "儀表板"
+    "title": "儀表板",
+    "subtitle": "即時監控淨額結算窗口與目標結算區塊",
+    "forecast": {
+      "title": "結算窗口預測",
+      "desc": "數據來自鏈上合約的只讀調用，不發送交易，不消耗 Gas",
+      "refresh": "刷新",
+      "active": "活躍中",
+      "windowId": "待結算窗口 ID",
+      "settlementBlock": "目標結算區塊",
+      "blocksRemaining": "剩餘區塊數",
+      "blocksUnit": "個區塊",
+      "reached": "已到達目標區塊",
+      "lastUpdated": {
+        "label": "最後更新於 {time}",
+        "justNow": "剛剛",
+        "minutesAgo": "{minutes} 分鐘前",
+        "hoursAgo": "{hours} 小時前",
+        "daysAgo": "{days} 天前"
+      },
+      "msg": {
+        "fetchFailed": "獲取結算窗口預測失敗"
+      }
+    }
   },
   "account": {
     "title": "帳戶中心",
