@@ -34,10 +34,13 @@ import config from '@/config'
 import { MessagePlugin } from 'tdesign-vue-next'
 import { useLocale } from '@/utils/i18n'
 import { useAuthStore } from '@/stores/auth'
+import { useRoute, useRouter } from 'vue-router'
 
 const { t } = useLocale()
 
 const authStore = useAuthStore()
+const route = useRoute()
+const router = useRouter()
 
 async function loginSIWE() {
   const anvil = defineChain({
@@ -91,6 +94,8 @@ async function loginSIWE() {
     authStore.accessToken = verifyRes.data.data.access
     authStore.refreshToken = verifyRes.data.data.refresh
     await authStore.requestUserProfile()
+    const redirect = route.query.redirect || '/dashboard'
+    router.push(redirect)
   } else {
     MessagePlugin.error(t('login.msg.failedVerify'))
   }
