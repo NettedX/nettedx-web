@@ -218,6 +218,13 @@
   "navbar": {
     "btn": {
       "login": "Login"
+    },
+    "msg": {
+      "logout": "Logout success"
+    },
+    "item": {
+      "logout": "Logout",
+      "dashboard": "Dashboard"
     }
   },
   "notFound": {

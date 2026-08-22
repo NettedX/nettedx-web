@@ -218,6 +218,13 @@
   "navbar": {
     "btn": {
       "login": "登入"
+    },
+    "msg": {
+      "logout": "登出成功"
+    },
+    "item": {
+      "logout": "註銷",
+      "dashboard": "儀表板"
     }
   },
   "notFound": {
