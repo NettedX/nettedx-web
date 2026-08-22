@@ -36,6 +36,11 @@ const routes = computed(() => [
         meta: { title: t('dashboard.title') },
         component: () => import('@/views/DashboardView.vue'),
       },
+      {
+        path: 'account',
+        meta: { title: t('account.title') },
+        component: () => import('@/views/AccountView.vue'),
+      }
     ],
   },
 ])
