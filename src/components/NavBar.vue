@@ -29,7 +29,7 @@
               :max-height="400"
               direction="left"
             >
-              <t-avatar class="user-avatar" :size="32">
+              <t-avatar class="user-avatar" size="32">
                 <template #icon>
                   <UserIcon />
                 </template>
