@@ -4,7 +4,7 @@
     "subtitle": "即時監控淨額結算窗口與目標結算區塊",
     "forecast": {
       "title": "結算窗口預測",
-      "desc": "數據來自鏈上合約的只讀調用，不發送交易，不消耗 Gas",
+      "desc": "掌握本輪結算進度，提前做好資金安排",
       "refresh": "刷新",
       "active": "活躍中",
       "windowId": "待結算窗口 ID",
@@ -23,33 +23,51 @@
         "fetchFailed": "獲取結算窗口預測失敗"
       }
     },
+    "overview": {
+      "msg": {
+        "fetchFailed": "獲取儀表板概覽失敗"
+      }
+    },
+    "accountBalances": {
+      "title": "帳戶餘額",
+      "desc": "即時掌握帳戶中各項資產的可用餘額",
+      "balance": "餘額",
+      "empty": "目前無帳戶餘額"
+    },
+    "cumulativeTradeCount": {
+      "title": "累計交易筆數",
+      "desc": "了解帳戶累計參與的交易規模",
+      "label": "交易筆數"
+    },
     "asset": "資產地址",
-    "netPositions": {
-      "title": "淨結算頭寸",
-      "desc": "當前銀行每種資產的應付/應收數量",
+    "settlementNetAmounts": {
+      "title": "結算淨額",
+      "desc": "一目了然地了解本輪結算後的資金變化",
       "payable": "應付數量",
       "receivable": "應收數量",
-      "empty": "當前無淨結算頭寸",
+      "amount": "淨額",
+      "empty": "目前沒有淨結算義務",
       "msg": {
         "fetchFailed": "獲取淨結算頭寸失敗"
       }
     },
-    "assetRequirements": {
-      "title": "結算資產需求",
-      "desc": "本輪結算需要提前準備的資產數量",
-      "required": "結算所需數量",
-      "empty": "當前無需準備的結算資產",
+    "cumulativeTradeAmounts": {
+      "title": "累計交易金額",
+      "desc": "彙總查看帳戶參與的累計交易金額",
+      "amount": "累計原始金額",
+      "empty": "目前沒有累計原始交易金額",
       "msg": {
         "fetchFailed": "獲取結算資產需求失敗"
       }
     },
-    "liquidityShortfalls": {
-      "title": "流動性缺口",
-      "desc": "結算所需數量、當前餘額與預計借款數量",
-      "required": "結算所需數量",
-      "available": "當前餘額",
-      "borrow": "預計借款數量",
-      "empty": "當前無流動性缺口",
+    "liquidityBufferDebts": {
+      "title": "流動性緩衝欠款",
+      "desc": "及時了解待歸還的流動性支援金額",
+      "required": "欠款金額",
+      "available": "目前餘額",
+      "borrow": "欠款金額",
+      "amount": "欠款金額",
+      "empty": "目前沒有流動性緩衝欠款",
       "msg": {
         "fetchFailed": "獲取流動性缺口失敗"
       }

@@ -4,7 +4,7 @@
     "subtitle": "Real-time monitoring of the settlement window and target block",
     "forecast": {
       "title": "Settlement Window Forecast",
-      "desc": "Data is read via an on-chain read-only call. No transaction is sent and no gas is consumed.",
+      "desc": "Stay ahead of settlement and plan your funding with confidence",
       "refresh": "Refresh",
       "active": "Active",
       "windowId": "Pending Window ID",
@@ -23,33 +23,51 @@
         "fetchFailed": "Failed to fetch settlement window forecast"
       }
     },
+    "overview": {
+      "msg": {
+        "fetchFailed": "Failed to fetch dashboard overview"
+      }
+    },
+    "accountBalances": {
+      "title": "Account Balances",
+      "desc": "See the available assets in your account at a glance",
+      "balance": "Balance",
+      "empty": "No account balances"
+    },
+    "cumulativeTradeCount": {
+      "title": "Total Trades",
+      "desc": "Track the total trading activity linked to your account",
+      "label": "Trades"
+    },
     "asset": "Asset Address",
-    "netPositions": {
-      "title": "Net Settlement Positions",
-      "desc": "Payable/receivable amounts per asset for the current bank",
+    "settlementNetAmounts": {
+      "title": "Settlement Net Amounts",
+      "desc": "See how your funds will change after this settlement",
       "payable": "Payable Amount",
       "receivable": "Receivable Amount",
-      "empty": "No net settlement positions",
+      "amount": "Net Amount",
+      "empty": "No net settlement obligations",
       "msg": {
         "fetchFailed": "Failed to fetch net settlement positions"
       }
     },
-    "assetRequirements": {
-      "title": "Settlement Asset Requirements",
-      "desc": "Assets that must be prepared ahead of this settlement round",
-      "required": "Required Amount",
-      "empty": "No settlement assets required",
+    "cumulativeTradeAmounts": {
+      "title": "Total Trade Amounts",
+      "desc": "Review the total value of trades linked to your account",
+      "amount": "Cumulative Gross Amount",
+      "empty": "No cumulative gross trade amounts",
       "msg": {
         "fetchFailed": "Failed to fetch settlement asset requirements"
       }
     },
-    "liquidityShortfalls": {
-      "title": "Liquidity Shortfalls",
-      "desc": "Required amount, current balance and estimated borrow amount",
-      "required": "Required Amount",
+    "liquidityBufferDebts": {
+      "title": "Liquidity Buffer Balance",
+      "desc": "Keep track of funding support that is still to be repaid",
+      "required": "Debt Amount",
       "available": "Available Balance",
-      "borrow": "Estimated Borrow Amount",
-      "empty": "No liquidity shortfalls",
+      "borrow": "Debt Amount",
+      "amount": "Debt Amount",
+      "empty": "No liquidity buffer balance",
       "msg": {
         "fetchFailed": "Failed to fetch liquidity shortfalls"
       }

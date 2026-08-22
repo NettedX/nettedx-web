@@ -88,7 +88,7 @@
         <div class="panel-card">
           <div class="panel-card__title-row">
             <div class="panel-card__title">
-              <WalletIcon /> {{ t('dashboard.walletBalances.title') }}
+              <WalletIcon /> {{ t('dashboard.accountBalances.title') }}
             </div>
             <t-tooltip :content="t('dashboard.forecast.refresh')">
               <t-button
@@ -104,7 +104,7 @@
               </t-button>
             </t-tooltip>
           </div>
-          <p class="panel-card__desc">{{ t('dashboard.walletBalances.desc') }}</p>
+          <p class="panel-card__desc">{{ t('dashboard.accountBalances.desc') }}</p>
 
           <t-skeleton
             v-if="overviewLoading"
@@ -115,7 +115,7 @@
           />
           <t-empty
             v-else-if="!overview.balances?.length"
-            :description="t('dashboard.walletBalances.empty')"
+            :description="t('dashboard.accountBalances.empty')"
           />
           <ul v-else class="asset-list">
             <li
@@ -128,7 +128,7 @@
               }}</span>
               <span class="asset-list__amounts">
                 <span class="asset-list__amount">
-                  {{ t('dashboard.walletBalances.balance') }}: {{ formatAmount(item.amount) }}
+                  {{ t('dashboard.accountBalances.balance') }}: {{ formatAmount(item.amount) }}
                   {{ item.asset.symbol }}
                 </span>
               </span>
@@ -142,7 +142,7 @@
         <div class="panel-card">
           <div class="panel-card__title-row">
             <div class="panel-card__title">
-              <CurrencyExchangeIcon /> {{ t('dashboard.netPositions.title') }}
+              <ChartBarIcon /> {{ t('dashboard.cumulativeTradeCount.title') }}
             </div>
             <t-tooltip :content="t('dashboard.forecast.refresh')">
               <t-button
@@ -158,7 +158,46 @@
               </t-button>
             </t-tooltip>
           </div>
-          <p class="panel-card__desc">{{ t('dashboard.netPositions.desc') }}</p>
+          <p class="panel-card__desc">{{ t('dashboard.cumulativeTradeCount.desc') }}</p>
+          <div class="overview-stat overview-stat--standalone">
+            <span class="overview-stat__label">
+              {{ t('dashboard.cumulativeTradeCount.label') }}
+            </span>
+            <t-skeleton
+              v-if="overviewLoading"
+              theme="text"
+              animation="gradient"
+              class="overview-stat__skeleton"
+            />
+            <span v-else class="overview-stat__value">
+              {{ formatAmount(overview.cumulativeTradeCount) }}
+            </span>
+          </div>
+          <p class="panel-card__footer">
+            {{ t('dashboard.forecast.lastUpdated.label', { time: overviewLastUpdatedText }) }}
+          </p>
+        </div>
+
+        <div class="panel-card">
+          <div class="panel-card__title-row">
+            <div class="panel-card__title">
+              <CurrencyExchangeIcon /> {{ t('dashboard.settlementNetAmounts.title') }}
+            </div>
+            <t-tooltip :content="t('dashboard.forecast.refresh')">
+              <t-button
+                variant="text"
+                theme="default"
+                size="small"
+                :loading="overviewLoading"
+                @click="fetchOverview"
+              >
+                <template #icon>
+                  <RefreshIcon />
+                </template>
+              </t-button>
+            </t-tooltip>
+          </div>
+          <p class="panel-card__desc">{{ t('dashboard.settlementNetAmounts.desc') }}</p>
 
           <t-skeleton
             v-if="overviewLoading"
@@ -169,7 +208,7 @@
           />
           <t-empty
             v-else-if="!overview.netAmounts?.length"
-            :description="t('dashboard.netPositions.empty')"
+            :description="t('dashboard.settlementNetAmounts.empty')"
           />
           <ul v-else class="asset-list">
             <li
@@ -181,8 +220,15 @@
                 item.asset.name || formatAsset(item.asset)
               }}</span>
               <span class="asset-list__amounts">
-                <span class="asset-list__amount asset-list__amount--payable">
-                  {{ t('dashboard.netPositions.amount') }}: {{ formatAmount(item.amount) }}
+                <span
+                  class="asset-list__amount"
+                  :class="
+                    Number(item.amount) < 0
+                      ? 'asset-list__amount--negative'
+                      : 'asset-list__amount--positive'
+                  "
+                >
+                  {{ t('dashboard.settlementNetAmounts.amount') }}: {{ formatAmount(item.amount) }}
                   {{ item.asset.symbol }}
                 </span>
               </span>
@@ -196,7 +242,7 @@
         <div class="panel-card">
           <div class="panel-card__title-row">
             <div class="panel-card__title">
-              <ChartAnalyticsIcon /> {{ t('dashboard.assetRequirements.title') }}
+              <ChartAnalyticsIcon /> {{ t('dashboard.cumulativeTradeAmounts.title') }}
             </div>
             <t-tooltip :content="t('dashboard.forecast.refresh')">
               <t-button
@@ -212,7 +258,7 @@
               </t-button>
             </t-tooltip>
           </div>
-          <p class="panel-card__desc">{{ t('dashboard.assetRequirements.desc') }}</p>
+          <p class="panel-card__desc">{{ t('dashboard.cumulativeTradeAmounts.desc') }}</p>
 
           <t-skeleton
             v-if="overviewLoading"
@@ -223,7 +269,7 @@
           />
           <t-empty
             v-else-if="!overview.cumulativeGrossTradeAmounts?.length"
-            :description="t('dashboard.assetRequirements.empty')"
+            :description="t('dashboard.cumulativeTradeAmounts.empty')"
           />
           <ul v-else class="asset-list">
             <li
@@ -236,7 +282,8 @@
               }}</span>
               <span class="asset-list__amounts">
                 <span class="asset-list__amount">
-                  {{ t('dashboard.assetRequirements.required') }}: {{ formatAmount(item.amount) }}
+                  {{ t('dashboard.cumulativeTradeAmounts.amount') }}:
+                  {{ formatAmount(item.amount) }}
                   {{ item.asset.symbol }}
                 </span>
               </span>
@@ -250,7 +297,7 @@
         <div class="panel-card">
           <div class="panel-card__title-row">
             <div class="panel-card__title">
-              <MoneyIcon /> {{ t('dashboard.liquidityShortfalls.title') }}
+              <MoneyIcon /> {{ t('dashboard.liquidityBufferDebts.title') }}
             </div>
             <t-tooltip :content="t('dashboard.forecast.refresh')">
               <t-button
@@ -266,7 +313,7 @@
               </t-button>
             </t-tooltip>
           </div>
-          <p class="panel-card__desc">{{ t('dashboard.liquidityShortfalls.desc') }}</p>
+          <p class="panel-card__desc">{{ t('dashboard.liquidityBufferDebts.desc') }}</p>
 
           <t-skeleton
             v-if="overviewLoading"
@@ -277,7 +324,7 @@
           />
           <t-empty
             v-else-if="!overview.liquidityBufferDebts?.length"
-            :description="t('dashboard.liquidityShortfalls.empty')"
+            :description="t('dashboard.liquidityBufferDebts.empty')"
           />
           <ul v-else class="asset-list">
             <li
@@ -290,7 +337,8 @@
               }}</span>
               <span class="asset-list__amounts">
                 <span class="asset-list__amount">
-                  {{ t('dashboard.liquidityShortfalls.amount') }}: {{ formatAmount(item.amount) }}
+                  {{ t('dashboard.liquidityBufferDebts.amount') }}:
+                  {{ formatAmount(item.amount) }}
                   {{ item.asset.symbol }}
                 </span>
               </span>
@@ -317,6 +365,7 @@ import {
   HourglassIcon,
   TaskTimeIcon,
   WalletIcon,
+  ChartBarIcon,
   CurrencyExchangeIcon,
   ChartAnalyticsIcon,
   MoneyIcon,
@@ -482,7 +531,7 @@ onBeforeUnmount(() => {
 }
 
 .dashboard-page__bg {
-  position: absolute;
+  position: fixed;
   inset: 0;
   pointer-events: none;
   background:
@@ -499,7 +548,9 @@ onBeforeUnmount(() => {
 }
 
 .dashboard-page__inner {
+  position: relative;
   width: 100%;
+  z-index: 1;
 }
 
 .dashboard-page__header {
@@ -669,6 +720,46 @@ onBeforeUnmount(() => {
   color: var(--td-text-color-placeholder);
 }
 
+.overview-stat {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 14px;
+  background-color: var(--td-bg-color-secondarycontainer);
+}
+
+.overview-stat__label {
+  font: var(--td-font-body-small);
+  color: var(--td-text-color-secondary);
+}
+
+.overview-stat__value {
+  font: var(--td-font-title-medium);
+  color: var(--td-text-color-primary);
+}
+
+.overview-stat__skeleton {
+  width: 4rem;
+}
+
+.overview-stat--standalone {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  padding: 1.25rem 1rem;
+}
+
+.overview-stat--standalone .overview-stat__value {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--td-text-color-primary);
+}
+
 .panel-card__footer {
   margin: 1.25rem 0 0;
   text-align: right;
@@ -724,6 +815,14 @@ onBeforeUnmount(() => {
 }
 
 .asset-list__amount--receivable {
+  color: var(--td-success-color-6);
+}
+
+.asset-list__amount--negative {
+  color: var(--td-error-color-6);
+}
+
+.asset-list__amount--positive {
   color: var(--td-success-color-6);
 }
 </style>
