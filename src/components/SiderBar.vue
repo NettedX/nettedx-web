@@ -36,10 +36,10 @@ const menuItems = computed(() => [
     path: '/send',
   },
   {
-    value: 'records',
-    label: t('menu.records'),
+    value: 'transactions',
+    label: t('menu.transactions'),
     icon: 'tree-list',
-    path: '/records',
+    path: '/transactions',
   },
   {
     value: 'account',
