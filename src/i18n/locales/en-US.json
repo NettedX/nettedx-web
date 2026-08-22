@@ -2,6 +2,28 @@
   "dashboard": {
     "title": "Dashboard"
   },
+  "account": {
+    "title": "Account",
+    "subtitle": "View your account and organization profile",
+    "profileCardTitle": "Profile",
+    "organizationCardTitle": "Organization",
+    "actions": {
+      "copy": "Copy"
+    },
+    "msg": {
+      "copySuccess": "{label} copied",
+      "copyFailed": "Copy failed"
+    },
+    "fields": {
+      "displayName": "Display Name",
+      "role": "Role",
+      "accountId": "Account ID",
+      "organizationCode": "Organization Code",
+      "organizationId": "Organization ID",
+      "organizationName": "Organization Name",
+      "walletAddress": "Wallet Address"
+    }
+  },
   "footer": {
     "product": "Product",
     "home": "Home",

@@ -2,6 +2,28 @@
   "dashboard": {
     "title": "儀表板"
   },
+  "account": {
+    "title": "帳戶中心",
+    "subtitle": "檢視目前帳戶與所屬機構資訊",
+    "profileCardTitle": "帳戶資料",
+    "organizationCardTitle": "機構資訊",
+    "actions": {
+      "copy": "複製"
+    },
+    "msg": {
+      "copySuccess": "{label} 已複製",
+      "copyFailed": "複製失敗"
+    },
+    "fields": {
+      "displayName": "顯示名稱",
+      "role": "角色",
+      "accountId": "帳戶 ID",
+      "organizationCode": "機構代碼",
+      "organizationId": "機構 ID",
+      "organizationName": "機構名稱",
+      "walletAddress": "錢包地址"
+    }
+  },
   "footer": {
     "product": "產品",
     "home": "首頁",

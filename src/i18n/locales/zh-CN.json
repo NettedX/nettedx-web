@@ -2,6 +2,28 @@
   "dashboard": {
     "title": "仪表板"
   },
+  "account": {
+    "title": "账户中心",
+    "subtitle": "查看当前账户与所属机构信息",
+    "profileCardTitle": "账户资料",
+    "organizationCardTitle": "机构信息",
+    "actions": {
+      "copy": "复制"
+    },
+    "msg": {
+      "copySuccess": "{label} 已复制",
+      "copyFailed": "复制失败"
+    },
+    "fields": {
+      "displayName": "显示名称",
+      "role": "角色",
+      "accountId": "账户 ID",
+      "organizationCode": "机构代码",
+      "organizationId": "机构 ID",
+      "organizationName": "机构名称",
+      "walletAddress": "钱包地址"
+    }
+  },
   "footer": {
     "product": "产品",
     "home": "首页",
