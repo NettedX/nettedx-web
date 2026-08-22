@@ -107,7 +107,7 @@ export const useAuthStore = defineStore('auth', () => {
     console.log('refresh token')
     refreshPromise = api({
       method: 'get',
-      url: '/user/refresh',
+      url: '/auth/refresh',
       headers: {
         Authorization: 'Bearer ' + refreshToken.value,
       },
