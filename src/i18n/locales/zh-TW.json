@@ -341,7 +341,8 @@
     "account": "帳戶",
     "records": "交易記錄",
     "send": "發起交易",
-    "transactions": "交易"
+    "transactions": "交易",
+    "verify": "驗證"
   },
   "send": {
     "title": "發起交易",
@@ -459,5 +460,14 @@
     "msg": {
       "fetchFailed": "獲取交易詳情失敗"
     }
+  },
+  "verify": {
+    "title": "交易驗證",
+    "subtitle": "輸入鏈上交易哈希，驗證該交易是否真實存在",
+    "placeholder": "請輸入交易哈希（0x開頭）",
+    "button": "驗證",
+    "invalidHash": "請輸入有效的交易哈希",
+    "failDescription": "未找到對應交易，驗證失敗",
+    "stamp": "驗證通過"
   }
 }

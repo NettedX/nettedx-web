@@ -52,6 +52,11 @@ const routes = computed(() => [
         component: () => import('@/views/TransactionDetailView.vue'),
       },
       {
+        path: 'verify',
+        meta: { title: t('verify.title') },
+        component: () => import('@/views/VerifyView.vue'),
+      },
+      {
         path: 'account',
         meta: { title: t('account.title') },
         component: () => import('@/views/AccountView.vue'),

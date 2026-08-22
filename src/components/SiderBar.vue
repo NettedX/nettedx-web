@@ -42,6 +42,12 @@ const menuItems = computed(() => [
     path: '/transactions',
   },
   {
+    value: 'verify',
+    label: t('menu.verify'),
+    icon: 'verified',
+    path: '/verify',
+  },
+  {
     value: 'account',
     label: t('menu.account'),
     icon: 'user',

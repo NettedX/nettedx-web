@@ -343,7 +343,8 @@
     "account": "Account",
     "records": "Records",
     "send": "Send",
-    "transactions": "Transactions"
+    "transactions": "Transactions",
+    "verify": "Verify"
   },
   "send": {
     "title": "Send Transaction",
@@ -461,5 +462,14 @@
     "msg": {
       "fetchFailed": "Failed to fetch transaction detail"
     }
+  },
+  "verify": {
+    "title": "Verify Transaction",
+    "subtitle": "Enter an on-chain transaction hash to verify whether it truly exists",
+    "placeholder": "Enter transaction hash (starting with 0x)",
+    "button": "Verify",
+    "invalidHash": "Please enter a valid transaction hash",
+    "failDescription": "No matching transaction found, verification failed",
+    "stamp": "Verified"
   }
 }

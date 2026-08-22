@@ -341,7 +341,8 @@
     "account": "帐户",
     "records": "交易记录",
     "send": "发起交易",
-    "transactions": "交易"
+    "transactions": "交易",
+    "verify": "验证"
   },
   "send": {
     "title": "发起交易",
@@ -459,5 +460,14 @@
     "msg": {
       "fetchFailed": "获取交易详情失败"
     }
+  },
+  "verify": {
+    "title": "交易验证",
+    "subtitle": "输入链上交易哈希，验证该交易是否真实存在",
+    "placeholder": "请输入交易哈希（0x开头）",
+    "button": "验证",
+    "invalidHash": "请输入有效的交易哈希",
+    "failDescription": "未找到对应交易，验证失败",
+    "stamp": "验证通过"
   }
 }
