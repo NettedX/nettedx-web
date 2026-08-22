@@ -72,6 +72,155 @@
           {{ t('dashboard.forecast.lastUpdated.label', { time: lastUpdatedText }) }}
         </p>
       </div>
+
+      <div class="panel-grid">
+        <div class="panel-card">
+          <div class="panel-card__title-row">
+            <div class="panel-card__title">{{ t('dashboard.netPositions.title') }}</div>
+            <t-tooltip :content="t('dashboard.forecast.refresh')">
+              <t-button
+                variant="text"
+                theme="default"
+                size="small"
+                :loading="netPositions.loading"
+                @click="fetchNetPositions"
+              >
+                <template #icon>
+                  <RefreshIcon />
+                </template>
+              </t-button>
+            </t-tooltip>
+          </div>
+          <p class="panel-card__desc">{{ t('dashboard.netPositions.desc') }}</p>
+
+          <t-empty
+            v-if="!netPositions.items.length"
+            :description="t('dashboard.netPositions.empty')"
+          />
+          <ul v-else class="asset-list">
+            <li v-for="item in netPositions.items" :key="item.asset" class="asset-list__item">
+              <span class="asset-list__address">{{ shortenAddress(item.asset) }}</span>
+              <span class="asset-list__amounts">
+                <span class="asset-list__amount asset-list__amount--payable">
+                  {{ t('dashboard.netPositions.payable') }}: {{ formatAmount(item.payableAmount) }}
+                </span>
+                <span class="asset-list__amount asset-list__amount--receivable">
+                  {{ t('dashboard.netPositions.receivable') }}:
+                  {{ formatAmount(item.receivableAmount) }}
+                </span>
+              </span>
+            </li>
+          </ul>
+
+          <p class="panel-card__footer">
+            {{
+              t('dashboard.forecast.lastUpdated.label', {
+                time: formatRelativeTime(netPositions.lastUpdatedAt),
+              })
+            }}
+          </p>
+        </div>
+
+        <div class="panel-card">
+          <div class="panel-card__title-row">
+            <div class="panel-card__title">{{ t('dashboard.assetRequirements.title') }}</div>
+            <t-tooltip :content="t('dashboard.forecast.refresh')">
+              <t-button
+                variant="text"
+                theme="default"
+                size="small"
+                :loading="assetRequirements.loading"
+                @click="fetchAssetRequirements"
+              >
+                <template #icon>
+                  <RefreshIcon />
+                </template>
+              </t-button>
+            </t-tooltip>
+          </div>
+          <p class="panel-card__desc">{{ t('dashboard.assetRequirements.desc') }}</p>
+
+          <t-empty
+            v-if="!assetRequirements.items.length"
+            :description="t('dashboard.assetRequirements.empty')"
+          />
+          <ul v-else class="asset-list">
+            <li v-for="item in assetRequirements.items" :key="item.asset" class="asset-list__item">
+              <span class="asset-list__address">{{ shortenAddress(item.asset) }}</span>
+              <span class="asset-list__amounts">
+                <span class="asset-list__amount">
+                  {{ t('dashboard.assetRequirements.required') }}:
+                  {{ formatAmount(item.requiredAmount) }}
+                </span>
+              </span>
+            </li>
+          </ul>
+
+          <p class="panel-card__footer">
+            {{
+              t('dashboard.forecast.lastUpdated.label', {
+                time: formatRelativeTime(assetRequirements.lastUpdatedAt),
+              })
+            }}
+          </p>
+        </div>
+
+        <div class="panel-card">
+          <div class="panel-card__title-row">
+            <div class="panel-card__title">{{ t('dashboard.liquidityShortfalls.title') }}</div>
+            <t-tooltip :content="t('dashboard.forecast.refresh')">
+              <t-button
+                variant="text"
+                theme="default"
+                size="small"
+                :loading="liquidityShortfalls.loading"
+                @click="fetchLiquidityShortfalls"
+              >
+                <template #icon>
+                  <RefreshIcon />
+                </template>
+              </t-button>
+            </t-tooltip>
+          </div>
+          <p class="panel-card__desc">{{ t('dashboard.liquidityShortfalls.desc') }}</p>
+
+          <t-empty
+            v-if="!liquidityShortfalls.items.length"
+            :description="t('dashboard.liquidityShortfalls.empty')"
+          />
+          <ul v-else class="asset-list">
+            <li
+              v-for="item in liquidityShortfalls.items"
+              :key="item.asset"
+              class="asset-list__item"
+            >
+              <span class="asset-list__address">{{ shortenAddress(item.asset) }}</span>
+              <span class="asset-list__amounts">
+                <span class="asset-list__amount">
+                  {{ t('dashboard.liquidityShortfalls.required') }}:
+                  {{ formatAmount(item.requiredAmount) }}
+                </span>
+                <span class="asset-list__amount">
+                  {{ t('dashboard.liquidityShortfalls.available') }}:
+                  {{ formatAmount(item.availableBalance) }}
+                </span>
+                <span class="asset-list__amount asset-list__amount--payable">
+                  {{ t('dashboard.liquidityShortfalls.borrow') }}:
+                  {{ formatAmount(item.borrowAmount) }}
+                </span>
+              </span>
+            </li>
+          </ul>
+
+          <p class="panel-card__footer">
+            {{
+              t('dashboard.forecast.lastUpdated.label', {
+                time: formatRelativeTime(liquidityShortfalls.lastUpdatedAt),
+              })
+            }}
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -103,24 +252,7 @@ const currentTime = ref(new Date())
 
 const blockCoreRef = ref(null)
 
-const lastUpdatedText = computed(() => {
-  if (!lastUpdatedAt.value) {
-    return '-'
-  }
-  const diffSeconds = Math.floor((currentTime.value - lastUpdatedAt.value) / 1000)
-  if (diffSeconds < 60) {
-    return t('dashboard.forecast.lastUpdated.justNow')
-  } else if (diffSeconds < 3600) {
-    const minutes = Math.floor(diffSeconds / 60)
-    return t('dashboard.forecast.lastUpdated.minutesAgo', { minutes })
-  } else if (diffSeconds < 86400) {
-    const hours = Math.floor(diffSeconds / 3600)
-    return t('dashboard.forecast.lastUpdated.hoursAgo', { hours })
-  } else {
-    const days = Math.floor(diffSeconds / 86400)
-    return t('dashboard.forecast.lastUpdated.daysAgo', { days })
-  }
-})
+const lastUpdatedText = computed(() => formatRelativeTime(lastUpdatedAt.value))
 
 const GLOW_OFF = '0 0 0px 0px rgba(0, 168, 112, 0)'
 const GLOW_ON = '0 0 26px 8px rgba(0, 168, 112, 0.65)'
@@ -172,11 +304,104 @@ async function fetchForecast() {
   }
 }
 
+function formatRelativeTime(date) {
+  if (!date) {
+    return '-'
+  }
+  const diffSeconds = Math.floor((currentTime.value - date) / 1000)
+  if (diffSeconds < 60) {
+    return t('dashboard.forecast.lastUpdated.justNow')
+  } else if (diffSeconds < 3600) {
+    return t('dashboard.forecast.lastUpdated.minutesAgo', { minutes: Math.floor(diffSeconds / 60) })
+  } else if (diffSeconds < 86400) {
+    return t('dashboard.forecast.lastUpdated.hoursAgo', { hours: Math.floor(diffSeconds / 3600) })
+  } else {
+    return t('dashboard.forecast.lastUpdated.daysAgo', { days: Math.floor(diffSeconds / 86400) })
+  }
+}
+
+function shortenAddress(address) {
+  if (!address || address.length <= 12) {
+    return address ?? '-'
+  }
+  return `${address.slice(0, 6)}...${address.slice(-4)}`
+}
+
+function formatAmount(amount) {
+  if (amount === null || amount === undefined) {
+    return '-'
+  }
+  return Number(amount).toLocaleString()
+}
+
+const netPositions = ref({ items: [], loading: false, lastUpdatedAt: null })
+const assetRequirements = ref({ items: [], loading: false, lastUpdatedAt: null })
+const liquidityShortfalls = ref({ items: [], loading: false, lastUpdatedAt: null })
+
+async function fetchNetPositions() {
+  netPositions.value.loading = true
+  try {
+    const res = await api({ method: 'get', url: '/dashboard/net-positions' })
+    if (res.data.code === 200) {
+      netPositions.value.items = res.data.data
+      netPositions.value.lastUpdatedAt = new Date()
+    } else {
+      throw new Error(res.data.msg)
+    }
+  } catch (e) {
+    console.error(e)
+    MessagePlugin.error(t('dashboard.netPositions.msg.fetchFailed'))
+  } finally {
+    netPositions.value.loading = false
+  }
+}
+
+async function fetchAssetRequirements() {
+  assetRequirements.value.loading = true
+  try {
+    const res = await api({ method: 'get', url: '/dashboard/settlement-asset-requirements' })
+    if (res.data.code === 200) {
+      assetRequirements.value.items = res.data.data
+      assetRequirements.value.lastUpdatedAt = new Date()
+    } else {
+      throw new Error(res.data.msg)
+    }
+  } catch (e) {
+    console.error(e)
+    MessagePlugin.error(t('dashboard.assetRequirements.msg.fetchFailed'))
+  } finally {
+    assetRequirements.value.loading = false
+  }
+}
+
+async function fetchLiquidityShortfalls() {
+  liquidityShortfalls.value.loading = true
+  try {
+    const res = await api({ method: 'get', url: '/dashboard/liquidity-shortfalls' })
+    if (res.data.code === 200) {
+      liquidityShortfalls.value.items = res.data.data
+      liquidityShortfalls.value.lastUpdatedAt = new Date()
+    } else {
+      throw new Error(res.data.msg)
+    }
+  } catch (e) {
+    console.error(e)
+    MessagePlugin.error(t('dashboard.liquidityShortfalls.msg.fetchFailed'))
+  } finally {
+    liquidityShortfalls.value.loading = false
+  }
+}
+
 onMounted(async () => {
   clockTimer = setInterval(() => {
     currentTime.value = new Date()
   }, 1000)
-  await fetchForecast()
+  await Promise.all([
+    fetchForecast(),
+    fetchNetPositions(),
+    fetchAssetRequirements(),
+    fetchLiquidityShortfalls(),
+  ])
   startBreathing()
   pollTimer = setInterval(fetchForecast, 5000)
 })
@@ -342,5 +567,86 @@ onBeforeUnmount(() => {
   text-align: right;
   font: var(--td-font-body-small);
   color: var(--td-text-color-placeholder);
+}
+
+.panel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.panel-card {
+  padding: 2rem;
+  border-radius: 28px;
+  background-color: var(--td-bg-color-container);
+  border: 1px solid var(--td-component-stroke);
+}
+
+.panel-card__title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.panel-card__title {
+  font: var(--td-font-title-large);
+  color: var(--td-text-color-primary);
+}
+
+.panel-card__desc {
+  margin: 0.25rem 0 1.5rem;
+  font: var(--td-font-body-small);
+  color: var(--td-text-color-placeholder);
+}
+
+.panel-card__footer {
+  margin: 1.25rem 0 0;
+  text-align: right;
+  font: var(--td-font-body-small);
+  color: var(--td-text-color-placeholder);
+}
+
+.asset-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.asset-list__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0.85rem 1rem;
+  border-radius: 14px;
+  background-color: var(--td-bg-color-secondarycontainer);
+}
+
+.asset-list__address {
+  font-family: var(--td-font-family, monospace);
+  font: var(--td-font-body-medium);
+  color: var(--td-text-color-primary);
+}
+
+.asset-list__amounts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+}
+
+.asset-list__amount {
+  font: var(--td-font-body-small);
+  color: var(--td-text-color-secondary);
+}
+
+.asset-list__amount--payable {
+  color: var(--td-error-color-6);
+}
+
+.asset-list__amount--receivable {
+  color: var(--td-success-color-6);
 }
 </style>
