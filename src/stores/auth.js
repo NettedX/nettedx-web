@@ -6,6 +6,9 @@ import { MessagePlugin } from 'tdesign-vue-next'
 import config from '@/config'
 import api from '@/utils/api'
 
+import i18n from '@/i18n'
+const { t } = i18n.global
+
 // 用户状态管理
 export const useAuthStore = defineStore('auth', () => {
   // 是否登录
@@ -22,13 +25,13 @@ export const useAuthStore = defineStore('auth', () => {
 
   // 初始化登录态
   async function initAuth() {
-    const localAccessToken = localStorage.getItem('docs_access_token')
-    const localrefreshToken = localStorage.getItem('docs_refresh_token')
+    const localAccessToken = localStorage.getItem('nettedx_access_token')
+    const localrefreshToken = localStorage.getItem('nettedx_refresh_token')
     if (localAccessToken && localrefreshToken) {
       isLogined.value = true
       accessToken.value = localAccessToken
       refreshToken.value = localrefreshToken
-      userProfile.value = JSON.parse(localStorage.getItem('docs_user_profile'))
+      userProfile.value = JSON.parse(localStorage.getItem('nettedx_user_profile'))
       // 刷新用户信息
       await requestUserProfile()
     } else {
@@ -44,24 +47,24 @@ export const useAuthStore = defineStore('auth', () => {
   watch(accessToken, (newValue) => {
     if (newValue) {
       isLogined.value = true
-      localStorage.setItem('docs_access_token', newValue)
+      localStorage.setItem('nettedx_access_token', newValue)
     } else {
       isLogined.value = false
-      localStorage.removeItem('docs_access_token')
+      localStorage.removeItem('nettedx_access_token')
     }
   })
   watch(refreshToken, (newValue) => {
     if (newValue) {
-      localStorage.setItem('docs_refresh_token', newValue)
+      localStorage.setItem('nettedx_refresh_token', newValue)
     } else {
-      localStorage.removeItem('docs_refresh_token')
+      localStorage.removeItem('nettedx_refresh_token')
     }
   })
   watch(userProfile, (newValue) => {
     if (newValue) {
-      localStorage.setItem('docs_user_profile', JSON.stringify(newValue))
+      localStorage.setItem('nettedx_user_profile', JSON.stringify(newValue))
     } else {
-      localStorage.removeItem('docs_user_profile')
+      localStorage.removeItem('nettedx_user_profile')
     }
   })
 
@@ -70,7 +73,7 @@ export const useAuthStore = defineStore('auth', () => {
     return new Promise((resolve) => {
       api({
         method: 'get',
-        url: '/user/profile',
+        url: '/auth/profile',
       })
         .then((res) => {
           if (res.data.code == 200) {
@@ -82,7 +85,7 @@ export const useAuthStore = defineStore('auth', () => {
         })
         .catch((e) => {
           console.error(e)
-          MessagePlugin.error('登录状态已过期，请重新登录')
+          MessagePlugin.error(t('common.msg.sessionExpired'))
           logout()
         })
     })
@@ -122,7 +125,7 @@ export const useAuthStore = defineStore('auth', () => {
       })
       .catch((e) => {
         console.error(e)
-        MessagePlugin.error('登录状态已过期，请重新登录')
+        MessagePlugin.error(t('common.msg.sessionExpired'))
         logout()
       })
       .finally(() => {
