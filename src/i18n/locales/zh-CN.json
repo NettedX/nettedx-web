@@ -394,5 +394,70 @@
       "close": "关闭",
       "retry": "重试"
     }
+  },
+  "transactions": {
+    "title": "交易",
+    "subtitle": "查看平台全部交易记录，实时追踪结算状态",
+    "filter": {
+      "all": "全部交易",
+      "related": "与我相关"
+    },
+    "table": {
+      "id": "交易 ID",
+      "createdBy": "提交机构",
+      "sender": "发送方",
+      "send": "发送资产",
+      "receiver": "接收方",
+      "receive": "接收资产",
+      "status": "状态",
+      "chainId": "区块链网络",
+      "windowId": "结算窗口",
+      "createdAt": "创建时间",
+      "settledAt": "结算时间",
+      "operation": "操作"
+    },
+    "status": {
+      "submitted": "已提交",
+      "settled": "已结算",
+      "failed": "结算失败"
+    },
+    "action": {
+      "view": "查看"
+    },
+    "empty": "暂无交易记录",
+    "msg": {
+      "fetchFailed": "获取交易记录失败"
+    }
+  },
+  "transactionDetail": {
+    "title": "交易详情",
+    "subtitle": "查看该笔交易的完整信息与结算状态",
+    "back": "返回交易列表",
+    "parties": "交易双方",
+    "basicInfo": "基本信息",
+    "hashInfo": "链上哈希",
+    "copy": "复制",
+    "copySuccess": "{label} 已复制",
+    "copyFailed": "复制失败",
+    "notFound": "交易记录不存在或无权查看",
+    "fields": {
+      "id": "交易 ID",
+      "status": "状态",
+      "createdBy": "提交机构",
+      "sender": "发送方",
+      "receiver": "接收方",
+      "send": "发送",
+      "receive": "接收",
+      "chainId": "区块链网络",
+      "windowId": "结算窗口",
+      "createdAt": "创建时间",
+      "settledAt": "结算时间",
+      "failureReason": "失败原因",
+      "submissionHash": "提交交易哈希",
+      "settlementHash": "结算交易哈希"
+    },
+    "msg": {
+      "fetchFailed": "获取交易详情失败"
+    }
   }
 }

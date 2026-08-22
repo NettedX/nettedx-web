@@ -396,5 +396,70 @@
       "close": "Close",
       "retry": "Retry"
     }
+  },
+  "transactions": {
+    "title": "Transactions",
+    "subtitle": "View all platform transactions and track settlement status in real time",
+    "filter": {
+      "all": "All Transactions",
+      "related": "Related to Me"
+    },
+    "table": {
+      "id": "Transaction ID",
+      "createdBy": "Submitted By",
+      "sender": "Sender",
+      "send": "Sent Asset",
+      "receiver": "Receiver",
+      "receive": "Received Asset",
+      "status": "Status",
+      "chainId": "Chain",
+      "windowId": "Settlement Window",
+      "createdAt": "Created At",
+      "settledAt": "Settled At",
+      "operation": "Action"
+    },
+    "status": {
+      "submitted": "Submitted",
+      "settled": "Settled",
+      "failed": "Failed"
+    },
+    "action": {
+      "view": "View"
+    },
+    "empty": "No transactions yet",
+    "msg": {
+      "fetchFailed": "Failed to fetch transactions"
+    }
+  },
+  "transactionDetail": {
+    "title": "Transaction Detail",
+    "subtitle": "View the full details and settlement status of this transaction",
+    "back": "Back to Transactions",
+    "parties": "Parties",
+    "basicInfo": "Basic Information",
+    "hashInfo": "On-chain Hashes",
+    "copy": "Copy",
+    "copySuccess": "{label} copied",
+    "copyFailed": "Copy failed",
+    "notFound": "Transaction not found or not accessible",
+    "fields": {
+      "id": "Transaction ID",
+      "status": "Status",
+      "createdBy": "Submitted By",
+      "sender": "Sender",
+      "receiver": "Receiver",
+      "send": "Send",
+      "receive": "Receive",
+      "chainId": "Chain",
+      "windowId": "Settlement Window",
+      "createdAt": "Created At",
+      "settledAt": "Settled At",
+      "failureReason": "Failure Reason",
+      "submissionHash": "Submission Hash",
+      "settlementHash": "Settlement Hash"
+    },
+    "msg": {
+      "fetchFailed": "Failed to fetch transaction detail"
+    }
   }
 }

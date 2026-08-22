@@ -11,14 +11,18 @@
     <div class="trade-center">
       <div class="trade-chip trade-chip--out">
         <span class="trade-chip__label">{{ sendLabel }}</span>
-        <span class="trade-chip__asset">{{ getAssetName(sendAsset) }}</span>
-        <span class="trade-chip__value">{{ formatAmount(sendAmount) }} {{ getAssetSymbol(sendAsset) }}</span>
+        <span class="trade-chip__asset">{{ getAssetName(sendAsset, sendAssetName) }}</span>
+        <span class="trade-chip__value">
+          {{ formatAmount(sendAmount) }} {{ getAssetSymbol(sendAsset, sendAssetSymbol) }}
+        </span>
       </div>
       <ArrowLeftRight1Icon size="32px" class="trade-center__icon" />
       <div class="trade-chip trade-chip--in">
         <span class="trade-chip__label">{{ receiveLabel }}</span>
-        <span class="trade-chip__asset">{{ getAssetName(receiveAsset) }}</span>
-        <span class="trade-chip__value">{{ formatAmount(receiveAmount) }} {{ getAssetSymbol(receiveAsset) }}</span>
+        <span class="trade-chip__asset">{{ getAssetName(receiveAsset, receiveAssetName) }}</span>
+        <span class="trade-chip__value">
+          {{ formatAmount(receiveAmount) }} {{ getAssetSymbol(receiveAsset, receiveAssetSymbol) }}
+        </span>
       </div>
     </div>
 
@@ -43,9 +47,13 @@ defineProps({
   toPlaceholder: { type: String, default: '' },
   toRole: { type: String, default: '' },
   sendAsset: { type: String, default: '' },
+  sendAssetName: { type: String, default: '' },
+  sendAssetSymbol: { type: String, default: '' },
   sendAmount: { type: [Number, String, null], default: null },
   sendLabel: { type: String, default: '' },
   receiveAsset: { type: String, default: '' },
+  receiveAssetName: { type: String, default: '' },
+  receiveAssetSymbol: { type: String, default: '' },
   receiveAmount: { type: [Number, String, null], default: null },
   receiveLabel: { type: String, default: '' },
 })
@@ -57,12 +65,12 @@ function formatAmount(amount) {
   return Number(amount).toLocaleString()
 }
 
-function getAssetName(code) {
-  return ASSETS[code]?.name || code || '-'
+function getAssetName(code, override) {
+  return override || ASSETS[code]?.name || code || '-'
 }
 
-function getAssetSymbol(code) {
-  return ASSETS[code]?.symbol || code || ''
+function getAssetSymbol(code, override) {
+  return override || ASSETS[code]?.symbol || code || ''
 }
 </script>
 

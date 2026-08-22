@@ -47,10 +47,15 @@ const routes = computed(() => [
         component: () => import('@/views/TransactionsView.vue'),
       },
       {
+        path: 'transactions/:id',
+        meta: { title: t('transactionDetail.title') },
+        component: () => import('@/views/TransactionDetailView.vue'),
+      },
+      {
         path: 'account',
         meta: { title: t('account.title') },
         component: () => import('@/views/AccountView.vue'),
-      }
+      },
     ],
   },
 ])

@@ -394,5 +394,70 @@
       "close": "關閉",
       "retry": "重試"
     }
+  },
+  "transactions": {
+    "title": "交易",
+    "subtitle": "查看平台全部交易記錄，即時追蹤結算狀態",
+    "filter": {
+      "all": "全部交易",
+      "related": "與我相關"
+    },
+    "table": {
+      "id": "交易 ID",
+      "createdBy": "提交機構",
+      "sender": "發送方",
+      "send": "發送資產",
+      "receiver": "接收方",
+      "receive": "接收資產",
+      "status": "狀態",
+      "chainId": "區塊鏈網路",
+      "windowId": "結算窗口",
+      "createdAt": "建立時間",
+      "settledAt": "結算時間",
+      "operation": "操作"
+    },
+    "status": {
+      "submitted": "已提交",
+      "settled": "已結算",
+      "failed": "結算失敗"
+    },
+    "action": {
+      "view": "查看"
+    },
+    "empty": "暫無交易記錄",
+    "msg": {
+      "fetchFailed": "獲取交易記錄失敗"
+    }
+  },
+  "transactionDetail": {
+    "title": "交易詳情",
+    "subtitle": "查看該筆交易的完整信息與結算狀態",
+    "back": "返回交易列表",
+    "parties": "交易雙方",
+    "basicInfo": "基本信息",
+    "hashInfo": "鏈上哈希",
+    "copy": "複製",
+    "copySuccess": "{label} 已複製",
+    "copyFailed": "複製失敗",
+    "notFound": "交易記錄不存在或無權查看",
+    "fields": {
+      "id": "交易 ID",
+      "status": "狀態",
+      "createdBy": "提交機構",
+      "sender": "發送方",
+      "receiver": "接收方",
+      "send": "發送",
+      "receive": "接收",
+      "chainId": "區塊鏈網路",
+      "windowId": "結算窗口",
+      "createdAt": "建立時間",
+      "settledAt": "結算時間",
+      "failureReason": "失敗原因",
+      "submissionHash": "提交交易哈希",
+      "settlementHash": "結算交易哈希"
+    },
+    "msg": {
+      "fetchFailed": "獲取交易詳情失敗"
+    }
   }
 }
