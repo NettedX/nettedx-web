@@ -1,11 +1,11 @@
-// 可交易资产的元数据映射（名称、最小单位小数位等）
+// 可交易资产的元数据映射
 export const ASSETS = {
-  USDC: { code: 'USDC', name: 'USDC', decimals: 6 },
-  BOUND: { code: 'BOUND', name: 'BOUND', decimals: 0 },
+  USDC: { code: 'USDC', name: 'Mock USDC', symbol: 'mUSDC', decimals: 6 },
+  BOND: { code: 'BOND', name: 'Mock Bond', symbol: 'mBOND', decimals: 0 },
 }
 
 export const ASSET_OPTIONS = Object.values(ASSETS).map((asset) => ({
-  label: asset.name,
+  label: `${asset.name} (${asset.symbol})`,
   value: asset.code,
 }))
 

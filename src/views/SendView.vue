@@ -172,7 +172,7 @@ const form = reactive({
   receiverOrganizationId: null,
   sendAsset: 'USDC',
   sendAmount: null,
-  receiveAsset: 'BOUND',
+  receiveAsset: 'BOND',
   receiveAmount: null,
 })
 
@@ -278,7 +278,7 @@ function resetForm() {
   form.receiverOrganizationId = null
   form.sendAsset = 'USDC'
   form.sendAmount = null
-  form.receiveAsset = 'BOUND'
+  form.receiveAsset = 'BOND'
   form.receiveAmount = null
 }
 
