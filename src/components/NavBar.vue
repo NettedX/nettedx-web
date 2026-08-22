@@ -93,6 +93,8 @@ const authStore = useAuthStore()
 }
 
 .nav-bar {
+  width: 100%;
+  box-sizing: border-box;
   background-color: transparent;
 }
 
