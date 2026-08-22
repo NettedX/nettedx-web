@@ -243,5 +243,11 @@
       "failedVerify": "Failed to verify.",
       "success": "Login success"
     }
+  },
+  "menu": {
+    "dashboard": "Dashboard",
+    "account": "Account",
+    "records": "Records",
+    "send": "Send"
   }
 }

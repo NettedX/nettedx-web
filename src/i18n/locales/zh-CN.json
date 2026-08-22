@@ -241,5 +241,11 @@
       "failedVerify": "验证失败。",
       "success": "登录成功"
     }
+  },
+  "menu": {
+    "dashboard": "仪表板",
+    "account": "帐户",
+    "records": "交易记录",
+    "send": "发起交易"
   }
 }
