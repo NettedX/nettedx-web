@@ -677,6 +677,7 @@ onBeforeUnmount(() => {
 
 .stat-item__value {
   font: var(--td-font-title-medium);
+  font-family: 'TCloudNumber', var(--td-font-family);
   color: var(--td-text-color-primary);
 }
 
@@ -738,6 +739,7 @@ onBeforeUnmount(() => {
 
 .overview-stat__value {
   font: var(--td-font-title-medium);
+  font-family: 'TCloudNumber', var(--td-font-family);
   color: var(--td-text-color-primary);
 }
 
@@ -807,6 +809,7 @@ onBeforeUnmount(() => {
 
 .asset-list__amount {
   font: var(--td-font-body-small);
+  font-family: 'TCloudNumber', var(--td-font-family);
   color: var(--td-text-color-secondary);
 }
 
