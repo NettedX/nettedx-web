@@ -10,7 +10,7 @@
       <template #operations>
         <div class="operations">
           <t-button
-            v-if="!authStore.isLogined"
+            v-if="!authStore.isLogined && $route.path !== '/login'"
             shape="round"
             theme="primary"
             @click="$router.push('/login')"
