@@ -66,7 +66,6 @@
 import { computed, ref, onMounted } from 'vue'
 import { useLocale } from '@/utils/i18n'
 import api from '@/utils/api'
-import { MessagePlugin } from 'tdesign-vue-next'
 
 const { t } = useLocale()
 
@@ -109,16 +108,11 @@ const shownDataList = computed(() => [
 ])
 
 const getData = async () => {
-  try {
-    const res = await api.get('/public/analytics')
-    if (res.data.code == 200) {
-      dataList.value = res.data.data
-    } else {
-      throw new Error(`API error: ${res.data.code} ${res.data.msg}`)
-    }
-  } catch (error) {
-    MessagePlugin.error(t('common.msg.defaultError'))
-    console.error(error)
+  const res = await api.get('/public/analytics')
+  if (res.data.code == 200) {
+    dataList.value = res.data.data
+  } else {
+    throw new Error(`API error: ${res.data.code} ${res.data.msg}`)
   }
 }
 
