@@ -22,6 +22,37 @@
       "msg": {
         "fetchFailed": "Failed to fetch settlement window forecast"
       }
+    },
+    "asset": "Asset Address",
+    "netPositions": {
+      "title": "Net Settlement Positions",
+      "desc": "Payable/receivable amounts per asset for the current bank",
+      "payable": "Payable Amount",
+      "receivable": "Receivable Amount",
+      "empty": "No net settlement positions",
+      "msg": {
+        "fetchFailed": "Failed to fetch net settlement positions"
+      }
+    },
+    "assetRequirements": {
+      "title": "Settlement Asset Requirements",
+      "desc": "Assets that must be prepared ahead of this settlement round",
+      "required": "Required Amount",
+      "empty": "No settlement assets required",
+      "msg": {
+        "fetchFailed": "Failed to fetch settlement asset requirements"
+      }
+    },
+    "liquidityShortfalls": {
+      "title": "Liquidity Shortfalls",
+      "desc": "Required amount, current balance and estimated borrow amount",
+      "required": "Required Amount",
+      "available": "Available Balance",
+      "borrow": "Estimated Borrow Amount",
+      "empty": "No liquidity shortfalls",
+      "msg": {
+        "fetchFailed": "Failed to fetch liquidity shortfalls"
+      }
     }
   },
   "account": {
@@ -292,6 +323,59 @@
     "dashboard": "Dashboard",
     "account": "Account",
     "records": "Records",
-    "send": "Send"
+    "send": "Send",
+    "transactions": "Transactions"
+  },
+  "send": {
+    "title": "Send Transaction",
+    "subtitle": "Choose a counterparty and assets to submit a netting settlement transaction",
+    "form": {
+      "title": "Transaction Details",
+      "desc": "The transaction will enter the next settlement window once submitted",
+      "counterparty": "Counterparty",
+      "counterpartyPlaceholder": "Search and select an organization",
+      "counterpartyEmpty": "No tradable organizations available",
+      "youSend": "You Send",
+      "youReceive": "You Receive",
+      "asset": "Asset",
+      "amount": "Amount",
+      "amountPlaceholder": "Enter an amount",
+      "submit": "Submit Transaction",
+      "reset": "Reset"
+    },
+    "visual": {
+      "title": "Transaction Preview",
+      "desc": "See the counterparties and asset flow at a glance",
+      "you": "Initiator (You)",
+      "counterparty": "Recipient",
+      "counterpartyPlaceholder": "Select a counterparty",
+      "send": "Send",
+      "receive": "Receive"
+    },
+    "msg": {
+      "fetchOrganizationsFailed": "Failed to fetch tradable organizations",
+      "submitFailed": "Failed to submit transaction, please try again later",
+      "validation": {
+        "counterparty": "Please select a counterparty",
+        "sendAmount": "Please enter a valid send amount",
+        "receiveAmount": "Please enter a valid receive amount"
+      }
+    },
+    "errors": {
+      "4001": "The receiving organization does not exist or is unavailable",
+      "4002": "You cannot trade with your own organization"
+    },
+    "success": {
+      "title": "Transaction Submitted",
+      "desc": "The transaction has been submitted to the settlement window",
+      "transactionId": "Transaction ID",
+      "again": "Send Another",
+      "viewDetail": "View Transaction Details"
+    },
+    "failure": {
+      "title": "Transaction Failed",
+      "close": "Close",
+      "retry": "Retry"
+    }
   }
 }

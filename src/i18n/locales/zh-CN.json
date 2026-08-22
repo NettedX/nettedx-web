@@ -22,6 +22,37 @@
       "msg": {
         "fetchFailed": "获取结算窗口预测失败"
       }
+    },
+    "asset": "资产地址",
+    "netPositions": {
+      "title": "净结算头寸",
+      "desc": "当前银行每种资产的应付/应收数量",
+      "payable": "应付数量",
+      "receivable": "应收数量",
+      "empty": "当前无净结算头寸",
+      "msg": {
+        "fetchFailed": "获取净结算头寸失败"
+      }
+    },
+    "assetRequirements": {
+      "title": "结算资产需求",
+      "desc": "本轮结算需要提前准备的资产数量",
+      "required": "结算所需数量",
+      "empty": "当前无需准备的结算资产",
+      "msg": {
+        "fetchFailed": "获取结算资产需求失败"
+      }
+    },
+    "liquidityShortfalls": {
+      "title": "流动性缺口",
+      "desc": "结算所需数量、当前余额与预计借款数量",
+      "required": "结算所需数量",
+      "available": "当前余额",
+      "borrow": "预计借款数量",
+      "empty": "当前无流动性缺口",
+      "msg": {
+        "fetchFailed": "获取流动性缺口失败"
+      }
     }
   },
   "account": {
@@ -290,6 +321,59 @@
     "dashboard": "仪表板",
     "account": "帐户",
     "records": "交易记录",
-    "send": "发起交易"
+    "send": "发起交易",
+    "transactions": "交易"
+  },
+  "send": {
+    "title": "发起交易",
+    "subtitle": "选择交易对象与资产，提交一笔净额结算交易",
+    "form": {
+      "title": "交易信息",
+      "desc": "交易提交后将进入下一个结算窗口，等待净额结算完成",
+      "counterparty": "交易对象",
+      "counterpartyPlaceholder": "搜索并选择机构",
+      "counterpartyEmpty": "暂无可交易机构",
+      "youSend": "您发送",
+      "youReceive": "您收到",
+      "asset": "资产",
+      "amount": "数量",
+      "amountPlaceholder": "请输入数量",
+      "submit": "提交交易",
+      "reset": "重置"
+    },
+    "visual": {
+      "title": "交易预览",
+      "desc": "交易双方与资产流向一目了然",
+      "you": "发起方（我方）",
+      "counterparty": "接收方",
+      "counterpartyPlaceholder": "请选择交易对象",
+      "send": "发送",
+      "receive": "接收"
+    },
+    "msg": {
+      "fetchOrganizationsFailed": "获取可交易机构列表失败",
+      "submitFailed": "提交交易失败，请稍后重试",
+      "validation": {
+        "counterparty": "请选择交易对象",
+        "sendAmount": "请输入有效的发送数量",
+        "receiveAmount": "请输入有效的接收数量"
+      }
+    },
+    "errors": {
+      "4001": "接收方机构不存在或不可用",
+      "4002": "不能与当前所属机构进行交易"
+    },
+    "success": {
+      "title": "交易提交成功",
+      "desc": "交易已提交到结算窗口，等待结算完成",
+      "transactionId": "交易 ID",
+      "again": "继续填写下一个",
+      "viewDetail": "查看交易详情"
+    },
+    "failure": {
+      "title": "交易提交失败",
+      "close": "关闭",
+      "retry": "重试"
+    }
   }
 }

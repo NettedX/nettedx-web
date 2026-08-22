@@ -22,6 +22,37 @@
       "msg": {
         "fetchFailed": "獲取結算窗口預測失敗"
       }
+    },
+    "asset": "資產地址",
+    "netPositions": {
+      "title": "淨結算頭寸",
+      "desc": "當前銀行每種資產的應付/應收數量",
+      "payable": "應付數量",
+      "receivable": "應收數量",
+      "empty": "當前無淨結算頭寸",
+      "msg": {
+        "fetchFailed": "獲取淨結算頭寸失敗"
+      }
+    },
+    "assetRequirements": {
+      "title": "結算資產需求",
+      "desc": "本輪結算需要提前準備的資產數量",
+      "required": "結算所需數量",
+      "empty": "當前無需準備的結算資產",
+      "msg": {
+        "fetchFailed": "獲取結算資產需求失敗"
+      }
+    },
+    "liquidityShortfalls": {
+      "title": "流動性缺口",
+      "desc": "結算所需數量、當前餘額與預計借款數量",
+      "required": "結算所需數量",
+      "available": "當前餘額",
+      "borrow": "預計借款數量",
+      "empty": "當前無流動性缺口",
+      "msg": {
+        "fetchFailed": "獲取流動性缺口失敗"
+      }
     }
   },
   "account": {
@@ -290,6 +321,59 @@
     "dashboard": "儀表板",
     "account": "帳戶",
     "records": "交易記錄",
-    "send": "發起交易"
+    "send": "發起交易",
+    "transactions": "交易"
+  },
+  "send": {
+    "title": "發起交易",
+    "subtitle": "選擇交易對象與資產，提交一筆淨額結算交易",
+    "form": {
+      "title": "交易資訊",
+      "desc": "交易提交後將進入下一個結算窗口，等待淨額結算完成",
+      "counterparty": "交易對象",
+      "counterpartyPlaceholder": "搜尋並選擇機構",
+      "counterpartyEmpty": "暫無可交易機構",
+      "youSend": "您發送",
+      "youReceive": "您收到",
+      "asset": "資產",
+      "amount": "數量",
+      "amountPlaceholder": "請輸入數量",
+      "submit": "提交交易",
+      "reset": "重置"
+    },
+    "visual": {
+      "title": "交易預覽",
+      "desc": "交易雙方與資產流向一目了然",
+      "you": "發起方（我方）",
+      "counterparty": "接收方",
+      "counterpartyPlaceholder": "請選擇交易對象",
+      "send": "發送",
+      "receive": "接收"
+    },
+    "msg": {
+      "fetchOrganizationsFailed": "獲取可交易機構列表失敗",
+      "submitFailed": "提交交易失敗，請稍後重試",
+      "validation": {
+        "counterparty": "請選擇交易對象",
+        "sendAmount": "請輸入有效的發送數量",
+        "receiveAmount": "請輸入有效的接收數量"
+      }
+    },
+    "errors": {
+      "4001": "接收方機構不存在或不可用",
+      "4002": "不能與當前所屬機構進行交易"
+    },
+    "success": {
+      "title": "交易提交成功",
+      "desc": "交易已提交到結算窗口，等待結算完成",
+      "transactionId": "交易 ID",
+      "again": "繼續填寫下一個",
+      "viewDetail": "查看交易詳情"
+    },
+    "failure": {
+      "title": "交易提交失敗",
+      "close": "關閉",
+      "retry": "重試"
+    }
   }
 }
