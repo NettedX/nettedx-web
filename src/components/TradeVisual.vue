@@ -11,12 +11,14 @@
     <div class="trade-center">
       <div class="trade-chip trade-chip--out">
         <span class="trade-chip__label">{{ sendLabel }}</span>
-        <span class="trade-chip__value">{{ formatAmount(sendAmount) }} {{ sendAsset }}</span>
+        <span class="trade-chip__asset">{{ getAssetName(sendAsset) }}</span>
+        <span class="trade-chip__value">{{ formatAmount(sendAmount) }} {{ getAssetSymbol(sendAsset) }}</span>
       </div>
       <ArrowLeftRight1Icon size="32px" class="trade-center__icon" />
       <div class="trade-chip trade-chip--in">
         <span class="trade-chip__label">{{ receiveLabel }}</span>
-        <span class="trade-chip__value">{{ formatAmount(receiveAmount) }} {{ receiveAsset }}</span>
+        <span class="trade-chip__asset">{{ getAssetName(receiveAsset) }}</span>
+        <span class="trade-chip__value">{{ formatAmount(receiveAmount) }} {{ getAssetSymbol(receiveAsset) }}</span>
       </div>
     </div>
 
@@ -32,6 +34,7 @@
 
 <script setup>
 import { BuildingIcon, ArrowLeftRight1Icon } from 'tdesign-icons-vue-next'
+import { ASSETS } from '@/utils/assets'
 
 defineProps({
   fromName: { type: String, default: '-' },
@@ -52,6 +55,14 @@ function formatAmount(amount) {
     return '-'
   }
   return Number(amount).toLocaleString()
+}
+
+function getAssetName(code) {
+  return ASSETS[code]?.name || code || '-'
+}
+
+function getAssetSymbol(code) {
+  return ASSETS[code]?.symbol || code || ''
 }
 </script>
 
@@ -129,6 +140,11 @@ function formatAmount(amount) {
 .trade-chip__label {
   font: var(--td-font-body-small);
   color: var(--td-text-color-placeholder);
+}
+
+.trade-chip__asset {
+  font: var(--td-font-body-small);
+  color: var(--td-text-color-secondary);
 }
 
 .trade-chip--out .trade-chip__value {
