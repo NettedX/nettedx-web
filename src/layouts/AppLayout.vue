@@ -1,10 +1,10 @@
 <template>
-  <t-layout>
+  <t-layout class="app-layout">
     <NavBar class="nav-bar" />
     <t-layout class="content-container">
-      <SiderBar />
+      <SiderBar class="sider-bar" />
 
-      <t-layout>
+      <t-layout class="content">
         <t-content>
           <RouterView />
         </t-content>
@@ -23,14 +23,32 @@ import SiderBar from '@/components/SiderBar.vue'
 </script>
 
 <style scoped>
+.app-layout {
+  background-color: var(--td-bg-color-container);
+}
+
 .nav-bar {
   position: fixed;
 }
 
 .content-container {
   background-color: var(--td-bg-color-container);
-  min-height: 100svh;
+  height: 100svh;
+  overflow: hidden;
+  position: relative;
+}
+
+.sider-bar {
   padding-top: 3.5rem;
+  box-sizing: border-box;
+  height: 100svh;
+}
+
+.content {
+  padding-top: 3.5rem;
+  box-sizing: border-box;
+  min-height: 100svh;
+  overflow-y: auto;
 }
 
 .footer {
