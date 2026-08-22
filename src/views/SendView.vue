@@ -314,7 +314,7 @@ onMounted(() => {
 }
 
 .send-page__bg {
-  position: absolute;
+  position: fixed;
   inset: 0;
   pointer-events: none;
   background:
@@ -331,7 +331,9 @@ onMounted(() => {
 }
 
 .send-page__inner {
+  position: relative;
   width: 100%;
+  z-index: 1;
 }
 
 .send-page__header {
