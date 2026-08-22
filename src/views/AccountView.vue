@@ -195,7 +195,7 @@ async function copyField(value, label) {
 
 .account-page__header h1 {
   margin: 0;
-  font: var(--td-font-headline-medium);
+  font: var(--td-font-headline-large);
   color: var(--td-text-color-primary);
 }
 
