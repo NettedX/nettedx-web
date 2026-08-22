@@ -1,7 +1,7 @@
 <template>
   <t-aside style="border-top: 1px solid var(--component-border)">
-    <t-menu theme="light" value="dashboard" style="margin-right: 50px" height="550px">
-      <t-menu-item v-for="item in menuItems" :key="item.value" :value="item.value">
+    <t-menu theme="light" v-model="selectedValue" style="margin-right: 50px" height="550px">
+      <t-menu-item v-for="item in menuItems" :key="item.value" :value="item.value" :to="item.path">
         <template #icon>
           <t-icon :name="item.icon" />
         </template>
@@ -20,28 +20,32 @@ const { t } = useLocale()
 
 const route = useRoute()
 
-const slectedValue = ref('dashboard')
+const selectedValue = ref('dashboard')
 
 const menuItems = computed(() => [
   {
     value: 'dashboard',
     label: t('menu.dashboard'),
     icon: 'dashboard',
+    path: '/dashboard',
   },
   {
     value: 'send',
     label: t('menu.send'),
     icon: 'send',
+    path: '/send',
   },
   {
     value: 'records',
     label: t('menu.records'),
     icon: 'tree-list',
+    path: '/records',
   },
   {
     value: 'account',
     label: t('menu.account'),
     icon: 'user',
+    path: '/account',
   },
 ])
 
@@ -49,9 +53,9 @@ const menuItems = computed(() => [
 watch(
   () => route.path,
   (newPath) => {
-    const menuItem = newPath.split('/')[1] // 获取路径的第一个部分作为菜单项的值
-    if (menuItem) {
-      slectedValue.value = menuItem
+    const selectedItem = menuItems.value.find((item) => newPath.startsWith(item.path))
+    if (selectedItem) {
+      selectedValue.value = selectedItem.value
     }
   },
   { immediate: true },
