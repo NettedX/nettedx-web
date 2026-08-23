@@ -90,6 +90,7 @@
             :receive-asset="form.receiveAsset"
             :receive-amount="form.receiveAmount"
             :receive-label="t('send.visual.receive')"
+            :amount-in-base-units="false"
           />
         </div>
       </div>

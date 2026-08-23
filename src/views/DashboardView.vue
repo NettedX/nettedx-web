@@ -128,7 +128,8 @@
               }}</span>
               <span class="asset-list__amounts">
                 <span class="asset-list__amount">
-                  {{ t('dashboard.accountBalances.balance') }}: {{ formatAmount(item.amount) }}
+                  {{ t('dashboard.accountBalances.balance') }}:
+                  {{ formatAssetAmount(item.amount, item.asset) }}
                   {{ item.asset.symbol }}
                 </span>
               </span>
@@ -228,7 +229,8 @@
                       : 'asset-list__amount--positive'
                   "
                 >
-                  {{ t('dashboard.settlementNetAmounts.amount') }}: {{ formatAmount(item.amount) }}
+                  {{ t('dashboard.settlementNetAmounts.amount') }}:
+                  {{ formatAssetAmount(item.amount, item.asset) }}
                   {{ item.asset.symbol }}
                 </span>
               </span>
@@ -283,7 +285,7 @@
               <span class="asset-list__amounts">
                 <span class="asset-list__amount">
                   {{ t('dashboard.cumulativeTradeAmounts.amount') }}:
-                  {{ formatAmount(item.amount) }}
+                  {{ formatAssetAmount(item.amount, item.asset) }}
                   {{ item.asset.symbol }}
                 </span>
               </span>
@@ -338,7 +340,7 @@
               <span class="asset-list__amounts">
                 <span class="asset-list__amount">
                   {{ t('dashboard.liquidityBufferDebts.amount') }}:
-                  {{ formatAmount(item.amount) }}
+                  {{ formatAssetAmount(item.amount, item.asset) }}
                   {{ item.asset.symbol }}
                 </span>
               </span>
@@ -371,6 +373,7 @@ import {
   MoneyIcon,
 } from 'tdesign-icons-vue-next'
 import api from '@/utils/api'
+import { formatAssetAmount as formatBaseUnitAssetAmount } from '@/utils/assets'
 import { useLocale } from '@/utils/i18n'
 
 const { t } = useLocale()
@@ -473,6 +476,10 @@ function formatAmount(amount) {
     return '-'
   }
   return Number(amount).toLocaleString()
+}
+
+function formatAssetAmount(amount, asset) {
+  return formatBaseUnitAssetAmount(amount, asset?.code || asset?.symbol)
 }
 
 const overview = ref({

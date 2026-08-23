@@ -13,7 +13,8 @@
         <span class="trade-chip__label">{{ sendLabel }}</span>
         <span class="trade-chip__asset">{{ getAssetName(sendAsset, sendAssetName) }}</span>
         <span class="trade-chip__value">
-          {{ formatAmount(sendAmount) }} {{ getAssetSymbol(sendAsset, sendAssetSymbol) }}
+          {{ formatAmount(sendAmount, sendAsset, amountInBaseUnits) }}
+          {{ getAssetSymbol(sendAsset, sendAssetSymbol) }}
         </span>
       </div>
       <ArrowLeftRight1Icon size="32px" class="trade-center__icon" />
@@ -21,7 +22,8 @@
         <span class="trade-chip__label">{{ receiveLabel }}</span>
         <span class="trade-chip__asset">{{ getAssetName(receiveAsset, receiveAssetName) }}</span>
         <span class="trade-chip__value">
-          {{ formatAmount(receiveAmount) }} {{ getAssetSymbol(receiveAsset, receiveAssetSymbol) }}
+          {{ formatAmount(receiveAmount, receiveAsset, amountInBaseUnits) }}
+          {{ getAssetSymbol(receiveAsset, receiveAssetSymbol) }}
         </span>
       </div>
     </div>
@@ -38,7 +40,7 @@
 
 <script setup>
 import { BuildingIcon, ArrowLeftRight1Icon } from 'tdesign-icons-vue-next'
-import { ASSETS } from '@/utils/assets'
+import { ASSETS, formatAssetAmount } from '@/utils/assets'
 
 defineProps({
   fromName: { type: String, default: '-' },
@@ -56,13 +58,17 @@ defineProps({
   receiveAssetSymbol: { type: String, default: '' },
   receiveAmount: { type: [Number, String, null], default: null },
   receiveLabel: { type: String, default: '' },
+  amountInBaseUnits: { type: Boolean, default: true },
 })
 
-function formatAmount(amount) {
-  if (amount === null || amount === undefined || amount === '') {
-    return '-'
+function formatAmount(amount, assetCode, amountInBaseUnits) {
+  if (!amountInBaseUnits) {
+    if (amount === null || amount === undefined || amount === '') {
+      return '-'
+    }
+    return Number(amount).toLocaleString()
   }
-  return Number(amount).toLocaleString()
+  return formatAssetAmount(amount, assetCode)
 }
 
 function getAssetName(code, override) {

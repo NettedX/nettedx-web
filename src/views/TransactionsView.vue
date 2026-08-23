@@ -31,13 +31,14 @@
             {{ formatOrganization(row.senderOrganization) }}
           </template>
           <template #send="{ row }">
-            {{ formatAmount(row.send?.amount) }} {{ row.send?.asset?.symbol }}
+            {{ formatAmount(row.send?.amount, row.send?.asset) }} {{ row.send?.asset?.symbol }}
           </template>
           <template #receiverOrganization="{ row }">
             {{ formatOrganization(row.receiverOrganization) }}
           </template>
           <template #receive="{ row }">
-            {{ formatAmount(row.receive?.amount) }} {{ row.receive?.asset?.symbol }}
+            {{ formatAmount(row.receive?.amount, row.receive?.asset) }}
+            {{ row.receive?.asset?.symbol }}
           </template>
           <template #status="{ row }">
             <t-tag :theme="statusTheme(row.status)" variant="light-outline" shape="round">
@@ -66,6 +67,7 @@ import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { MessagePlugin } from 'tdesign-vue-next'
 import api from '@/utils/api'
+import { formatAssetAmount } from '@/utils/assets'
 import { useLocale } from '@/utils/i18n'
 
 const { t } = useLocale()
@@ -97,11 +99,8 @@ function formatOrganization(org) {
   return org.name || org.code || '-'
 }
 
-function formatAmount(amount) {
-  if (amount === null || amount === undefined) {
-    return '-'
-  }
-  return Number(amount).toLocaleString()
+function formatAmount(amount, asset) {
+  return formatAssetAmount(amount, asset?.code || asset?.symbol)
 }
 
 function formatDateTime(timestamp) {
