@@ -1,6 +1,99 @@
 {
   "dashboard": {
-    "title": "Dashboard"
+    "title": "Dashboard",
+    "subtitle": "Real-time monitoring of the settlement window and target block",
+    "forecast": {
+      "title": "Settlement Window Forecast",
+      "desc": "Stay ahead of settlement and plan your funding with confidence",
+      "refresh": "Refresh",
+      "active": "Active",
+      "windowId": "Pending Window ID",
+      "settlementBlock": "Target Settlement Block",
+      "blocksRemaining": "Blocks Remaining",
+      "blocksUnit": "blocks",
+      "reached": "Target block reached",
+      "lastUpdated": {
+        "label": "Last updated at {time}",
+        "justNow": "just now",
+        "minutesAgo": "{minutes} minutes ago",
+        "hoursAgo": "{hours} hours ago",
+        "daysAgo": "{days} days ago"
+      },
+      "msg": {
+        "fetchFailed": "Failed to fetch settlement window forecast"
+      }
+    },
+    "overview": {
+      "msg": {
+        "fetchFailed": "Failed to fetch dashboard overview"
+      }
+    },
+    "accountBalances": {
+      "title": "Account Balances",
+      "desc": "See the available assets in your account at a glance",
+      "balance": "Balance",
+      "empty": "No account balances"
+    },
+    "cumulativeTradeCount": {
+      "title": "Total Trades",
+      "desc": "Track the total trading activity linked to your account",
+      "label": "Trades"
+    },
+    "asset": "Asset Address",
+    "settlementNetAmounts": {
+      "title": "Settlement Net Amounts",
+      "desc": "See how your funds will change after this settlement",
+      "payable": "Payable Amount",
+      "receivable": "Receivable Amount",
+      "amount": "Net Amount",
+      "empty": "No net settlement obligations",
+      "msg": {
+        "fetchFailed": "Failed to fetch net settlement positions"
+      }
+    },
+    "cumulativeTradeAmounts": {
+      "title": "Total Trade Amounts",
+      "desc": "Review the total value of trades linked to your account",
+      "amount": "Cumulative Gross Amount",
+      "empty": "No cumulative gross trade amounts",
+      "msg": {
+        "fetchFailed": "Failed to fetch settlement asset requirements"
+      }
+    },
+    "liquidityBufferDebts": {
+      "title": "Liquidity Buffer Balance",
+      "desc": "Keep track of funding support that is still to be repaid",
+      "required": "Debt Amount",
+      "available": "Available Balance",
+      "borrow": "Debt Amount",
+      "amount": "Debt Amount",
+      "empty": "No liquidity buffer balance",
+      "msg": {
+        "fetchFailed": "Failed to fetch liquidity shortfalls"
+      }
+    }
+  },
+  "account": {
+    "title": "Account",
+    "subtitle": "View your account and organization profile",
+    "profileCardTitle": "Profile",
+    "organizationCardTitle": "Organization",
+    "actions": {
+      "copy": "Copy"
+    },
+    "msg": {
+      "copySuccess": "{label} copied",
+      "copyFailed": "Copy failed"
+    },
+    "fields": {
+      "displayName": "Display Name",
+      "role": "Role",
+      "accountId": "Account ID",
+      "organizationCode": "Organization Code",
+      "organizationId": "Organization ID",
+      "organizationName": "Organization Name",
+      "walletAddress": "Wallet Address"
+    }
   },
   "footer": {
     "product": "Product",
@@ -224,7 +317,8 @@
     },
     "item": {
       "logout": "Logout",
-      "dashboard": "Dashboard"
+      "dashboard": "Dashboard",
+      "language": "Language"
     }
   },
   "notFound": {
@@ -243,5 +337,145 @@
       "failedVerify": "Failed to verify.",
       "success": "Login success"
     }
+  },
+  "menu": {
+    "dashboard": "Dashboard",
+    "account": "Account",
+    "records": "Records",
+    "send": "Send",
+    "transactions": "Transactions",
+    "verify": "Verify"
+  },
+  "send": {
+    "title": "Send Transaction",
+    "subtitle": "Choose a counterparty and assets to submit a netting settlement transaction",
+    "form": {
+      "title": "Transaction Details",
+      "desc": "The transaction will enter the next settlement window once submitted",
+      "counterparty": "Counterparty",
+      "counterpartyPlaceholder": "Search and select an organization",
+      "counterpartyEmpty": "No tradable organizations available",
+      "youSend": "You Send",
+      "youReceive": "You Receive",
+      "asset": "Asset",
+      "amount": "Amount",
+      "amountPlaceholder": "Enter an amount",
+      "submit": "Submit Transaction",
+      "reset": "Reset"
+    },
+    "visual": {
+      "title": "Transaction Preview",
+      "desc": "See the counterparties and asset flow at a glance",
+      "you": "Initiator (You)",
+      "counterparty": "Recipient",
+      "counterpartyPlaceholder": "Select a counterparty",
+      "send": "Send",
+      "receive": "Receive"
+    },
+    "msg": {
+      "fetchOrganizationsFailed": "Failed to fetch tradable organizations",
+      "submitFailed": "Failed to submit transaction, please try again later",
+      "validation": {
+        "counterparty": "Please select a counterparty",
+        "sendAmount": "Please enter a valid send amount",
+        "receiveAmount": "Please enter a valid receive amount"
+      }
+    },
+    "errors": {
+      "4001": "The receiving organization does not exist or is unavailable",
+      "4002": "You cannot trade with your own organization"
+    },
+    "success": {
+      "title": "Transaction Submitted",
+      "desc": "The transaction has been submitted to the settlement window",
+      "transactionId": "Transaction ID",
+      "again": "Send Another",
+      "viewDetail": "View Transaction Details"
+    },
+    "failure": {
+      "title": "Transaction Failed",
+      "close": "Close",
+      "retry": "Retry"
+    }
+  },
+  "transactions": {
+    "title": "Transactions",
+    "subtitle": "View all platform transactions and track settlement status in real time",
+    "filter": {
+      "all": "All Transactions",
+      "related": "Related to Me"
+    },
+    "table": {
+      "id": "Transaction ID",
+      "createdBy": "Submitted By",
+      "sender": "Sender",
+      "send": "Sent Asset",
+      "receiver": "Receiver",
+      "receive": "Received Asset",
+      "status": "Status",
+      "chainId": "Chain",
+      "windowId": "Settlement Window",
+      "createdAt": "Created At",
+      "settledAt": "Settled At",
+      "operation": "Action"
+    },
+    "status": {
+      "submitted": "Submitted",
+      "settled": "Settled",
+      "failed": "Failed"
+    },
+    "action": {
+      "view": "View"
+    },
+    "empty": "No transactions yet",
+    "msg": {
+      "fetchFailed": "Failed to fetch transactions"
+    }
+  },
+  "transactionDetail": {
+    "title": "Transaction Detail",
+    "subtitle": "View the full details and settlement status of this transaction",
+    "back": "Back to Transactions",
+    "parties": "Parties",
+    "progress": "Transaction Progress",
+    "basicInfo": "Basic Information",
+    "hashInfo": "On-chain Hashes",
+    "copy": "Copy",
+    "copySuccess": "{label} copied",
+    "copyFailed": "Copy failed",
+    "notFound": "Transaction not found or not accessible",
+    "steps": {
+      "submitted": "Submitted",
+      "settled": "Settled",
+      "failed": "Settlement Failed"
+    },
+    "fields": {
+      "id": "Transaction ID",
+      "status": "Status",
+      "createdBy": "Submitted By",
+      "sender": "Sender",
+      "receiver": "Receiver",
+      "send": "Send",
+      "receive": "Receive",
+      "chainId": "Chain",
+      "windowId": "Settlement Window",
+      "createdAt": "Created At",
+      "settledAt": "Settled At",
+      "failureReason": "Failure Reason",
+      "submissionHash": "Submission Hash",
+      "settlementHash": "Settlement Hash"
+    },
+    "msg": {
+      "fetchFailed": "Failed to fetch transaction detail"
+    }
+  },
+  "verify": {
+    "title": "Verify Transaction",
+    "subtitle": "Enter an on-chain transaction hash to verify whether it truly exists",
+    "placeholder": "Enter transaction hash (starting with 0x)",
+    "button": "Verify",
+    "invalidHash": "Please enter a valid transaction hash",
+    "failDescription": "No matching transaction found, verification failed",
+    "stamp": "Verified"
   }
 }

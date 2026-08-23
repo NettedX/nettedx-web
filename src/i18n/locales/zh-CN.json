@@ -1,6 +1,99 @@
 {
   "dashboard": {
-    "title": "仪表板"
+    "title": "仪表板",
+    "subtitle": "实时监控净额结算窗口与目标结算区块",
+    "forecast": {
+      "title": "结算窗口预测",
+      "desc": "掌握本轮结算进度，提前做好资金安排",
+      "refresh": "刷新",
+      "active": "活跃中",
+      "windowId": "待结算窗口 ID",
+      "settlementBlock": "目标结算区块",
+      "blocksRemaining": "剩余区块数",
+      "blocksUnit": "个区块",
+      "reached": "已到达目标区块",
+      "lastUpdated": {
+        "label": "最后更新于 {time}",
+        "justNow": "刚刚",
+        "minutesAgo": "{minutes} 分钟前",
+        "hoursAgo": "{hours} 小时前",
+        "daysAgo": "{days} 天前"
+      },
+      "msg": {
+        "fetchFailed": "获取结算窗口预测失败"
+      }
+    },
+    "overview": {
+      "msg": {
+        "fetchFailed": "获取仪表板概览失败"
+      }
+    },
+    "accountBalances": {
+      "title": "账户余额",
+      "desc": "实时掌握账户中各项资产的可用余额",
+      "balance": "余额",
+      "empty": "当前无账户余额"
+    },
+    "cumulativeTradeCount": {
+      "title": "累计交易笔数",
+      "desc": "了解账户累计参与的交易规模",
+      "label": "交易笔数"
+    },
+    "asset": "资产地址",
+    "settlementNetAmounts": {
+      "title": "结算净额",
+      "desc": "一目了然地了解本轮结算后的资金变化",
+      "payable": "应付数量",
+      "receivable": "应收数量",
+      "amount": "净额",
+      "empty": "当前没有净结算义务",
+      "msg": {
+        "fetchFailed": "获取净结算头寸失败"
+      }
+    },
+    "cumulativeTradeAmounts": {
+      "title": "累计交易金额",
+      "desc": "汇总查看账户参与的累计交易金额",
+      "amount": "累计原始金额",
+      "empty": "当前没有累计原始交易金额",
+      "msg": {
+        "fetchFailed": "获取结算资产需求失败"
+      }
+    },
+    "liquidityBufferDebts": {
+      "title": "流动性缓冲欠款",
+      "desc": "及时了解待归还的流动性支持金额",
+      "required": "欠款金额",
+      "available": "当前余额",
+      "borrow": "欠款金额",
+      "amount": "欠款金额",
+      "empty": "当前没有流动性缓冲欠款",
+      "msg": {
+        "fetchFailed": "获取流动性缺口失败"
+      }
+    }
+  },
+  "account": {
+    "title": "账户中心",
+    "subtitle": "查看当前账户与所属机构信息",
+    "profileCardTitle": "账户资料",
+    "organizationCardTitle": "机构信息",
+    "actions": {
+      "copy": "复制"
+    },
+    "msg": {
+      "copySuccess": "{label} 已复制",
+      "copyFailed": "复制失败"
+    },
+    "fields": {
+      "displayName": "显示名称",
+      "role": "角色",
+      "accountId": "账户 ID",
+      "organizationCode": "机构代码",
+      "organizationId": "机构 ID",
+      "organizationName": "机构名称",
+      "walletAddress": "钱包地址"
+    }
   },
   "footer": {
     "product": "产品",
@@ -224,7 +317,8 @@
     },
     "item": {
       "logout": "注销",
-      "dashboard": "仪表板"
+      "dashboard": "仪表板",
+      "language": "语言"
     }
   },
   "notFound": {
@@ -241,5 +335,145 @@
       "failedVerify": "验证失败。",
       "success": "登录成功"
     }
+  },
+  "menu": {
+    "dashboard": "仪表板",
+    "account": "帐户",
+    "records": "交易记录",
+    "send": "发起交易",
+    "transactions": "交易",
+    "verify": "验证"
+  },
+  "send": {
+    "title": "发起交易",
+    "subtitle": "选择交易对象与资产，提交一笔净额结算交易",
+    "form": {
+      "title": "交易信息",
+      "desc": "交易提交后将进入下一个结算窗口，等待净额结算完成",
+      "counterparty": "交易对象",
+      "counterpartyPlaceholder": "搜索并选择机构",
+      "counterpartyEmpty": "暂无可交易机构",
+      "youSend": "您发送",
+      "youReceive": "您收到",
+      "asset": "资产",
+      "amount": "数量",
+      "amountPlaceholder": "请输入数量",
+      "submit": "提交交易",
+      "reset": "重置"
+    },
+    "visual": {
+      "title": "交易预览",
+      "desc": "交易双方与资产流向一目了然",
+      "you": "发起方（我方）",
+      "counterparty": "接收方",
+      "counterpartyPlaceholder": "请选择交易对象",
+      "send": "发送",
+      "receive": "接收"
+    },
+    "msg": {
+      "fetchOrganizationsFailed": "获取可交易机构列表失败",
+      "submitFailed": "提交交易失败，请稍后重试",
+      "validation": {
+        "counterparty": "请选择交易对象",
+        "sendAmount": "请输入有效的发送数量",
+        "receiveAmount": "请输入有效的接收数量"
+      }
+    },
+    "errors": {
+      "4001": "接收方机构不存在或不可用",
+      "4002": "不能与当前所属机构进行交易"
+    },
+    "success": {
+      "title": "交易提交成功",
+      "desc": "交易已提交到结算窗口，等待结算完成",
+      "transactionId": "交易 ID",
+      "again": "继续填写下一个",
+      "viewDetail": "查看交易详情"
+    },
+    "failure": {
+      "title": "交易提交失败",
+      "close": "关闭",
+      "retry": "重试"
+    }
+  },
+  "transactions": {
+    "title": "交易",
+    "subtitle": "查看平台全部交易记录，实时追踪结算状态",
+    "filter": {
+      "all": "全部交易",
+      "related": "与我相关"
+    },
+    "table": {
+      "id": "交易 ID",
+      "createdBy": "提交机构",
+      "sender": "发送方",
+      "send": "发送资产",
+      "receiver": "接收方",
+      "receive": "接收资产",
+      "status": "状态",
+      "chainId": "区块链网络",
+      "windowId": "结算窗口",
+      "createdAt": "创建时间",
+      "settledAt": "结算时间",
+      "operation": "操作"
+    },
+    "status": {
+      "submitted": "已提交",
+      "settled": "已结算",
+      "failed": "结算失败"
+    },
+    "action": {
+      "view": "查看"
+    },
+    "empty": "暂无交易记录",
+    "msg": {
+      "fetchFailed": "获取交易记录失败"
+    }
+  },
+  "transactionDetail": {
+    "title": "交易详情",
+    "subtitle": "查看该笔交易的完整信息与结算状态",
+    "back": "返回交易列表",
+    "parties": "交易双方",
+    "progress": "交易进度",
+    "basicInfo": "基本信息",
+    "hashInfo": "链上哈希",
+    "copy": "复制",
+    "copySuccess": "{label} 已复制",
+    "copyFailed": "复制失败",
+    "notFound": "交易记录不存在或无权查看",
+    "steps": {
+      "submitted": "已提交",
+      "settled": "已结算",
+      "failed": "结算失败"
+    },
+    "fields": {
+      "id": "交易 ID",
+      "status": "状态",
+      "createdBy": "提交机构",
+      "sender": "发送方",
+      "receiver": "接收方",
+      "send": "发送",
+      "receive": "接收",
+      "chainId": "区块链网络",
+      "windowId": "结算窗口",
+      "createdAt": "创建时间",
+      "settledAt": "结算时间",
+      "failureReason": "失败原因",
+      "submissionHash": "提交交易哈希",
+      "settlementHash": "结算交易哈希"
+    },
+    "msg": {
+      "fetchFailed": "获取交易详情失败"
+    }
+  },
+  "verify": {
+    "title": "交易验证",
+    "subtitle": "输入链上交易哈希，验证该交易是否真实存在",
+    "placeholder": "请输入交易哈希（0x开头）",
+    "button": "验证",
+    "invalidHash": "请输入有效的交易哈希",
+    "failDescription": "未找到对应交易，验证失败",
+    "stamp": "验证通过"
   }
 }

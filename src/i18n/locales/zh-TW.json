@@ -1,6 +1,99 @@
 {
   "dashboard": {
-    "title": "儀表板"
+    "title": "儀表板",
+    "subtitle": "即時監控淨額結算窗口與目標結算區塊",
+    "forecast": {
+      "title": "結算窗口預測",
+      "desc": "掌握本輪結算進度，提前做好資金安排",
+      "refresh": "刷新",
+      "active": "活躍中",
+      "windowId": "待結算窗口 ID",
+      "settlementBlock": "目標結算區塊",
+      "blocksRemaining": "剩餘區塊數",
+      "blocksUnit": "個區塊",
+      "reached": "已到達目標區塊",
+      "lastUpdated": {
+        "label": "最後更新於 {time}",
+        "justNow": "剛剛",
+        "minutesAgo": "{minutes} 分鐘前",
+        "hoursAgo": "{hours} 小時前",
+        "daysAgo": "{days} 天前"
+      },
+      "msg": {
+        "fetchFailed": "獲取結算窗口預測失敗"
+      }
+    },
+    "overview": {
+      "msg": {
+        "fetchFailed": "獲取儀表板概覽失敗"
+      }
+    },
+    "accountBalances": {
+      "title": "帳戶餘額",
+      "desc": "即時掌握帳戶中各項資產的可用餘額",
+      "balance": "餘額",
+      "empty": "目前無帳戶餘額"
+    },
+    "cumulativeTradeCount": {
+      "title": "累計交易筆數",
+      "desc": "了解帳戶累計參與的交易規模",
+      "label": "交易筆數"
+    },
+    "asset": "資產地址",
+    "settlementNetAmounts": {
+      "title": "結算淨額",
+      "desc": "一目了然地了解本輪結算後的資金變化",
+      "payable": "應付數量",
+      "receivable": "應收數量",
+      "amount": "淨額",
+      "empty": "目前沒有淨結算義務",
+      "msg": {
+        "fetchFailed": "獲取淨結算頭寸失敗"
+      }
+    },
+    "cumulativeTradeAmounts": {
+      "title": "累計交易金額",
+      "desc": "彙總查看帳戶參與的累計交易金額",
+      "amount": "累計原始金額",
+      "empty": "目前沒有累計原始交易金額",
+      "msg": {
+        "fetchFailed": "獲取結算資產需求失敗"
+      }
+    },
+    "liquidityBufferDebts": {
+      "title": "流動性緩衝欠款",
+      "desc": "及時了解待歸還的流動性支援金額",
+      "required": "欠款金額",
+      "available": "目前餘額",
+      "borrow": "欠款金額",
+      "amount": "欠款金額",
+      "empty": "目前沒有流動性緩衝欠款",
+      "msg": {
+        "fetchFailed": "獲取流動性缺口失敗"
+      }
+    }
+  },
+  "account": {
+    "title": "帳戶中心",
+    "subtitle": "檢視目前帳戶與所屬機構資訊",
+    "profileCardTitle": "帳戶資料",
+    "organizationCardTitle": "機構資訊",
+    "actions": {
+      "copy": "複製"
+    },
+    "msg": {
+      "copySuccess": "{label} 已複製",
+      "copyFailed": "複製失敗"
+    },
+    "fields": {
+      "displayName": "顯示名稱",
+      "role": "角色",
+      "accountId": "帳戶 ID",
+      "organizationCode": "機構代碼",
+      "organizationId": "機構 ID",
+      "organizationName": "機構名稱",
+      "walletAddress": "錢包地址"
+    }
   },
   "footer": {
     "product": "產品",
@@ -224,7 +317,8 @@
     },
     "item": {
       "logout": "註銷",
-      "dashboard": "儀表板"
+      "dashboard": "儀表板",
+      "language": "語言"
     }
   },
   "notFound": {
@@ -241,5 +335,145 @@
       "failedVerify": "驗證失敗。",
       "success": "登入成功"
     }
+  },
+  "menu": {
+    "dashboard": "儀表板",
+    "account": "帳戶",
+    "records": "交易記錄",
+    "send": "發起交易",
+    "transactions": "交易",
+    "verify": "驗證"
+  },
+  "send": {
+    "title": "發起交易",
+    "subtitle": "選擇交易對象與資產，提交一筆淨額結算交易",
+    "form": {
+      "title": "交易資訊",
+      "desc": "交易提交後將進入下一個結算窗口，等待淨額結算完成",
+      "counterparty": "交易對象",
+      "counterpartyPlaceholder": "搜尋並選擇機構",
+      "counterpartyEmpty": "暫無可交易機構",
+      "youSend": "您發送",
+      "youReceive": "您收到",
+      "asset": "資產",
+      "amount": "數量",
+      "amountPlaceholder": "請輸入數量",
+      "submit": "提交交易",
+      "reset": "重置"
+    },
+    "visual": {
+      "title": "交易預覽",
+      "desc": "交易雙方與資產流向一目了然",
+      "you": "發起方（我方）",
+      "counterparty": "接收方",
+      "counterpartyPlaceholder": "請選擇交易對象",
+      "send": "發送",
+      "receive": "接收"
+    },
+    "msg": {
+      "fetchOrganizationsFailed": "獲取可交易機構列表失敗",
+      "submitFailed": "提交交易失敗，請稍後重試",
+      "validation": {
+        "counterparty": "請選擇交易對象",
+        "sendAmount": "請輸入有效的發送數量",
+        "receiveAmount": "請輸入有效的接收數量"
+      }
+    },
+    "errors": {
+      "4001": "接收方機構不存在或不可用",
+      "4002": "不能與當前所屬機構進行交易"
+    },
+    "success": {
+      "title": "交易提交成功",
+      "desc": "交易已提交到結算窗口，等待結算完成",
+      "transactionId": "交易 ID",
+      "again": "繼續填寫下一個",
+      "viewDetail": "查看交易詳情"
+    },
+    "failure": {
+      "title": "交易提交失敗",
+      "close": "關閉",
+      "retry": "重試"
+    }
+  },
+  "transactions": {
+    "title": "交易",
+    "subtitle": "查看平台全部交易記錄，即時追蹤結算狀態",
+    "filter": {
+      "all": "全部交易",
+      "related": "與我相關"
+    },
+    "table": {
+      "id": "交易 ID",
+      "createdBy": "提交機構",
+      "sender": "發送方",
+      "send": "發送資產",
+      "receiver": "接收方",
+      "receive": "接收資產",
+      "status": "狀態",
+      "chainId": "區塊鏈網路",
+      "windowId": "結算窗口",
+      "createdAt": "建立時間",
+      "settledAt": "結算時間",
+      "operation": "操作"
+    },
+    "status": {
+      "submitted": "已提交",
+      "settled": "已結算",
+      "failed": "結算失敗"
+    },
+    "action": {
+      "view": "查看"
+    },
+    "empty": "暫無交易記錄",
+    "msg": {
+      "fetchFailed": "獲取交易記錄失敗"
+    }
+  },
+  "transactionDetail": {
+    "title": "交易詳情",
+    "subtitle": "查看該筆交易的完整信息與結算狀態",
+    "back": "返回交易列表",
+    "parties": "交易雙方",
+    "progress": "交易進度",
+    "basicInfo": "基本信息",
+    "hashInfo": "鏈上哈希",
+    "copy": "複製",
+    "copySuccess": "{label} 已複製",
+    "copyFailed": "複製失敗",
+    "notFound": "交易記錄不存在或無權查看",
+    "steps": {
+      "submitted": "已提交",
+      "settled": "已結算",
+      "failed": "結算失敗"
+    },
+    "fields": {
+      "id": "交易 ID",
+      "status": "狀態",
+      "createdBy": "提交機構",
+      "sender": "發送方",
+      "receiver": "接收方",
+      "send": "發送",
+      "receive": "接收",
+      "chainId": "區塊鏈網路",
+      "windowId": "結算窗口",
+      "createdAt": "建立時間",
+      "settledAt": "結算時間",
+      "failureReason": "失敗原因",
+      "submissionHash": "提交交易哈希",
+      "settlementHash": "結算交易哈希"
+    },
+    "msg": {
+      "fetchFailed": "獲取交易詳情失敗"
+    }
+  },
+  "verify": {
+    "title": "交易驗證",
+    "subtitle": "輸入鏈上交易哈希，驗證該交易是否真實存在",
+    "placeholder": "請輸入交易哈希（0x開頭）",
+    "button": "驗證",
+    "invalidHash": "請輸入有效的交易哈希",
+    "failDescription": "未找到對應交易，驗證失敗",
+    "stamp": "驗證通過"
   }
 }

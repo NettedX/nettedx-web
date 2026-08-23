@@ -29,7 +29,7 @@
               :max-height="400"
               direction="left"
             >
-              <t-avatar class="user-avatar" :size="32">
+              <t-avatar class="user-avatar" size="32">
                 <template #icon>
                   <UserIcon />
                 </template>
@@ -48,6 +48,13 @@
                     <Dashboard1Icon />
                   </template>
                   <span>{{ $t('navbar.item.dashboard') }}</span>
+                </t-dropdown-item>
+
+                <t-dropdown-item value="language" @click="languageDialogVisible = true">
+                  <template #prefixIcon>
+                    <TranslateIcon />
+                  </template>
+                  <span>{{ $t('navbar.item.language') }}</span>
                 </t-dropdown-item>
 
                 <t-dropdown-item
@@ -71,15 +78,38 @@
         </div>
       </template>
     </t-head-menu>
+
+    <t-dialog
+      v-model:visible="languageDialogVisible"
+      :header="$t('navbar.item.language')"
+      :close-btn="true"
+      :footer="false"
+      attach="body"
+      width="360px"
+    >
+      <div class="language-dialog-content">
+        <LanguageSelector />
+      </div>
+    </t-dialog>
   </t-header>
 </template>
 
 <script setup>
-import { UserIcon, LoginIcon, LogoutIcon, Dashboard1Icon } from 'tdesign-icons-vue-next'
+import { ref } from 'vue'
+import {
+  UserIcon,
+  LoginIcon,
+  LogoutIcon,
+  Dashboard1Icon,
+  TranslateIcon,
+} from 'tdesign-icons-vue-next'
 import { useAuthStore } from '@/stores/auth'
 import { MessagePlugin } from 'tdesign-vue-next'
+import LanguageSelector from '@/components/LanguageSelector.vue'
 
 const authStore = useAuthStore()
+
+const languageDialogVisible = ref(false)
 </script>
 
 <style scoped>
@@ -93,6 +123,8 @@ const authStore = useAuthStore()
 }
 
 .nav-bar {
+  width: 100%;
+  box-sizing: border-box;
   background-color: transparent;
 }
 
@@ -116,5 +148,12 @@ const authStore = useAuthStore()
 
 .user-avatar {
   cursor: pointer;
+}
+
+.language-dialog-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
 }
 </style>

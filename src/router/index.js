@@ -36,6 +36,31 @@ const routes = computed(() => [
         meta: { title: t('dashboard.title') },
         component: () => import('@/views/DashboardView.vue'),
       },
+      {
+        path: 'send',
+        meta: { title: t('send.title') },
+        component: () => import('@/views/SendView.vue'),
+      },
+      {
+        path: 'transactions',
+        meta: { title: t('transactions.title') },
+        component: () => import('@/views/TransactionsView.vue'),
+      },
+      {
+        path: 'transactions/:id',
+        meta: { title: t('transactionDetail.title') },
+        component: () => import('@/views/TransactionDetailView.vue'),
+      },
+      {
+        path: 'verify',
+        meta: { title: t('verify.title') },
+        component: () => import('@/views/VerifyView.vue'),
+      },
+      {
+        path: 'account',
+        meta: { title: t('account.title') },
+        component: () => import('@/views/AccountView.vue'),
+      },
     ],
   },
 ])

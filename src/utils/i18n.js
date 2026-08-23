@@ -20,9 +20,7 @@ export const useLocale = () => {
   }
 
   // 国际化翻译函数
-  const t = (key) => {
-    return i18n.t(key)
-  }
+  const t = (...args) => i18n.t(...args)
 
   // 当前tdesign语言配置
   const tdesignLang = computed(() => {
