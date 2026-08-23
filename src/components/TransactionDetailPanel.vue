@@ -262,7 +262,10 @@ onMounted(() => {
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  margin: 0 auto 1.5rem;
+  position: absolute;
+  z-index: 1;
+  top: 1.5rem;
+  left: 50%;
   width: fit-content;
   padding: 0.75rem 2.5rem;
   border: 6px double var(--td-success-color);
@@ -272,7 +275,7 @@ onMounted(() => {
   font-weight: 700;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  transform: rotate(-4deg);
+  transform: translateX(-50%) rotate(-4deg);
   opacity: 0.85;
   user-select: none;
   pointer-events: none;

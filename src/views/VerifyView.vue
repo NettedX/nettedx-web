@@ -21,7 +21,7 @@
           </t-button>
         </div>
 
-        <div v-if="verifyState === 'fail'" class="verify-card__result">
+        <div v-if="verifyState === 'fail'" class="verify-card__result fail">
           <t-empty type="fail" size="large" :description="t('verify.failDescription')" />
         </div>
 
@@ -151,5 +151,9 @@ async function verify() {
 
 .verify-card__result {
   margin-top: 1.5rem;
+}
+
+.verify-card__result.fail {
+  padding: 4rem 0;
 }
 </style>
