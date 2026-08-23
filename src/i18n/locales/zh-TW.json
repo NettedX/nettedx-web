@@ -435,12 +435,18 @@
     "subtitle": "查看該筆交易的完整信息與結算狀態",
     "back": "返回交易列表",
     "parties": "交易雙方",
+    "progress": "交易進度",
     "basicInfo": "基本信息",
     "hashInfo": "鏈上哈希",
     "copy": "複製",
     "copySuccess": "{label} 已複製",
     "copyFailed": "複製失敗",
     "notFound": "交易記錄不存在或無權查看",
+    "steps": {
+      "submitted": "已提交",
+      "settled": "已結算",
+      "failed": "結算失敗"
+    },
     "fields": {
       "id": "交易 ID",
       "status": "狀態",

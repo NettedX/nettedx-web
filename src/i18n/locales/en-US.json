@@ -437,12 +437,18 @@
     "subtitle": "View the full details and settlement status of this transaction",
     "back": "Back to Transactions",
     "parties": "Parties",
+    "progress": "Transaction Progress",
     "basicInfo": "Basic Information",
     "hashInfo": "On-chain Hashes",
     "copy": "Copy",
     "copySuccess": "{label} copied",
     "copyFailed": "Copy failed",
     "notFound": "Transaction not found or not accessible",
+    "steps": {
+      "submitted": "Submitted",
+      "settled": "Settled",
+      "failed": "Settlement Failed"
+    },
     "fields": {
       "id": "Transaction ID",
       "status": "Status",

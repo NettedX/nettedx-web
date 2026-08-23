@@ -39,6 +39,36 @@
           />
         </div>
 
+        <div class="transaction-detail__card transaction-detail__card--progress">
+          <div class="transaction-detail__card-title">{{ t('transactionDetail.progress') }}</div>
+          <t-steps :current="progressCurrent" class="transaction-progress" layout="horizontal">
+            <t-step-item :title="t('transactionDetail.steps.submitted')">
+              <template #icon>
+                <TimeFilledIcon class="progress-step-icon" />
+              </template>
+            </t-step-item>
+            <t-step-item
+              :title="
+                transaction.status === 'failed'
+                  ? t('transactionDetail.steps.failed')
+                  : t('transactionDetail.steps.settled')
+              "
+              :status="transaction.status === 'failed' ? 'error' : 'finish'"
+            >
+              <template #icon>
+                <ErrorCircleFilledIcon
+                  v-if="transaction.status === 'failed'"
+                  class="progress-step-icon progress-step-icon--failed"
+                />
+                <CheckCircleFilledIcon
+                  v-else
+                  class="progress-step-icon progress-step-icon--success"
+                />
+              </template>
+            </t-step-item>
+          </t-steps>
+        </div>
+
         <div class="transaction-detail__card">
           <div class="transaction-detail__card-title">{{ t('transactionDetail.basicInfo') }}</div>
           <div class="detail-grid">
@@ -159,7 +189,12 @@
 
 <script setup>
 import { computed, onMounted, ref } from 'vue'
-import { CheckCircleFilledIcon, CopyIcon } from 'tdesign-icons-vue-next'
+import {
+  CheckCircleFilledIcon,
+  CopyIcon,
+  ErrorCircleFilledIcon,
+  TimeFilledIcon,
+} from 'tdesign-icons-vue-next'
 import { MessagePlugin } from 'tdesign-vue-next'
 import api from '@/utils/api'
 import { useLocale } from '@/utils/i18n'
@@ -176,6 +211,7 @@ const { t } = useLocale()
 const fetchedTransaction = ref(null)
 const transaction = computed(() => props.transaction ?? fetchedTransaction.value)
 const loading = ref(false)
+const progressCurrent = computed(() => (transaction.value?.status === 'submitted' ? 0 : 1))
 
 function formatOrganization(org) {
   if (!org) {
@@ -302,10 +338,30 @@ onMounted(() => {
   grid-column: 1 / -1;
 }
 
+.transaction-detail__card--progress {
+  grid-column: 1 / -1;
+}
+
 .transaction-detail__card-title {
   margin: 0 0 0.875rem;
   font: var(--td-font-title-medium);
   color: var(--td-text-color-primary);
+}
+
+.transaction-progress {
+  padding: 0.25rem 0;
+}
+
+.progress-step-icon {
+  color: var(--td-brand-color);
+}
+
+.progress-step-icon--success {
+  color: var(--td-success-color);
+}
+
+.progress-step-icon--failed {
+  color: var(--td-error-color);
 }
 
 .detail-grid {
